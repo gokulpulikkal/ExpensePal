@@ -10,16 +10,7 @@ import SwiftUI
 struct FilterHeaderView: View {
     var body: some View {
         HStack(spacing: 20) {
-            HStack {
-                Text("this month")
-                Image(systemName: "chevron.down")
-            }
-            .padding(.vertical, 8)
-            .padding(.horizontal, 10)
-            .background {
-                Capsule(style: .circular)
-                    .stroke(lineWidth: 1)
-            }
+            RoundedStrokeButton(text: Text("this month"), image: Image(systemName: "chevron.down"))
             
             Image(systemName: "magnifyingglass")
                 .resizable()

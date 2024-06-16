@@ -16,6 +16,12 @@
 		4B1562432C167E14001A0F57 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1562422C167E14001A0F57 /* SettingsView.swift */; };
 		4B1562472C1682AF001A0F57 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1562462C1682AF001A0F57 /* HomeTabView.swift */; };
 		4B1562492C16871C001A0F57 /* AppEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1562482C16871C001A0F57 /* AppEnums.swift */; };
+		4B47FB1A2C1F662B006457E3 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB192C1F662B006457E3 /* AddExpenseView.swift */; };
+		4B47FB1C2C1F68D3006457E3 /* RoundedStrokeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB1B2C1F68D3006457E3 /* RoundedStrokeButton.swift */; };
+		4B47FB1E2C1F75F5006457E3 /* KeyPadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB1D2C1F75F5006457E3 /* KeyPadButton.swift */; };
+		4B47FB202C1F773D006457E3 /* KeyPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB1F2C1F773D006457E3 /* KeyPad.swift */; };
+		4B47FB232C1F87E8006457E3 /* EmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 4B47FB222C1F87E8006457E3 /* EmojiPicker */; };
+		4B47FB252C1F8A47006457E3 /* LimitedEmojiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB242C1F8A47006457E3 /* LimitedEmojiProvider.swift */; };
 		4B9EAD672C19410100A455AD /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9EAD662C19410100A455AD /* TestView.swift */; };
 		4BBE0AA72C1810B00097392F /* FilterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE0AA62C1810B00097392F /* FilterHeaderView.swift */; };
 		4BE52EC92C1E6E20002CF094 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE52EC82C1E6E20002CF094 /* CustomTabBar.swift */; };
@@ -37,6 +43,11 @@
 		4B1562422C167E14001A0F57 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		4B1562462C1682AF001A0F57 /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		4B1562482C16871C001A0F57 /* AppEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnums.swift; sourceTree = "<group>"; };
+		4B47FB192C1F662B006457E3 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
+		4B47FB1B2C1F68D3006457E3 /* RoundedStrokeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedStrokeButton.swift; sourceTree = "<group>"; };
+		4B47FB1D2C1F75F5006457E3 /* KeyPadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPadButton.swift; sourceTree = "<group>"; };
+		4B47FB1F2C1F773D006457E3 /* KeyPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPad.swift; sourceTree = "<group>"; };
+		4B47FB242C1F8A47006457E3 /* LimitedEmojiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitedEmojiProvider.swift; sourceTree = "<group>"; };
 		4B9EAD662C19410100A455AD /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		4BBE0AA62C1810B00097392F /* FilterHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterHeaderView.swift; sourceTree = "<group>"; };
 		4BE52EC82C1E6E20002CF094 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
@@ -52,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B47FB232C1F87E8006457E3 /* EmojiPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,11 +111,12 @@
 		4B2B34152C1E685900D2B378 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4BE52ED32C1F4A8D002CF094 /* DashboardView */,
 				4B1562462C1682AF001A0F57 /* HomeTabView.swift */,
 				4B15623E2C167DED001A0F57 /* ExpenseListView.swift */,
 				4B1562402C167E05001A0F57 /* ExpenseChartView.swift */,
 				4B1562422C167E14001A0F57 /* SettingsView.swift */,
-				4BE52ED32C1F4A8D002CF094 /* DashboardView */,
+				4B47FB192C1F662B006457E3 /* AddExpenseView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -116,6 +129,9 @@
 				4BE52EC82C1E6E20002CF094 /* CustomTabBar.swift */,
 				4BE52ECA2C1EA724002CF094 /* ExpenseListCell.swift */,
 				4BE52ECC2C1EAC08002CF094 /* HomeChartComponent.swift */,
+				4B47FB1B2C1F68D3006457E3 /* RoundedStrokeButton.swift */,
+				4B47FB1D2C1F75F5006457E3 /* KeyPadButton.swift */,
+				4B47FB1F2C1F773D006457E3 /* KeyPad.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -125,6 +141,7 @@
 			children = (
 				4BE52ECF2C1F4852002CF094 /* MockData.swift */,
 				4BE52ED12C1F48C9002CF094 /* Expense.swift */,
+				4B47FB242C1F8A47006457E3 /* LimitedEmojiProvider.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -154,6 +171,9 @@
 			dependencies = (
 			);
 			name = ExpensePal;
+			packageProductDependencies = (
+				4B47FB222C1F87E8006457E3 /* EmojiPicker */,
+			);
 			productName = ExpensePal;
 			productReference = 4B1562242C153084001A0F57 /* ExpensePal.app */;
 			productType = "com.apple.product-type.application";
@@ -182,6 +202,9 @@
 				Base,
 			);
 			mainGroup = 4B15621B2C153084001A0F57;
+			packageReferences = (
+				4B47FB212C1F87E8006457E3 /* XCRemoteSwiftPackageReference "EmojiPicker" */,
+			);
 			productRefGroup = 4B1562252C153084001A0F57 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -208,7 +231,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B47FB252C1F8A47006457E3 /* LimitedEmojiProvider.swift in Sources */,
 				4BE52ED22C1F48C9002CF094 /* Expense.swift in Sources */,
+				4B47FB1E2C1F75F5006457E3 /* KeyPadButton.swift in Sources */,
 				4B15623D2C167DCE001A0F57 /* DashboardView.swift in Sources */,
 				4B1562282C153084001A0F57 /* ExpensePalApp.swift in Sources */,
 				4B1562432C167E14001A0F57 /* SettingsView.swift in Sources */,
@@ -219,7 +244,10 @@
 				4BE52ECD2C1EAC08002CF094 /* HomeChartComponent.swift in Sources */,
 				4B1562472C1682AF001A0F57 /* HomeTabView.swift in Sources */,
 				4BE52EC92C1E6E20002CF094 /* CustomTabBar.swift in Sources */,
+				4B47FB202C1F773D006457E3 /* KeyPad.swift in Sources */,
+				4B47FB1A2C1F662B006457E3 /* AddExpenseView.swift in Sources */,
 				4B9EAD672C19410100A455AD /* TestView.swift in Sources */,
+				4B47FB1C2C1F68D3006457E3 /* RoundedStrokeButton.swift in Sources */,
 				4B1562412C167E05001A0F57 /* ExpenseChartView.swift in Sources */,
 				4B15623F2C167DED001A0F57 /* ExpenseListView.swift in Sources */,
 				4BE52ECB2C1EA724002CF094 /* ExpenseListCell.swift in Sources */,
@@ -428,6 +456,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4B47FB212C1F87E8006457E3 /* XCRemoteSwiftPackageReference "EmojiPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Kelvas09/EmojiPicker.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4B47FB222C1F87E8006457E3 /* EmojiPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4B47FB212C1F87E8006457E3 /* XCRemoteSwiftPackageReference "EmojiPicker" */;
+			productName = EmojiPicker;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4B15621C2C153084001A0F57 /* Project object */;
 }
