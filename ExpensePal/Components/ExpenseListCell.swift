@@ -8,24 +8,25 @@
 import SwiftUI
 
 struct ExpenseListCell: View {
+    var expense: Expense
     var body: some View {
         HStack {
-            Text("🐶")
+            Text(expense.emoji)
                 .font(.largeTitle)
             VStack(alignment: .leading) {
-                Text("pet care")
+                Text(expense.title)
                     .bold()
-                Text("petco")
+                Text(expense.subTitle)
                     .font(.footnote)
                     .foregroundStyle(.gray)
             }
             Spacer()
-            Text("-$308")
+            Text(expense.cost, format: .currency(code: "USD"))
                 .bold()
         }
     }
 }
 
 #Preview {
-    ExpenseListCell()
+    ExpenseListCell(expense: Expense(emoji: "🐶", title: "Pet care", subTitle: "petco", cost: 179, date: Calendar.current.date(byAdding: .day, value: -2, to: Date())!))
 }

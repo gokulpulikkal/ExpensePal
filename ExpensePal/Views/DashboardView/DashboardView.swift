@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct DashboardView: View {
-    init() {
-        print("Init DashboardView")
-    }
+    var viewModel: DashboardViewModel = DashboardViewModel()
     
     var body: some View {
         ScrollView {
@@ -28,8 +26,8 @@ struct DashboardView: View {
         LazyVStack(spacing: 18) {
             Section {
               // Here goes the items
-                ForEach(1 ..< 10) { i in
-                    ExpenseListCell()
+                ForEach(viewModel.expenseList, id: \.id) { expense in
+                    ExpenseListCell(expense: expense)
                 }
             } header: {
                 RecentExpenseListHeader()
@@ -41,11 +39,11 @@ struct DashboardView: View {
     func RecentExpenseListHeader() -> some View {
         VStack {
             HStack {
-                Text("today")
+                Text("Total")
                     .foregroundStyle(.gray)
                     .font(.subheadline)
                 Spacer()
-                Text("-$308")
+                Text(viewModel.totalRecentExpenses, format: .currency(code: "USD"))
                     .foregroundStyle(.gray)
                     .font(.subheadline)
             }

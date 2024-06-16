@@ -21,6 +21,9 @@
 		4BE52EC92C1E6E20002CF094 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE52EC82C1E6E20002CF094 /* CustomTabBar.swift */; };
 		4BE52ECB2C1EA724002CF094 /* ExpenseListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE52ECA2C1EA724002CF094 /* ExpenseListCell.swift */; };
 		4BE52ECD2C1EAC08002CF094 /* HomeChartComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE52ECC2C1EAC08002CF094 /* HomeChartComponent.swift */; };
+		4BE52ED02C1F4852002CF094 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE52ECF2C1F4852002CF094 /* MockData.swift */; };
+		4BE52ED22C1F48C9002CF094 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE52ED12C1F48C9002CF094 /* Expense.swift */; };
+		4BEF4ABC2C1F4AF700CFD46A /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEF4ABB2C1F4AF700CFD46A /* DashboardViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,9 @@
 		4BE52EC82C1E6E20002CF094 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		4BE52ECA2C1EA724002CF094 /* ExpenseListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseListCell.swift; sourceTree = "<group>"; };
 		4BE52ECC2C1EAC08002CF094 /* HomeChartComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeChartComponent.swift; sourceTree = "<group>"; };
+		4BE52ECF2C1F4852002CF094 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		4BE52ED12C1F48C9002CF094 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		4BEF4ABB2C1F4AF700CFD46A /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +77,7 @@
 		4B1562262C153084001A0F57 /* ExpensePal */ = {
 			isa = PBXGroup;
 			children = (
+				4BE52ECE2C1F4843002CF094 /* Model */,
 				4B2B34152C1E685900D2B378 /* Views */,
 				4BBE0AA52C180EB00097392F /* Components */,
 				4B1562272C153084001A0F57 /* ExpensePalApp.swift */,
@@ -96,7 +103,7 @@
 				4B15623E2C167DED001A0F57 /* ExpenseListView.swift */,
 				4B1562402C167E05001A0F57 /* ExpenseChartView.swift */,
 				4B1562422C167E14001A0F57 /* SettingsView.swift */,
-				4B15623C2C167DCE001A0F57 /* DashboardView.swift */,
+				4BE52ED32C1F4A8D002CF094 /* DashboardView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -111,6 +118,24 @@
 				4BE52ECC2C1EAC08002CF094 /* HomeChartComponent.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		4BE52ECE2C1F4843002CF094 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4BE52ECF2C1F4852002CF094 /* MockData.swift */,
+				4BE52ED12C1F48C9002CF094 /* Expense.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4BE52ED32C1F4A8D002CF094 /* DashboardView */ = {
+			isa = PBXGroup;
+			children = (
+				4B15623C2C167DCE001A0F57 /* DashboardView.swift */,
+				4BEF4ABB2C1F4AF700CFD46A /* DashboardViewModel.swift */,
+			);
+			path = DashboardView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,10 +208,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BE52ED22C1F48C9002CF094 /* Expense.swift in Sources */,
 				4B15623D2C167DCE001A0F57 /* DashboardView.swift in Sources */,
 				4B1562282C153084001A0F57 /* ExpensePalApp.swift in Sources */,
 				4B1562432C167E14001A0F57 /* SettingsView.swift in Sources */,
+				4BE52ED02C1F4852002CF094 /* MockData.swift in Sources */,
 				4BBE0AA72C1810B00097392F /* FilterHeaderView.swift in Sources */,
+				4BEF4ABC2C1F4AF700CFD46A /* DashboardViewModel.swift in Sources */,
 				4B1562492C16871C001A0F57 /* AppEnums.swift in Sources */,
 				4BE52ECD2C1EAC08002CF094 /* HomeChartComponent.swift in Sources */,
 				4B1562472C1682AF001A0F57 /* HomeTabView.swift in Sources */,

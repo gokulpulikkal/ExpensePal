@@ -27,9 +27,9 @@ struct TestView: View {
         LazyVStack(spacing: 30) {
             Section {
               // Here goes the items
-                ForEach(1 ..< 6) { i in
-                    ExpenseListCell()
-                }
+//                ForEach(1 ..< 6) { i in
+//                    ExpenseListCell(expense: <#Expense#>)
+//                }
             } header: {
                 RecentExpenseListHeader()
             }
