@@ -30,8 +30,8 @@ struct CustomTabBar: View {
                 Image(systemName: selectedTab == tab ? fillImage: tab.rawValue)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 25, height: 25)
-                    .symbolEffect(.bounce, value: tab == .AddExpense && selectedTab == tab)
+                    .frame(width: tab == .AddExpense ? 40 :25, height: tab == .AddExpense ? 40 :25)
+//                    .symbolEffect(.bounce, value: tab == .AddExpense && selectedTab == tab)
                     .scaleEffect(selectedTab == tab ? 1.25: 1)
                     .onTapGesture {
                         withAnimation(.easeInOut(duration: 0.1)) {
