@@ -17,7 +17,7 @@ import Observation
     }
     
     private func getRecentExpenses() {
-        expenseList = MockData.mockExpenseList
+//        expenseList = MockData().getMockDataFromJSON()
         totalRecentExpenses = expenseList.reduce(0, { $0 + $1.cost })
     }
 }

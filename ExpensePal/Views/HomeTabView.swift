@@ -18,7 +18,7 @@ struct HomeTabView: View {
                 .animation(.easeInOut(duration: 0.3), value: currentTab)
             Spacer()
             CustomTabBar(selectedTab: $selectedTab)
-                .frame(height: 20)
+                .frame(height: 30)
         }.onChange(of: selectedTab, {
             if selectedTab != .AddExpense {
                 currentTab = selectedTab
@@ -58,4 +58,5 @@ struct HomeTabView: View {
 
 #Preview {
     HomeTabView()
+        .modelContainer(previewContainer)
 }

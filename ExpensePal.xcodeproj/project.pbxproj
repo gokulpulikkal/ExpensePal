@@ -22,6 +22,10 @@
 		4B47FB202C1F773D006457E3 /* KeyPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB1F2C1F773D006457E3 /* KeyPad.swift */; };
 		4B47FB232C1F87E8006457E3 /* EmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 4B47FB222C1F87E8006457E3 /* EmojiPicker */; };
 		4B47FB252C1F8A47006457E3 /* LimitedEmojiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB242C1F8A47006457E3 /* LimitedEmojiProvider.swift */; };
+		4B47FB432C20B83C006457E3 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB422C20B83C006457E3 /* PreviewData.swift */; };
+		4B47FB462C21FEB8006457E3 /* HomeChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB452C21FEB8006457E3 /* HomeChartViewModel.swift */; };
+		4B47FB482C21FF53006457E3 /* LinePlotEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB472C21FF53006457E3 /* LinePlotEntry.swift */; };
+		4B47FB4D2C221C26006457E3 /* ExpensesMockData.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B47FB4C2C221C26006457E3 /* ExpensesMockData.json */; };
 		4B9EAD672C19410100A455AD /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9EAD662C19410100A455AD /* TestView.swift */; };
 		4BBE0AA72C1810B00097392F /* FilterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE0AA62C1810B00097392F /* FilterHeaderView.swift */; };
 		4BE52EC92C1E6E20002CF094 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE52EC82C1E6E20002CF094 /* CustomTabBar.swift */; };
@@ -30,6 +34,7 @@
 		4BE52ED02C1F4852002CF094 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE52ECF2C1F4852002CF094 /* MockData.swift */; };
 		4BE52ED22C1F48C9002CF094 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE52ED12C1F48C9002CF094 /* Expense.swift */; };
 		4BEF4ABC2C1F4AF700CFD46A /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEF4ABB2C1F4AF700CFD46A /* DashboardViewModel.swift */; };
+		4BF317E72C23344D00DC378B /* QueryFetchHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF317E62C23344D00DC378B /* QueryFetchHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +53,10 @@
 		4B47FB1D2C1F75F5006457E3 /* KeyPadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPadButton.swift; sourceTree = "<group>"; };
 		4B47FB1F2C1F773D006457E3 /* KeyPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPad.swift; sourceTree = "<group>"; };
 		4B47FB242C1F8A47006457E3 /* LimitedEmojiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitedEmojiProvider.swift; sourceTree = "<group>"; };
+		4B47FB422C20B83C006457E3 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
+		4B47FB452C21FEB8006457E3 /* HomeChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeChartViewModel.swift; sourceTree = "<group>"; };
+		4B47FB472C21FF53006457E3 /* LinePlotEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinePlotEntry.swift; sourceTree = "<group>"; };
+		4B47FB4C2C221C26006457E3 /* ExpensesMockData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ExpensesMockData.json; sourceTree = "<group>"; };
 		4B9EAD662C19410100A455AD /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		4BBE0AA62C1810B00097392F /* FilterHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterHeaderView.swift; sourceTree = "<group>"; };
 		4BE52EC82C1E6E20002CF094 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
@@ -56,6 +65,7 @@
 		4BE52ECF2C1F4852002CF094 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		4BE52ED12C1F48C9002CF094 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		4BEF4ABB2C1F4AF700CFD46A /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		4BF317E62C23344D00DC378B /* QueryFetchHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryFetchHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				4B15622E2C153086001A0F57 /* Preview Assets.xcassets */,
+				4B47FB422C20B83C006457E3 /* PreviewData.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -121,6 +132,24 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		4B47FB442C21FE69006457E3 /* HomeChartComponent */ = {
+			isa = PBXGroup;
+			children = (
+				4BE52ECC2C1EAC08002CF094 /* HomeChartComponent.swift */,
+				4B47FB452C21FEB8006457E3 /* HomeChartViewModel.swift */,
+			);
+			path = HomeChartComponent;
+			sourceTree = "<group>";
+		};
+		4B47FB4E2C222392006457E3 /* MockDataFiles */ = {
+			isa = PBXGroup;
+			children = (
+				4B47FB4C2C221C26006457E3 /* ExpensesMockData.json */,
+				4BE52ECF2C1F4852002CF094 /* MockData.swift */,
+			);
+			path = MockDataFiles;
+			sourceTree = "<group>";
+		};
 		4BBE0AA52C180EB00097392F /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,7 +157,7 @@
 				4B9EAD662C19410100A455AD /* TestView.swift */,
 				4BE52EC82C1E6E20002CF094 /* CustomTabBar.swift */,
 				4BE52ECA2C1EA724002CF094 /* ExpenseListCell.swift */,
-				4BE52ECC2C1EAC08002CF094 /* HomeChartComponent.swift */,
+				4B47FB442C21FE69006457E3 /* HomeChartComponent */,
 				4B47FB1B2C1F68D3006457E3 /* RoundedStrokeButton.swift */,
 				4B47FB1D2C1F75F5006457E3 /* KeyPadButton.swift */,
 				4B47FB1F2C1F773D006457E3 /* KeyPad.swift */,
@@ -139,9 +168,11 @@
 		4BE52ECE2C1F4843002CF094 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4BE52ECF2C1F4852002CF094 /* MockData.swift */,
+				4B47FB4E2C222392006457E3 /* MockDataFiles */,
 				4BE52ED12C1F48C9002CF094 /* Expense.swift */,
 				4B47FB242C1F8A47006457E3 /* LimitedEmojiProvider.swift */,
+				4B47FB472C21FF53006457E3 /* LinePlotEntry.swift */,
+				4BF317E62C23344D00DC378B /* QueryFetchHelpers.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,6 +252,7 @@
 			files = (
 				4B15622F2C153086001A0F57 /* Preview Assets.xcassets in Resources */,
 				4B15622C2C153086001A0F57 /* Assets.xcassets in Resources */,
+				4B47FB4D2C221C26006457E3 /* ExpensesMockData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +273,10 @@
 				4BBE0AA72C1810B00097392F /* FilterHeaderView.swift in Sources */,
 				4BEF4ABC2C1F4AF700CFD46A /* DashboardViewModel.swift in Sources */,
 				4B1562492C16871C001A0F57 /* AppEnums.swift in Sources */,
+				4B47FB482C21FF53006457E3 /* LinePlotEntry.swift in Sources */,
 				4BE52ECD2C1EAC08002CF094 /* HomeChartComponent.swift in Sources */,
+				4B47FB432C20B83C006457E3 /* PreviewData.swift in Sources */,
+				4BF317E72C23344D00DC378B /* QueryFetchHelpers.swift in Sources */,
 				4B1562472C1682AF001A0F57 /* HomeTabView.swift in Sources */,
 				4BE52EC92C1E6E20002CF094 /* CustomTabBar.swift in Sources */,
 				4B47FB202C1F773D006457E3 /* KeyPad.swift in Sources */,
@@ -250,6 +285,7 @@
 				4B47FB1C2C1F68D3006457E3 /* RoundedStrokeButton.swift in Sources */,
 				4B1562412C167E05001A0F57 /* ExpenseChartView.swift in Sources */,
 				4B15623F2C167DED001A0F57 /* ExpenseListView.swift in Sources */,
+				4B47FB462C21FEB8006457E3 /* HomeChartViewModel.swift in Sources */,
 				4BE52ECB2C1EA724002CF094 /* ExpenseListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

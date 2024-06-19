@@ -12,7 +12,6 @@ final class LimitedEmojiProvider: EmojiProvider {
 
     func getAll() -> [Emoji] {
         return [
-            Emoji(value: "🛒", name: "shopping cart"),
             Emoji(value: "🛍️", name: "shopping bags"),
             Emoji(value: "🏷️", name: "label"),
             Emoji(value: "💳", name: "credit card"),

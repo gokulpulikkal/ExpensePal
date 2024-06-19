@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 import EmojiPicker
 
 struct AddExpenseView: View {
+    @Environment(\.modelContext) var modelContext
+    @Environment(\.dismiss) var dismiss
+    
     @State var keyPadInput: String = "0"
     @State var expenseTitle: String = ""
     @State var selectedEmoji: Emoji?
@@ -31,7 +35,9 @@ struct AddExpenseView: View {
                 .padding(.vertical)
             
             Button("Add Expense") {
-                
+                let expense = Expense(emoji: selectedEmoji?.value ?? "🛍️", title: expenseTitle, cost: Double(keyPadInput) ?? 0)
+                modelContext.insert(expense)
+                dismiss()
             }
             .bold()
             .padding(14)
@@ -62,8 +68,9 @@ struct AddExpenseView: View {
             TextField("", text: $expenseTitle, prompt: Text("Expense Title").foregroundColor(.gray))
                 .frame(maxWidth: 100)
                 .font(.system(size: 15))
+                .bold()
                 .padding(12)
-                .foregroundStyle(.white)
+                .foregroundStyle(Color(AppColors.primaryBackground.rawValue))
                 .background(Color(AppColors.primaryAccent.rawValue))
                 .clipShape(RoundedRectangle(cornerRadius: 20))
         }

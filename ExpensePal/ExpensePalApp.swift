@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct ExpensePalApp: App {
     var body: some Scene {
         WindowGroup {
-            DashboardView()
+            HomeTabView()
         }
+        .modelContainer(for: Expense.self)
     }
 }

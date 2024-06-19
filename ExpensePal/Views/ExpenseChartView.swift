@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import Charts
 
 struct ExpenseChartView: View {
     var body: some View {
         ZStack {
-            Text("ExpenseChartView")
-                .bold()
+            Chart {
+                BarMark(x: .value("Month", "May"), y: .value("Expense", 100))
+                BarMark(x: .value("Month", "June"), y: .value("Expense", 50))
+                BarMark(x: .value("Month", "July"), y: .value("Expense", 20))
+            }
         }
     }
 }
