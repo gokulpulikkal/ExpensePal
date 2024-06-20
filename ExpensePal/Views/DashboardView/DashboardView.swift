@@ -47,7 +47,7 @@ struct DashboardView: View {
     func RecentExpenseListHeader() -> some View {
         VStack {
             HStack {
-                Text("Total")
+                Text("Recent Expenses")
                     .foregroundStyle(.gray)
                     .font(.subheadline)
                 Spacer()

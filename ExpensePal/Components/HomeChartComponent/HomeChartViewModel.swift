@@ -10,6 +10,8 @@ import SwiftUI
 
 class HomeChartViewModel {
     
+    var sortedMonthlyExpensePlots: [LinePlotEntry]?
+    
     func dailyGroupingForCurrentWeek(_ allEntries: [Expense]) -> [String: [Expense]] {
         let now = Date()
         let startOfWeek = now.startOfWeek() ?? now
@@ -56,6 +58,19 @@ class HomeChartViewModel {
         }
     }
     
+    func getXAxisUnit(_ filter: ExpenseChartFilter) -> Calendar.Component {
+        switch filter {
+        case .monthly:
+            return .month
+        case .weekly:
+            return .weekOfMonth
+        case .daily:
+            return .day
+        default:
+            return .month
+        }
+    }
+    
     private func dailyWiseExpense(_ allEntries: [Expense]) -> [LinePlotEntry] {
         var dailyExpenseList: [LinePlotEntry] = []
         for (_, entries) in dailyGroupingForCurrentWeek(allEntries) {
@@ -77,16 +92,20 @@ class HomeChartViewModel {
     }
 
     private func monthWiseExpense(_ allEntries: [Expense]) -> [LinePlotEntry] {
+        if let sortedMonthlyExpensePlots = sortedMonthlyExpensePlots {
+            return sortedMonthlyExpensePlots
+        }
         var monthlyExpenseList: [LinePlotEntry] = []
         for (_, entries) in monthlyGrouping(allEntries) {
             let totalCost = entries.reduce(0) { $0 + $1.cost }
             let monthExpensePoint = LinePlotEntry(xValueType: "Month", yValueType: "Expense", xValue: entries[0].date, yValue: totalCost)
             monthlyExpenseList.append(monthExpensePoint)
         }
-        return monthlyExpenseList.sorted(using: KeyPathComparator(\.xValue))
+        sortedMonthlyExpensePlots = monthlyExpenseList.sorted(using: KeyPathComparator(\.xValue))
+        return sortedMonthlyExpensePlots ?? []
     }
 
-    func getYValueLabel(_ filter: ExpenseChartFilter, _ date: Date) -> String {
+    func getXValueLabel(_ filter: ExpenseChartFilter, _ date: Date) -> String {
         switch filter {
         case .monthly:
             return getMonthStringFromDate(date: date)

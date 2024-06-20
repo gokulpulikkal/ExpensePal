@@ -11,6 +11,8 @@ import SwiftUI
 
 struct HomeChartComponent: View {
     @Query var expenseList: [Expense]
+    @State private var selectedIndex: Int? = nil
+    @State var selectedDateInChart: Date?
     let viewModel = HomeChartViewModel()
     var filter: ExpenseChartFilter
 
@@ -30,26 +32,33 @@ struct HomeChartComponent: View {
 
     var body: some View {
         VStack {
-            Text(expenseList.reduce(0) { $0 + $1.cost }, format: .currency(code: "USD"))
+            Text(0, format: .currency(code: "USD"))
                 .bold()
                 .font(.largeTitle)
+            chart
+            Text(selectedDateInChart ?? Date.now, style: .date)
+        }
+    }
 
-            Chart(viewModel.getExpenseChartDataPoints(filter, expenseList)) { dataPoint in
-                LineMark(x: .value(dataPoint.xValueType, viewModel.getYValueLabel(filter, dataPoint.xValue)), y: .value(dataPoint.yValueType, dataPoint.yValue))
-                    .symbol(symbol: {
+    var chart: some View {
+        Chart(viewModel.getExpenseChartDataPoints(filter, expenseList)) { dataPoint in
+            LineMark(x: .value(dataPoint.xValueType, dataPoint.xValue, unit: viewModel.getXAxisUnit(filter)), y: .value(dataPoint.yValueType, dataPoint.yValue))
+                .symbol(symbol: {
+                    if (selectedDateInChart != nil && Calendar.current.isDate(selectedDateInChart!, equalTo: dataPoint.xValue, toGranularity: viewModel.getXAxisUnit(filter))) {
                         Circle()
                             .stroke(lineWidth: 5)
                             .frame(width: 17)
                             .background(Color(AppColors.primaryBackground.rawValue))
                             .clipShape(Circle())
-
-                    })
-            }
-            .chartYAxis(.hidden)
-            .aspectRatio(1.5, contentMode: .fit)
-            .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
-            .animation(Animation.easeInOut(duration: 0.4), value: filter)
+                    }
+                })
+                .interpolationMethod(.catmullRom)
         }
+        .chartXSelection(value: $selectedDateInChart)
+        .chartYAxis(.hidden)
+        .aspectRatio(1.5, contentMode: .fit)
+        .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
+        .animation(Animation.easeInOut(duration: 0.1), value: filter)
     }
 }
 

@@ -8,7 +8,7 @@
 import SwiftUI
 import Observation
 
-@Observable class DashboardViewModel {
+class DashboardViewModel {
     var expenseList: [Expense] = []
     var totalRecentExpenses: Double = 0
     
