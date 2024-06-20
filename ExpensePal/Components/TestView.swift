@@ -15,7 +15,7 @@ struct TestView: View {
         ScrollView {
             VStack {
                 Spacer()
-                FilterHeaderView()
+                FilterHeaderView(chartFilter: .constant(.monthly))
                 Rectangle()
                     .frame(width: .infinity, height: 300)
                 recentExpenseList()

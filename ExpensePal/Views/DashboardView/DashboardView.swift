@@ -12,16 +12,15 @@ struct DashboardView: View {
     var viewModel: DashboardViewModel = DashboardViewModel()
     @Environment(\.modelContext) var modelContext
     
-//    @Query(filter: Expense.currentYearPredicate()) var expenseList: [Expense]
     @Query(Expense.firstTen()) var expenseList: [Expense]
-    let dateObjectForFilter: Date = Date().firstDayOfYear() ?? Date()
+    @State var chartFilter: ExpenseChartFilter = .monthly
 
     var body: some View {
         ScrollView {
-            VStack {
+            VStack(spacing:0) {
                 Spacer()
-                FilterHeaderView()
-                HomeChartComponent()
+                FilterHeaderView(chartFilter: $chartFilter)
+                HomeChartComponent(chartFilter)
                     .frame(height: 370)
                 recentExpenseList()
             }
@@ -65,15 +64,6 @@ struct DashboardView: View {
 #Preview {
     DashboardView()
         .modelContainer(previewContainer)
-}
-
-extension Date {
-    func year(using calendar: Calendar = .current) -> Int {
-        calendar.component(.year, from: self)
-    }
-    func firstDayOfYear(using calendar: Calendar = .current) -> Date? {
-        DateComponents(calendar: calendar, year: year(using: calendar)).date
-    }
 }
 
 

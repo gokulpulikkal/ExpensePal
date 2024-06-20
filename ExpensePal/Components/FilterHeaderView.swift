@@ -8,10 +8,27 @@
 import SwiftUI
 
 struct FilterHeaderView: View {
+    @Binding var chartFilter: ExpenseChartFilter
+    @State var showPicker: Bool = false
+
     var body: some View {
         HStack(spacing: 20) {
-            RoundedStrokeButton(text: Text("this month"), image: Image(systemName: "chevron.down"))
-            
+            Menu {
+                ForEach(ExpenseChartFilter.allCases) { filter in
+                    if filter != .yearly { //Year filter is disabled for now
+                        Button(filter.description) {
+                            chartFilter = filter
+                        }
+                        .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
+                        .padding(.vertical)
+                    }
+                }
+            } label: {
+                RoundedStrokeButton(text: Text(chartFilter.description), image: Image(systemName: "chevron.down"), action: {
+                    showPicker.toggle()
+                })
+            }
+            .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
             Image(systemName: "magnifyingglass")
                 .resizable()
                 .frame(width: 25, height: 25)
@@ -20,5 +37,5 @@ struct FilterHeaderView: View {
 }
 
 #Preview {
-    FilterHeaderView()
+    FilterHeaderView(chartFilter: .constant(.daily))
 }

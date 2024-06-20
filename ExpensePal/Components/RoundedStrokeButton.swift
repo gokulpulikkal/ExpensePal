@@ -9,12 +9,17 @@ import SwiftUI
 
 struct RoundedStrokeButton: View {
     let text: Text
-    let image: Image
+    let image: Image?
+    let action: () -> Void
     var body: some View {
-        Button(action: {}) {
+        Button(action: {
+            action()
+        }) {
             HStack {
                 text
-                image
+                if let image {
+                    image
+                }
             }
         }
         .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
@@ -28,5 +33,5 @@ struct RoundedStrokeButton: View {
 }
 
 #Preview {
-    RoundedStrokeButton(text: Text("this month"), image: Image(systemName: "chevron.down"))
+    RoundedStrokeButton(text: Text("this month"), image: Image(systemName: "chevron.down"), action: {})
 }

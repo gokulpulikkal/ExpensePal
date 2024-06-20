@@ -21,7 +21,9 @@ struct AddExpenseView: View {
     var body: some View {
         VStack(spacing: 20) {
             RoundedStrokeButton(text: Text("vision capture"),
-                                image: Image(systemName: "camera.viewfinder")
+                                image: Image(systemName: "camera.viewfinder"), action: {
+                
+            }
             )
             .padding(.bottom)
             VStack(spacing: 8) {

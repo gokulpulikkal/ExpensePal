@@ -35,6 +35,7 @@
 		4BE52ED22C1F48C9002CF094 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE52ED12C1F48C9002CF094 /* Expense.swift */; };
 		4BEF4ABC2C1F4AF700CFD46A /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEF4ABB2C1F4AF700CFD46A /* DashboardViewModel.swift */; };
 		4BF317E72C23344D00DC378B /* QueryFetchHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF317E62C23344D00DC378B /* QueryFetchHelpers.swift */; };
+		4BF317EA2C23AA3F00DC378B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF317E92C23AA3F00DC378B /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		4BE52ED12C1F48C9002CF094 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		4BEF4ABB2C1F4AF700CFD46A /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		4BF317E62C23344D00DC378B /* QueryFetchHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryFetchHelpers.swift; sourceTree = "<group>"; };
+		4BF317E92C23AA3F00DC378B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		4B1562262C153084001A0F57 /* ExpensePal */ = {
 			isa = PBXGroup;
 			children = (
+				4BF317E82C233A0400DC378B /* Utilities */,
 				4BE52ECE2C1F4843002CF094 /* Model */,
 				4B2B34152C1E685900D2B378 /* Views */,
 				4BBE0AA52C180EB00097392F /* Components */,
@@ -172,7 +175,6 @@
 				4BE52ED12C1F48C9002CF094 /* Expense.swift */,
 				4B47FB242C1F8A47006457E3 /* LimitedEmojiProvider.swift */,
 				4B47FB472C21FF53006457E3 /* LinePlotEntry.swift */,
-				4BF317E62C23344D00DC378B /* QueryFetchHelpers.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,6 +186,15 @@
 				4BEF4ABB2C1F4AF700CFD46A /* DashboardViewModel.swift */,
 			);
 			path = DashboardView;
+			sourceTree = "<group>";
+		};
+		4BF317E82C233A0400DC378B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4BF317E62C23344D00DC378B /* QueryFetchHelpers.swift */,
+				4BF317E92C23AA3F00DC378B /* Extensions.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +294,7 @@
 				4B47FB1A2C1F662B006457E3 /* AddExpenseView.swift in Sources */,
 				4B9EAD672C19410100A455AD /* TestView.swift in Sources */,
 				4B47FB1C2C1F68D3006457E3 /* RoundedStrokeButton.swift in Sources */,
+				4BF317EA2C23AA3F00DC378B /* Extensions.swift in Sources */,
 				4B1562412C167E05001A0F57 /* ExpenseChartView.swift in Sources */,
 				4B15623F2C167DED001A0F57 /* ExpenseListView.swift in Sources */,
 				4B47FB462C21FEB8006457E3 /* HomeChartViewModel.swift in Sources */,
