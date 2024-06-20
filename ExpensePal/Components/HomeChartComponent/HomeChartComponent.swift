@@ -48,6 +48,7 @@ struct HomeChartComponent: View {
             .chartYAxis(.hidden)
             .aspectRatio(1.5, contentMode: .fit)
             .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
+            .animation(Animation.easeInOut(duration: 0.4), value: filter)
         }
     }
 }
