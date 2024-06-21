@@ -43,7 +43,7 @@ struct HomeChartComponent: View {
         }
         .onChange(of: selectedDateInChart, {
             if selectedDateInChart != nil {
-                persistentSelectedDate = selectedDateInChart
+                persistentSelectedDate = viewModel.closestDatePointInEntry(filter, to: selectedDateInChart!)
             }
         })
         .onChange(of: filter) {
@@ -62,19 +62,14 @@ struct HomeChartComponent: View {
                             .frame(width: 17)
                             .background(Color(AppColors.primaryBackground.rawValue))
                             .clipShape(Circle())
-                            .onAppear(perform: {
-                                if persistentSelectedDate == nil {
-                                    persistentSelectedDate = dataPoint.xValue
-                                }
-                            })
                     }
                 })
                 .interpolationMethod(.catmullRom)
-            if let persistentSelectedDate {
+            if let selectedDateInChart {
                 //Rule mark is hidden now.
                 //Only the annotation is what shown to the user
                 RuleMark(
-                  x: .value("Selected", persistentSelectedDate, unit: .day)
+                  x: .value("Selected", selectedDateInChart, unit: .day)
                 )
                 .foregroundStyle(Color.gray.opacity(0.3))
                 .offset(yStart: -10)
@@ -87,7 +82,7 @@ struct HomeChartComponent: View {
                     y: .disabled
                   )
                 ) {
-                    Text(persistentSelectedDate, style: .date)
+                    Text(selectedDateInChart, style: .date)
                         .font(.system(size: 15))
                         .bold()
                         .foregroundStyle(Color(AppColors.primaryAccent.rawValue))

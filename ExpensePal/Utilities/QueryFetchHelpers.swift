@@ -28,7 +28,7 @@ extension Expense {
     
     static func firstTen() -> FetchDescriptor<Expense> {
         var fetch = FetchDescriptor<Expense>()
-        fetch.sortBy = [SortDescriptor(\Expense.date)]
+        fetch.sortBy = [SortDescriptor(\Expense.date, order: .reverse)]
         // set your fetch limite here
         fetch.fetchLimit = 10
         return fetch

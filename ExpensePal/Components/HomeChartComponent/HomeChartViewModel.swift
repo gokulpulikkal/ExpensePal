@@ -9,22 +9,21 @@ import Observation
 import SwiftUI
 
 class HomeChartViewModel {
-    
     var monthDateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM"
         return dateFormatter
     }()
-    
+
     var sortedMonthlyExpensePlots: [LinePlotEntry]?
     var monthlyGrouping: [String: [Expense]]?
-    
+
     var weeklyGroupingDict: [String: [Expense]]?
     var sortedWeeklyExpensePlots: [LinePlotEntry]?
-    
+
     var dailyGroupingDict: [String: [Expense]]?
     var sortedDailyExpensePlots: [LinePlotEntry]?
-    
+
     func dailyGroupingForCurrentWeek(_ allEntries: [Expense]) -> [String: [Expense]] {
         if let dailyGroupingDict = dailyGroupingDict {
             return dailyGroupingDict
@@ -71,7 +70,7 @@ class HomeChartViewModel {
             return []
         }
     }
-    
+
     func isDataPointIsLast(_ filter: ExpenseChartFilter, _ dataPoint: LinePlotEntry) -> Bool {
         switch filter {
         case .daily:
@@ -89,10 +88,40 @@ class HomeChartViewModel {
         default:
             return true
         }
-        
+
         return false
     }
-    
+
+    func closestDatePointInEntry(_ filter: ExpenseChartFilter, to date: Date) -> Date? {
+        //TODO: This is inefficient way.
+        var entries: [LinePlotEntry]?
+        switch filter {
+        case .daily:
+            entries = sortedDailyExpensePlots
+        case .weekly:
+            entries = sortedWeeklyExpensePlots
+        case .monthly:
+            entries = sortedMonthlyExpensePlots
+        default:
+            entries = []
+        }
+        if let entries = entries, !entries.isEmpty {
+            var closestEntry = entries[0]
+            var smallestDifference = abs(closestEntry.xValue.timeIntervalSince(date))
+
+            for entry in entries.dropFirst() {
+                let difference = abs(entry.xValue.timeIntervalSince(date))
+                if difference < smallestDifference {
+                    closestEntry = entry
+                    smallestDifference = difference
+                }
+            }
+
+            return closestEntry.xValue
+        }
+        return nil
+    }
+
     func getXAxisUnit(_ filter: ExpenseChartFilter) -> Calendar.Component {
         switch filter {
         case .monthly:
@@ -105,9 +134,9 @@ class HomeChartViewModel {
             return .month
         }
     }
-    
+
     private func dailyWiseExpense(_ allEntries: [Expense]) -> [LinePlotEntry] {
-        if let sortedDailyExpensePlots = self.sortedDailyExpensePlots {
+        if let sortedDailyExpensePlots = sortedDailyExpensePlots {
             return sortedDailyExpensePlots
         }
         var dailyExpenseList: [LinePlotEntry] = []
@@ -121,7 +150,7 @@ class HomeChartViewModel {
     }
 
     private func weekWiseExpense(_ allEntries: [Expense]) -> [LinePlotEntry] {
-        if let sortedWeeklyExpensePlots = self.sortedWeeklyExpensePlots {
+        if let sortedWeeklyExpensePlots = sortedWeeklyExpensePlots {
             return sortedWeeklyExpensePlots
         }
         var weeklyExpenseList: [LinePlotEntry] = []
@@ -130,7 +159,7 @@ class HomeChartViewModel {
             let weekExpensePoint = LinePlotEntry(xValueType: "Week", yValueType: "Expense", xValue: entries[0].date, yValue: totalCost)
             weeklyExpenseList.append(weekExpensePoint)
         }
-        self.sortedWeeklyExpensePlots = weeklyExpenseList.sorted(using: KeyPathComparator(\.xValue))
+        sortedWeeklyExpensePlots = weeklyExpenseList.sorted(using: KeyPathComparator(\.xValue))
         return sortedWeeklyExpensePlots!
     }
 
@@ -170,31 +199,30 @@ class HomeChartViewModel {
     private func getWeekStringFromDate(date: Date) -> String {
         return "Week \(date.weekOfMonth())"
     }
-    
+
     private func getDayStringFromDate(date: Date) -> String {
         return date.dayOfWeekString()
     }
-    
-    
+
     func getExpenseForChartDataPoint(_ selectedChartPoint: Date?, _ filter: ExpenseChartFilter, _ allEntries: [Expense]) -> Double {
         switch filter {
         case .monthly:
             if let selectedChartPoint {
-                return monthlyGrouping(allEntries)[monthDateFormatter.string(from: selectedChartPoint)]?.reduce(0, {$0 + $1.cost}) ?? 0
+                return monthlyGrouping(allEntries)[monthDateFormatter.string(from: selectedChartPoint)]?.reduce(0, { $0 + $1.cost }) ?? 0
             } else {
                 let monthWiseLastExpense = monthWiseExpense(allEntries).last
                 return monthWiseLastExpense?.yValue ?? 0
             }
         case .weekly:
             if let selectedChartPoint {
-                return weeklyGrouping(allEntries)["Week \(selectedChartPoint.weekOfMonth())"]?.reduce(0, {$0 + $1.cost}) ?? 0
+                return weeklyGrouping(allEntries)["Week \(selectedChartPoint.weekOfMonth())"]?.reduce(0, { $0 + $1.cost }) ?? 0
             } else {
                 let weekWiseLastExpense = weekWiseExpense(allEntries).last
                 return weekWiseLastExpense?.yValue ?? 0
             }
         case .daily:
             if let selectedChartPoint {
-                return dailyGroupingForCurrentWeek(allEntries)[selectedChartPoint.dayOfWeekString()]?.reduce(0, {$0 + $1.cost}) ?? 0
+                return dailyGroupingForCurrentWeek(allEntries)[selectedChartPoint.dayOfWeekString()]?.reduce(0, { $0 + $1.cost }) ?? 0
             } else {
                 let dayWiseLastExpense = dailyWiseExpense(allEntries).last
                 return dayWiseLastExpense?.yValue ?? 0
