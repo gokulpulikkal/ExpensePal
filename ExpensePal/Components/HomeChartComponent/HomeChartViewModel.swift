@@ -72,6 +72,27 @@ class HomeChartViewModel {
         }
     }
     
+    func isDataPointIsLast(_ filter: ExpenseChartFilter, _ dataPoint: LinePlotEntry) -> Bool {
+        switch filter {
+        case .daily:
+            if let sortedDailyExpensePlots = sortedDailyExpensePlots {
+                return dataPoint.id == sortedDailyExpensePlots.last?.id
+            }
+        case .weekly:
+            if let sortedWeeklyExpensePlots = sortedWeeklyExpensePlots {
+                return dataPoint.id == sortedWeeklyExpensePlots.last?.id
+            }
+        case .monthly:
+            if let sortedMonthlyExpensePlots = sortedMonthlyExpensePlots {
+                return dataPoint.id == sortedMonthlyExpensePlots.last?.id
+            }
+        default:
+            return true
+        }
+        
+        return false
+    }
+    
     func getXAxisUnit(_ filter: ExpenseChartFilter) -> Calendar.Component {
         switch filter {
         case .monthly:

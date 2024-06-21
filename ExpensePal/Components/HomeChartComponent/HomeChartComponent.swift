@@ -46,24 +46,57 @@ struct HomeChartComponent: View {
                 persistentSelectedDate = selectedDateInChart
             }
         })
+        .onChange(of: filter) {
+            persistentSelectedDate = nil
+        }
     }
 
     var chart: some View {
         Chart(viewModel.getExpenseChartDataPoints(filter, expenseList)) { dataPoint in
             LineMark(x: .value(dataPoint.xValueType, dataPoint.xValue, unit: viewModel.getXAxisUnit(filter)), y: .value(dataPoint.yValueType, dataPoint.yValue))
                 .symbol(symbol: {
-                    if (persistentSelectedDate != nil && Calendar.current.isDate(persistentSelectedDate!, equalTo: dataPoint.xValue, toGranularity: viewModel.getXAxisUnit(filter))) {
+                    if (persistentSelectedDate != nil && Calendar.current.isDate(persistentSelectedDate!, equalTo: dataPoint.xValue, toGranularity: viewModel.getXAxisUnit(filter))) ||
+                        viewModel.isDataPointIsLast(filter, dataPoint) && persistentSelectedDate == nil {
                         Circle()
                             .stroke(lineWidth: 5)
                             .frame(width: 17)
                             .background(Color(AppColors.primaryBackground.rawValue))
                             .clipShape(Circle())
+                            .onAppear(perform: {
+                                if persistentSelectedDate == nil {
+                                    persistentSelectedDate = dataPoint.xValue
+                                }
+                            })
                     }
                 })
                 .interpolationMethod(.catmullRom)
+            if let persistentSelectedDate {
+                //Rule mark is hidden now.
+                //Only the annotation is what shown to the user
+                RuleMark(
+                  x: .value("Selected", persistentSelectedDate, unit: .day)
+                )
+                .foregroundStyle(Color.gray.opacity(0.3))
+                .offset(yStart: -10)
+                .zIndex(-1)
+                .opacity(0)
+                .annotation(
+                    position: .bottom, spacing: 0,
+                  overflowResolution: .init(
+                    x: .fit(to: .chart),
+                    y: .disabled
+                  )
+                ) {
+                    Text(persistentSelectedDate, style: .date)
+                        .font(.system(size: 15))
+                        .bold()
+                        .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
+                }
+            }
         }
         .chartXSelection(value: $selectedDateInChart)
         .chartYAxis(.hidden)
+        .chartXAxis(.hidden)
         .aspectRatio(1.5, contentMode: .fit)
         .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
         .animation(Animation.easeInOut(duration: 0.1), value: filter)
