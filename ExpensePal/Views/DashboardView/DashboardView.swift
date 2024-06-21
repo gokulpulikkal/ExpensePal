@@ -13,7 +13,7 @@ struct DashboardView: View {
     @Environment(\.modelContext) var modelContext
     
     @Query(Expense.firstTen()) var expenseList: [Expense]
-    @State var chartFilter: ExpenseChartFilter = .monthly
+    @State var chartFilter: ExpenseChartFilter = .daily
 
     var body: some View {
         ScrollView {

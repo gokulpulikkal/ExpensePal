@@ -99,7 +99,7 @@ struct AddExpenseView: View {
         if expenseTitle != "" {
             let expenseCost = keyPadInput
             let emoji = selectedEmoji?.value ?? "🛍️"
-            return Expense(emoji: emoji, title: expenseTitle, cost: Double(expenseCost) ?? 0)
+            return Expense(emoji: emoji, title: expenseTitle, cost: Double(expenseCost) ?? 0, date: selectedDate)
         }
         return nil
     }
