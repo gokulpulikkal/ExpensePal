@@ -10,19 +10,35 @@ import SwiftUI
 
 class HomeChartViewModel {
     
+    var monthDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM"
+        return dateFormatter
+    }()
+    
     var sortedMonthlyExpensePlots: [LinePlotEntry]?
+    var monthlyGrouping: [String: [Expense]]?
+    
+    var weeklyGroupingDict: [String: [Expense]]?
+    var sortedWeeklyExpensePlots: [LinePlotEntry]?
+    
+    var dailyGroupingDict: [String: [Expense]]?
+    var sortedDailyExpensePlots: [LinePlotEntry]?
     
     func dailyGroupingForCurrentWeek(_ allEntries: [Expense]) -> [String: [Expense]] {
+        if let dailyGroupingDict = dailyGroupingDict {
+            return dailyGroupingDict
+        }
         let now = Date()
         let startOfWeek = now.startOfWeek() ?? now
         let endOfWeek = now.endOfWeek() ?? now
         let currentWeekEntries = allEntries.filter { $0.date >= startOfWeek && $0.date <= endOfWeek }
 
         // Grouping expenses by day of the week
-        let groupedExpenses = Dictionary(grouping: currentWeekEntries, by: { expense in
+        dailyGroupingDict = Dictionary(grouping: currentWeekEntries, by: { expense in
             expense.date.dayOfWeekString()
         })
-        return groupedExpenses
+        return dailyGroupingDict!
     }
 
     func weeklyGrouping(_ allEntries: [Expense]) -> [String: [Expense]] {
@@ -32,17 +48,15 @@ class HomeChartViewModel {
         let currentMonthEntries = allEntries.filter({ $0.date >= startOfMonth && $0.date <= endOfMonth })
 
         // Grouping expenses by week of the month
-        let groupedExpenses = Dictionary(grouping: currentMonthEntries, by: { expense in
+        weeklyGroupingDict = Dictionary(grouping: currentMonthEntries, by: { expense in
             "Week \(expense.date.weekOfMonth())"
         })
-        return groupedExpenses
+        return weeklyGroupingDict!
     }
 
     func monthlyGrouping(_ allEntries: [Expense]) -> [String: [Expense]] {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM"
-        let groupedExpenses = Dictionary(grouping: allEntries, by: { dateFormatter.string(from: $0.date) })
-        return groupedExpenses
+        monthlyGrouping = Dictionary(grouping: allEntries, by: { monthDateFormatter.string(from: $0.date) })
+        return monthlyGrouping!
     }
 
     func getExpenseChartDataPoints(_ filter: ExpenseChartFilter, _ allEntries: [Expense]) -> [LinePlotEntry] {
@@ -72,23 +86,31 @@ class HomeChartViewModel {
     }
     
     private func dailyWiseExpense(_ allEntries: [Expense]) -> [LinePlotEntry] {
+        if let sortedDailyExpensePlots = self.sortedDailyExpensePlots {
+            return sortedDailyExpensePlots
+        }
         var dailyExpenseList: [LinePlotEntry] = []
         for (_, entries) in dailyGroupingForCurrentWeek(allEntries) {
             let totalCost = entries.reduce(0) { $0 + $1.cost }
             let dayExpensePoint = LinePlotEntry(xValueType: "Day", yValueType: "Expense", xValue: entries[0].date, yValue: totalCost)
             dailyExpenseList.append(dayExpensePoint)
         }
-        return dailyExpenseList.sorted(using: KeyPathComparator(\.xValue))
+        sortedDailyExpensePlots = dailyExpenseList.sorted(using: KeyPathComparator(\.xValue))
+        return sortedDailyExpensePlots!
     }
 
     private func weekWiseExpense(_ allEntries: [Expense]) -> [LinePlotEntry] {
+        if let sortedWeeklyExpensePlots = self.sortedWeeklyExpensePlots {
+            return sortedWeeklyExpensePlots
+        }
         var weeklyExpenseList: [LinePlotEntry] = []
         for (_, entries) in weeklyGrouping(allEntries) {
             let totalCost = entries.reduce(0) { $0 + $1.cost }
             let weekExpensePoint = LinePlotEntry(xValueType: "Week", yValueType: "Expense", xValue: entries[0].date, yValue: totalCost)
             weeklyExpenseList.append(weekExpensePoint)
         }
-        return weeklyExpenseList.sorted(using: KeyPathComparator(\.xValue))
+        self.sortedWeeklyExpensePlots = weeklyExpenseList.sorted(using: KeyPathComparator(\.xValue))
+        return sortedWeeklyExpensePlots!
     }
 
     private func monthWiseExpense(_ allEntries: [Expense]) -> [LinePlotEntry] {
@@ -130,5 +152,34 @@ class HomeChartViewModel {
     
     private func getDayStringFromDate(date: Date) -> String {
         return date.dayOfWeekString()
+    }
+    
+    
+    func getExpenseForChartDataPoint(_ selectedChartPoint: Date?, _ filter: ExpenseChartFilter, _ allEntries: [Expense]) -> Double {
+        switch filter {
+        case .monthly:
+            if let selectedChartPoint {
+                return monthlyGrouping(allEntries)[monthDateFormatter.string(from: selectedChartPoint)]?.reduce(0, {$0 + $1.cost}) ?? 0
+            } else {
+                let monthWiseLastExpense = monthWiseExpense(allEntries).last
+                return monthWiseLastExpense?.yValue ?? 0
+            }
+        case .weekly:
+            if let selectedChartPoint {
+                return weeklyGrouping(allEntries)["Week \(selectedChartPoint.weekOfMonth())"]?.reduce(0, {$0 + $1.cost}) ?? 0
+            } else {
+                let weekWiseLastExpense = weekWiseExpense(allEntries).last
+                return weekWiseLastExpense?.yValue ?? 0
+            }
+        case .daily:
+            if let selectedChartPoint {
+                return dailyGroupingForCurrentWeek(allEntries)[selectedChartPoint.dayOfWeekString()]?.reduce(0, {$0 + $1.cost}) ?? 0
+            } else {
+                let dayWiseLastExpense = dailyWiseExpense(allEntries).last
+                return dayWiseLastExpense?.yValue ?? 0
+            }
+        default:
+            return 0
+        }
     }
 }

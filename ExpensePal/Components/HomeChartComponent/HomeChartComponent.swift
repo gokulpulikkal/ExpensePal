@@ -13,6 +13,9 @@ struct HomeChartComponent: View {
     @Query var expenseList: [Expense]
     @State private var selectedIndex: Int? = nil
     @State var selectedDateInChart: Date?
+    
+    @State var persistentSelectedDate: Date?
+    
     let viewModel = HomeChartViewModel()
     var filter: ExpenseChartFilter
 
@@ -32,19 +35,24 @@ struct HomeChartComponent: View {
 
     var body: some View {
         VStack {
-            Text(0, format: .currency(code: "USD"))
+            Text(viewModel.getExpenseForChartDataPoint(persistentSelectedDate, filter, expenseList), format: .currency(code: "USD"))
                 .bold()
                 .font(.largeTitle)
+                .animation(.easeInOut, value: persistentSelectedDate?.dayOfWeekString())
             chart
-            Text(selectedDateInChart ?? Date.now, style: .date)
         }
+        .onChange(of: selectedDateInChart, {
+            if selectedDateInChart != nil {
+                persistentSelectedDate = selectedDateInChart
+            }
+        })
     }
 
     var chart: some View {
         Chart(viewModel.getExpenseChartDataPoints(filter, expenseList)) { dataPoint in
             LineMark(x: .value(dataPoint.xValueType, dataPoint.xValue, unit: viewModel.getXAxisUnit(filter)), y: .value(dataPoint.yValueType, dataPoint.yValue))
                 .symbol(symbol: {
-                    if (selectedDateInChart != nil && Calendar.current.isDate(selectedDateInChart!, equalTo: dataPoint.xValue, toGranularity: viewModel.getXAxisUnit(filter))) {
+                    if (persistentSelectedDate != nil && Calendar.current.isDate(persistentSelectedDate!, equalTo: dataPoint.xValue, toGranularity: viewModel.getXAxisUnit(filter))) {
                         Circle()
                             .stroke(lineWidth: 5)
                             .frame(width: 17)
@@ -59,10 +67,11 @@ struct HomeChartComponent: View {
         .aspectRatio(1.5, contentMode: .fit)
         .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
         .animation(Animation.easeInOut(duration: 0.1), value: filter)
+        
     }
 }
 
 #Preview {
-    HomeChartComponent(.weekly)
+    HomeChartComponent(.daily)
         .modelContainer(previewContainer)
 }
