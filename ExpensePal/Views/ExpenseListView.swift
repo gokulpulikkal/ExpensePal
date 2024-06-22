@@ -9,13 +9,11 @@ import SwiftUI
 
 struct ExpenseListView: View {
     var body: some View {
-        ZStack {
-            Text("ExpenseListView")
-                .bold()
-        }
+        ExpenseSearchView()
     }
 }
 
 #Preview {
     ExpenseListView()
+        .modelContainer(previewContainer)
 }

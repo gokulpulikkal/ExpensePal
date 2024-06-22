@@ -16,7 +16,7 @@ struct ExpenseListCell: View {
             VStack(alignment: .leading) {
                 Text(expense.title)
                     .bold()
-                Text(expense.subTitle)
+                Text(expense.date, style: .date)
                     .font(.footnote)
                     .foregroundStyle(.gray)
             }

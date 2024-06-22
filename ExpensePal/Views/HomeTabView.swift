@@ -15,7 +15,7 @@ struct HomeTabView: View {
     var body: some View {
         VStack {
             getMainView(currentTab)
-                .animation(.easeInOut(duration: 0.3), value: currentTab)
+                .animation(.easeInOut(duration: 0.1), value: currentTab)
             Spacer()
             CustomTabBar(selectedTab: $selectedTab)
                 .frame(height: 30)

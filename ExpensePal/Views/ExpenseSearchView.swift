@@ -14,10 +14,12 @@ struct ExpenseSearchView: View {
     @State var selectedFilter: ExpenseSearchFilter = ExpenseSearchFilter.thisMonth
 
     var body: some View {
-        headerView
-            .padding(.top, 20)
-        ExpenseList(queryDescriptor: Expense.getFetchDescriptorForFilter(selectedFilter), searchText: searchText)
-        Spacer()
+        VStack {
+            headerView
+                .padding(.top, 20)
+            ExpenseList(queryDescriptor: Expense.getFetchDescriptorForFilter(selectedFilter), searchText: searchText)
+            Spacer()
+        }
     }
 
     var headerView: some View {
