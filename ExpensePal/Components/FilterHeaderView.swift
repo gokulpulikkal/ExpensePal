@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FilterHeaderView: View {
     @Binding var chartFilter: ExpenseChartFilter
-    @State var showPicker: Bool = false
+    @Binding var didTapSearchIcon: Bool
 
     var body: some View {
         HStack(spacing: 20) {
@@ -25,17 +25,19 @@ struct FilterHeaderView: View {
                 }
             } label: {
                 RoundedStrokeButton(text: Text(chartFilter.description), image: Image(systemName: "chevron.down"), action: {
-                    showPicker.toggle()
                 })
             }
             .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
             Image(systemName: "magnifyingglass")
                 .resizable()
                 .frame(width: 25, height: 25)
+                .onTapGesture {
+                    didTapSearchIcon = true
+                }
         }
     }
 }
 
 #Preview {
-    FilterHeaderView(chartFilter: .constant(.daily))
+    FilterHeaderView(chartFilter: .constant(.daily), didTapSearchIcon: .constant(false) )
 }

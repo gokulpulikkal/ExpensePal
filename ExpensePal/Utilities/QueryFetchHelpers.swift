@@ -33,4 +33,34 @@ extension Expense {
         fetch.fetchLimit = 10
         return fetch
     }
+    
+    static func currentMonthPredicate() -> Predicate<Expense> {
+        let firstDayOfMonth = Date().startOfMonth() ?? Date.now
+
+        return #Predicate<Expense> { expense in
+            expense.date >= firstDayOfMonth
+        }
+    }
+    
+    static func currentWeekPredicate() -> Predicate<Expense> {
+        let firstDayOfWeek = Date().startOfWeek() ?? Date.now
+
+        return #Predicate<Expense> { expense in
+            expense.date >= firstDayOfWeek
+        }
+    }
+    
+    static func getFetchDescriptorForFilter(_ filter: ExpenseSearchFilter) -> FetchDescriptor<Expense> {
+        var fetch = FetchDescriptor<Expense>()
+        fetch.sortBy = [SortDescriptor(\Expense.date, order: .reverse)]
+        switch filter {
+        case .thisWeek:
+            fetch.predicate = currentWeekPredicate()
+        case .thisMonth:
+            fetch.predicate = currentMonthPredicate()
+        case .thisYear:
+            fetch.predicate = currentYearPredicate()
+        }
+        return fetch
+    }
 }

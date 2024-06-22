@@ -14,12 +14,13 @@ struct DashboardView: View {
     
     @Query(Expense.firstTen()) var expenseList: [Expense]
     @State var chartFilter: ExpenseChartFilter = .daily
+    @State var presentingSearchView = false
 
     var body: some View {
         ScrollView {
             VStack(spacing:0) {
                 Spacer()
-                FilterHeaderView(chartFilter: $chartFilter)
+                FilterHeaderView(chartFilter: $chartFilter, didTapSearchIcon: $presentingSearchView)
                 HomeChartComponent(chartFilter)
                     .frame(height: 370)
                 recentExpenseList()
@@ -28,6 +29,10 @@ struct DashboardView: View {
         .onAppear(perform: {
             viewModel.expenseList = self.expenseList
         })
+        .sheet(isPresented: $presentingSearchView) {
+            ExpenseSearchView()
+        }
+        
     }
 
     func recentExpenseList() -> some View {

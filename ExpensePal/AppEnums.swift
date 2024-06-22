@@ -29,3 +29,19 @@ enum ExpenseChartFilter: String, CaseIterable, Identifiable {
         }
     }
 }
+
+enum ExpenseSearchFilter: String, CaseIterable, Identifiable {
+    case thisWeek
+    case thisMonth
+    case thisYear
+    
+    var id: Self { self }
+    
+    var description: String {
+        switch self {
+        case .thisWeek: return "This Week"
+        case .thisMonth: return "This Month"
+        case .thisYear: return "This Year"
+        }
+    }
+}
