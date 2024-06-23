@@ -41,12 +41,13 @@ struct DashboardView: View {
                 // Here goes the items
                 ForEach(expenseList, id: \.id) { expense in
                     ExpenseListCell(expense: expense)
+                        .padding(.vertical, 5)
                 }
             } header: {
                 RecentExpenseListHeader()
             }
         }
-        .padding()
+        .padding(.horizontal, 20)
     }
 
     func RecentExpenseListHeader() -> some View {

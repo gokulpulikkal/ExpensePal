@@ -24,6 +24,11 @@ struct ExpenseListCell: View {
             Text(expense.cost, format: .currency(code: "USD"))
                 .bold()
         }
+//        .padding()
+//        .background {
+//            RoundedRectangle(cornerRadius: 10)
+//                .stroke(lineWidth: 1)
+//        }
     }
 }
 

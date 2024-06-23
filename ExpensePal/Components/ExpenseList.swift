@@ -27,6 +27,7 @@ struct ExpenseList: View {
                         // Here goes the items
                         ForEach(searchResults, id: \.id) { expense in
                             ExpenseListCell(expense: expense)
+                                .padding(.vertical, 5)
                         }
                     }
                 }
