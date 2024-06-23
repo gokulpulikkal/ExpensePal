@@ -13,6 +13,7 @@ struct ExpensePalApp: App {
     var body: some Scene {
         WindowGroup {
             HomeTabView()
+                .modifier(DarkModeViewModifier())
         }
         .modelContainer(for: Expense.self)
     }

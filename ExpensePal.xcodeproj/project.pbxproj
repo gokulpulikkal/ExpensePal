@@ -38,6 +38,7 @@
 		4BF317EA2C23AA3F00DC378B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF317E92C23AA3F00DC378B /* Extensions.swift */; };
 		4BF317EC2C274BE600DC378B /* ExpenseSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF317EB2C274BE600DC378B /* ExpenseSearchView.swift */; };
 		4BF317EE2C275F0D00DC378B /* ExpenseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF317ED2C275F0D00DC378B /* ExpenseList.swift */; };
+		4BF317F42C27B77700DC378B /* DarkModeViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF317F32C27B77700DC378B /* DarkModeViewModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		4BF317E92C23AA3F00DC378B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4BF317EB2C274BE600DC378B /* ExpenseSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseSearchView.swift; sourceTree = "<group>"; };
 		4BF317ED2C275F0D00DC378B /* ExpenseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseList.swift; sourceTree = "<group>"; };
+		4BF317F32C27B77700DC378B /* DarkModeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 			children = (
 				4BF317E62C23344D00DC378B /* QueryFetchHelpers.swift */,
 				4BF317E92C23AA3F00DC378B /* Extensions.swift */,
+				4BF317F32C27B77700DC378B /* DarkModeViewModifier.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				4BE52ECD2C1EAC08002CF094 /* HomeChartComponent.swift in Sources */,
 				4B47FB432C20B83C006457E3 /* PreviewData.swift in Sources */,
 				4BF317E72C23344D00DC378B /* QueryFetchHelpers.swift in Sources */,
+				4BF317F42C27B77700DC378B /* DarkModeViewModifier.swift in Sources */,
 				4B1562472C1682AF001A0F57 /* HomeTabView.swift in Sources */,
 				4BE52EC92C1E6E20002CF094 /* CustomTabBar.swift in Sources */,
 				4B47FB202C1F773D006457E3 /* KeyPad.swift in Sources */,

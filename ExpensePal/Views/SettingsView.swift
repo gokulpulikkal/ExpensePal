@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @State var isDarkModeActive: Bool = false
+    @AppStorage("isDarkMode") var isDarkMode: Bool = true
     var body: some View {
         VStack(alignment: .leading) {
             pageTitle
@@ -59,7 +59,7 @@ struct SettingsView: View {
                 .frame(width: 25, height: 25)
             Text("Dark Mode")
             Spacer()
-            Toggle("", isOn: $isDarkModeActive)
+            Toggle("", isOn: $isDarkMode)
                 .tint(Color(AppColors.primaryAccent.rawValue))
         }
         .padding()
