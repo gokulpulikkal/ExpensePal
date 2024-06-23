@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @AppStorage("isDarkMode") var isDarkMode: Bool = true
+    @AppStorage("isLightMode") var isLightMode: Bool = true
     var body: some View {
         VStack(alignment: .leading) {
             pageTitle
@@ -57,9 +57,9 @@ struct SettingsView: View {
             Image(systemName: "sun.max")
                 .resizable()
                 .frame(width: 25, height: 25)
-            Text("Dark Mode")
+            Text("Light Mode")
             Spacer()
-            Toggle("", isOn: $isDarkMode)
+            Toggle("", isOn: $isLightMode)
                 .tint(Color(AppColors.primaryAccent.rawValue))
         }
         .padding()

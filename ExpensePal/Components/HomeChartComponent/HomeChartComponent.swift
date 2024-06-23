@@ -91,11 +91,11 @@ struct HomeChartComponent: View {
         }
         .chartXSelection(value: $selectedDateInChart)
         .chartYAxis(.hidden)
-        .chartXAxis(.hidden)
+//        .chartXAxis(.hidden)
         .aspectRatio(1.5, contentMode: .fit)
         .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
         .animation(Animation.easeInOut(duration: 0.1), value: filter)
-        
+        .padding(.horizontal)
     }
 }
 

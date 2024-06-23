@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct DarkModeViewModifier: ViewModifier {
-    @AppStorage("isDarkMode") var isDarkMode: Bool = true
+    @AppStorage("isLightMode") var isLightMode: Bool = true
 
     public func body(content: Content) -> some View {
         content
-            .preferredColorScheme(isDarkMode ? .dark : isDarkMode == false ? .light : nil)
+            .preferredColorScheme(isLightMode ? .light : isLightMode == false ? .dark : nil)
     }
 }
