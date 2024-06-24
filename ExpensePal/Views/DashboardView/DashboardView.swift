@@ -19,10 +19,10 @@ struct DashboardView: View {
     var body: some View {
         ScrollView {
             VStack(spacing:0) {
-                Spacer()
                 FilterHeaderView(chartFilter: $chartFilter, didTapSearchIcon: $presentingSearchView)
                 HomeChartComponent(chartFilter)
-                    .frame(height: 370)
+                    .frame(height: 300)
+                    .padding(.vertical)
                 recentExpenseList()
             }
         }

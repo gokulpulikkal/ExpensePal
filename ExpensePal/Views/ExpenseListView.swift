@@ -9,7 +9,22 @@ import SwiftUI
 
 struct ExpenseListView: View {
     var body: some View {
-        ExpenseSearchView()
+        ScrollView {
+            pageTitle
+            ExpenseSearchView()
+                .padding(.vertical, -20)
+        }
+    }
+    
+    var pageTitle: some View {
+        HStack {
+            Text("All Expenses")
+                .font(.system(size: 32))
+                .fontWeight(.bold)
+                .bold()
+            Spacer()
+        }
+        .padding()
     }
 }
 

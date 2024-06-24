@@ -5,7 +5,7 @@
 //  Created by Gokul P on 19/06/24.
 //
 
-import Foundation
+import SwiftUI
 
 extension Date {
     func year(using calendar: Calendar = .current) -> Int {
@@ -59,5 +59,16 @@ extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE" // Full day name
         return dateFormatter.string(from: self)
+    }
+}
+
+extension View {
+    var isPresentedModally: Bool {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let window = windowScene.windows.first
+        else {
+            return false
+        }
+        return window.rootViewController?.presentedViewController != nil
     }
 }

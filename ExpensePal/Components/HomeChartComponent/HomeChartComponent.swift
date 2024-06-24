@@ -13,9 +13,9 @@ struct HomeChartComponent: View {
     @Query var expenseList: [Expense]
     @State private var selectedIndex: Int? = nil
     @State var selectedDateInChart: Date?
-    
+
     @State var persistentSelectedDate: Date?
-    
+
     let viewModel = HomeChartViewModel()
     var filter: ExpenseChartFilter
 
@@ -66,10 +66,10 @@ struct HomeChartComponent: View {
                 })
                 .interpolationMethod(.catmullRom)
             if let selectedDateInChart {
-                //Rule mark is hidden now.
-                //Only the annotation is what shown to the user
+                // Rule mark is hidden now.
+                // Only the annotation is what shown to the user
                 RuleMark(
-                  x: .value("Selected", selectedDateInChart, unit: .day)
+                    x: .value("Selected", selectedDateInChart, unit: .day)
                 )
                 .foregroundStyle(Color.gray.opacity(0.3))
                 .offset(yStart: -10)
@@ -77,10 +77,10 @@ struct HomeChartComponent: View {
                 .opacity(0)
                 .annotation(
                     position: .bottom, spacing: 0,
-                  overflowResolution: .init(
-                    x: .fit(to: .chart),
-                    y: .disabled
-                  )
+                    overflowResolution: .init(
+                        x: .fit(to: .chart),
+                        y: .disabled
+                    )
                 ) {
                     Text(selectedDateInChart, style: .date)
                         .font(.system(size: 15))
@@ -89,13 +89,16 @@ struct HomeChartComponent: View {
                 }
             }
         }
+        .chartYScale(range: .plotDimension(startPadding: 10, endPadding: 10))
+        .chartXScale(range: .plotDimension(startPadding: 10, endPadding: 10))
         .chartXSelection(value: $selectedDateInChart)
+        .chartScrollableAxes(.horizontal)
+        .chartScrollPosition(initialX: selectedDateInChart ?? Date.now)
         .chartYAxis(.hidden)
 //        .chartXAxis(.hidden)
         .aspectRatio(1.5, contentMode: .fit)
         .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
         .animation(Animation.easeInOut(duration: 0.1), value: filter)
-        .padding(.horizontal)
     }
 }
 

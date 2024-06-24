@@ -24,18 +24,17 @@ class HomeChartViewModel {
     var dailyGroupingDict: [String: [Expense]]?
     var sortedDailyExpensePlots: [LinePlotEntry]?
 
-    func dailyGroupingForCurrentWeek(_ allEntries: [Expense]) -> [String: [Expense]] {
+    func dailyGroupingForCurrentYear(_ allEntries: [Expense]) -> [String: [Expense]] {
         if let dailyGroupingDict = dailyGroupingDict {
             return dailyGroupingDict
         }
         let now = Date()
-        let startOfWeek = now.startOfWeek() ?? now
-        let endOfWeek = now.endOfWeek() ?? now
-        let currentWeekEntries = allEntries.filter { $0.date >= startOfWeek && $0.date <= endOfWeek }
-
+        let currentYearEntries = allEntries.filter { $0.date >= now.firstDayOfYear() ?? now }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd" // Full day name
         // Grouping expenses by day of the week
-        dailyGroupingDict = Dictionary(grouping: currentWeekEntries, by: { expense in
-            expense.date.dayOfWeekString()
+        dailyGroupingDict = Dictionary(grouping: currentYearEntries, by: { expense in
+            dateFormatter.string(from: expense.date)
         })
         return dailyGroupingDict!
     }
@@ -140,7 +139,7 @@ class HomeChartViewModel {
             return sortedDailyExpensePlots
         }
         var dailyExpenseList: [LinePlotEntry] = []
-        for (_, entries) in dailyGroupingForCurrentWeek(allEntries) {
+        for (_, entries) in dailyGroupingForCurrentYear(allEntries) {
             let totalCost = entries.reduce(0) { $0 + $1.cost }
             let dayExpensePoint = LinePlotEntry(xValueType: "Day", yValueType: "Expense", xValue: entries[0].date, yValue: totalCost)
             dailyExpenseList.append(dayExpensePoint)
@@ -222,7 +221,9 @@ class HomeChartViewModel {
             }
         case .daily:
             if let selectedChartPoint {
-                return dailyGroupingForCurrentWeek(allEntries)[selectedChartPoint.dayOfWeekString()]?.reduce(0, { $0 + $1.cost }) ?? 0
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                return dailyGroupingForCurrentYear(allEntries)[dateFormatter.string(from: selectedChartPoint)]?.reduce(0, { $0 + $1.cost }) ?? 0
             } else {
                 let dayWiseLastExpense = dailyWiseExpense(allEntries).last
                 return dayWiseLastExpense?.yValue ?? 0
