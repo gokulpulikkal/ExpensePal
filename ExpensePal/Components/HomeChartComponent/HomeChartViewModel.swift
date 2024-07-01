@@ -24,30 +24,31 @@ class HomeChartViewModel {
     var dailyGroupingDict: [String: [Expense]]?
     var sortedDailyExpensePlots: [LinePlotEntry]?
 
-    func dailyGroupingForCurrentYear(_ allEntries: [Expense]) -> [String: [Expense]] {
+    // Corrected
+    func dailyGroupingForCurrentWeek(_ allEntries: [Expense]) -> [String: [Expense]] {
         if let dailyGroupingDict = dailyGroupingDict {
             return dailyGroupingDict
         }
         let now = Date()
-        let currentYearEntries = allEntries.filter { $0.date >= now.firstDayOfYear() ?? now }
+        let currentWeekEntries = allEntries.filter { $0.date >= now.startOfWeek() ?? now }
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd" // Full day name
+        dateFormatter.dateFormat = "dd" // Full day name
         // Grouping expenses by day of the week
-        dailyGroupingDict = Dictionary(grouping: currentYearEntries, by: { expense in
+        dailyGroupingDict = Dictionary(grouping: currentWeekEntries, by: { expense in
             dateFormatter.string(from: expense.date)
         })
         return dailyGroupingDict!
     }
 
-    func weeklyGrouping(_ allEntries: [Expense]) -> [String: [Expense]] {
+    func weeklyGroupingForCurrentMonth(_ allEntries: [Expense]) -> [String: [Expense]] {
         let now = Date.now
         let startOfMonth = now.startOfMonth() ?? now
         let endOfMonth = now.endOfMonth() ?? now
-        let currentMonthEntries = allEntries.filter({ $0.date >= startOfMonth && $0.date <= endOfMonth })
+        let currentMonthEntries = allEntries.filter({ $0.date >= startOfMonth})
 
         // Grouping expenses by week of the month
         weeklyGroupingDict = Dictionary(grouping: currentMonthEntries, by: { expense in
-            "Week \(expense.date.weekOfMonth())"
+            "\(expense.date.weekOfMonth())"
         })
         return weeklyGroupingDict!
     }
@@ -134,12 +135,13 @@ class HomeChartViewModel {
         }
     }
 
+    // Corrected
     private func dailyWiseExpense(_ allEntries: [Expense]) -> [LinePlotEntry] {
         if let sortedDailyExpensePlots = sortedDailyExpensePlots {
             return sortedDailyExpensePlots
         }
         var dailyExpenseList: [LinePlotEntry] = []
-        for (_, entries) in dailyGroupingForCurrentYear(allEntries) {
+        for (_, entries) in dailyGroupingForCurrentWeek(allEntries) {
             let totalCost = entries.reduce(0) { $0 + $1.cost }
             let dayExpensePoint = LinePlotEntry(xValueType: "Day", yValueType: "Expense", xValue: entries[0].date, yValue: totalCost)
             dailyExpenseList.append(dayExpensePoint)
@@ -153,7 +155,7 @@ class HomeChartViewModel {
             return sortedWeeklyExpensePlots
         }
         var weeklyExpenseList: [LinePlotEntry] = []
-        for (_, entries) in weeklyGrouping(allEntries) {
+        for (_, entries) in weeklyGroupingForCurrentMonth(allEntries) {
             let totalCost = entries.reduce(0) { $0 + $1.cost }
             let weekExpensePoint = LinePlotEntry(xValueType: "Week", yValueType: "Expense", xValue: entries[0].date, yValue: totalCost)
             weeklyExpenseList.append(weekExpensePoint)
@@ -214,7 +216,7 @@ class HomeChartViewModel {
             }
         case .weekly:
             if let selectedChartPoint {
-                return weeklyGrouping(allEntries)["Week \(selectedChartPoint.weekOfMonth())"]?.reduce(0, { $0 + $1.cost }) ?? 0
+                return weeklyGroupingForCurrentMonth(allEntries)["Week \(selectedChartPoint.weekOfMonth())"]?.reduce(0, { $0 + $1.cost }) ?? 0
             } else {
                 let weekWiseLastExpense = weekWiseExpense(allEntries).last
                 return weekWiseLastExpense?.yValue ?? 0
@@ -223,13 +225,36 @@ class HomeChartViewModel {
             if let selectedChartPoint {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd"
-                return dailyGroupingForCurrentYear(allEntries)[dateFormatter.string(from: selectedChartPoint)]?.reduce(0, { $0 + $1.cost }) ?? 0
+                return dailyGroupingForCurrentWeek(allEntries)[dateFormatter.string(from: selectedChartPoint)]?.reduce(0, { $0 + $1.cost }) ?? 0
             } else {
                 let dayWiseLastExpense = dailyWiseExpense(allEntries).last
                 return dayWiseLastExpense?.yValue ?? 0
             }
         default:
             return 0
+        }
+    }
+    
+    func getXAxisValues(filter: ExpenseChartFilter) -> [Date] {
+        //TODO: This is inefficient way.
+        switch filter {
+        case .daily:
+            if let sortedDailyExpensePlots {
+                return sortedDailyExpensePlots.map{ $0.xValue }
+            }
+            return []
+        case .weekly:
+            if let sortedWeeklyExpensePlots {
+                return sortedWeeklyExpensePlots.map{ $0.xValue }
+            }
+            return []
+        case .monthly:
+            if let sortedMonthlyExpensePlots {
+                return sortedMonthlyExpensePlots.map{ $0.xValue }
+            }
+            return []
+        default:
+            return []
         }
     }
 }

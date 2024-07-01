@@ -33,6 +33,9 @@
 		4BE52ECD2C1EAC08002CF094 /* HomeChartComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE52ECC2C1EAC08002CF094 /* HomeChartComponent.swift */; };
 		4BE52ED02C1F4852002CF094 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE52ECF2C1F4852002CF094 /* MockData.swift */; };
 		4BE52ED22C1F48C9002CF094 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE52ED12C1F48C9002CF094 /* Expense.swift */; };
+		4BEF3A012C30F3C6000F9A63 /* ChartTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEF3A002C30F3C6000F9A63 /* ChartTest.swift */; };
+		4BEF3A042C30FE02000F9A63 /* HomeChartRefactored.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEF3A032C30FE02000F9A63 /* HomeChartRefactored.swift */; };
+		4BEF3A062C30FEE8000F9A63 /* HomeChartRefactoredModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEF3A052C30FEE8000F9A63 /* HomeChartRefactoredModel.swift */; };
 		4BEF4ABC2C1F4AF700CFD46A /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEF4ABB2C1F4AF700CFD46A /* DashboardViewModel.swift */; };
 		4BF317E72C23344D00DC378B /* QueryFetchHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF317E62C23344D00DC378B /* QueryFetchHelpers.swift */; };
 		4BF317EA2C23AA3F00DC378B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF317E92C23AA3F00DC378B /* Extensions.swift */; };
@@ -68,6 +71,9 @@
 		4BE52ECC2C1EAC08002CF094 /* HomeChartComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeChartComponent.swift; sourceTree = "<group>"; };
 		4BE52ECF2C1F4852002CF094 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		4BE52ED12C1F48C9002CF094 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		4BEF3A002C30F3C6000F9A63 /* ChartTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTest.swift; sourceTree = "<group>"; };
+		4BEF3A032C30FE02000F9A63 /* HomeChartRefactored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeChartRefactored.swift; sourceTree = "<group>"; };
+		4BEF3A052C30FEE8000F9A63 /* HomeChartRefactoredModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeChartRefactoredModel.swift; sourceTree = "<group>"; };
 		4BEF4ABB2C1F4AF700CFD46A /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		4BF317E62C23344D00DC378B /* QueryFetchHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryFetchHelpers.swift; sourceTree = "<group>"; };
 		4BF317E92C23AA3F00DC378B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -163,6 +169,8 @@
 		4BBE0AA52C180EB00097392F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				4BEF3A022C30FDE5000F9A63 /* HomeChartComponentRefactored */,
+				4BEF39FF2C30F3AD000F9A63 /* ChartTest */,
 				4BBE0AA62C1810B00097392F /* FilterHeaderView.swift */,
 				4B9EAD662C19410100A455AD /* TestView.swift */,
 				4BE52EC82C1E6E20002CF094 /* CustomTabBar.swift */,
@@ -194,6 +202,23 @@
 				4BEF4ABB2C1F4AF700CFD46A /* DashboardViewModel.swift */,
 			);
 			path = DashboardView;
+			sourceTree = "<group>";
+		};
+		4BEF39FF2C30F3AD000F9A63 /* ChartTest */ = {
+			isa = PBXGroup;
+			children = (
+				4BEF3A002C30F3C6000F9A63 /* ChartTest.swift */,
+			);
+			path = ChartTest;
+			sourceTree = "<group>";
+		};
+		4BEF3A022C30FDE5000F9A63 /* HomeChartComponentRefactored */ = {
+			isa = PBXGroup;
+			children = (
+				4BEF3A032C30FE02000F9A63 /* HomeChartRefactored.swift */,
+				4BEF3A052C30FEE8000F9A63 /* HomeChartRefactoredModel.swift */,
+			);
+			path = HomeChartComponentRefactored;
 			sourceTree = "<group>";
 		};
 		4BF317E82C233A0400DC378B /* Utilities */ = {
@@ -291,11 +316,13 @@
 				4B1562432C167E14001A0F57 /* SettingsView.swift in Sources */,
 				4BE52ED02C1F4852002CF094 /* MockData.swift in Sources */,
 				4BBE0AA72C1810B00097392F /* FilterHeaderView.swift in Sources */,
+				4BEF3A042C30FE02000F9A63 /* HomeChartRefactored.swift in Sources */,
 				4BEF4ABC2C1F4AF700CFD46A /* DashboardViewModel.swift in Sources */,
 				4B1562492C16871C001A0F57 /* AppEnums.swift in Sources */,
 				4B47FB482C21FF53006457E3 /* LinePlotEntry.swift in Sources */,
 				4BE52ECD2C1EAC08002CF094 /* HomeChartComponent.swift in Sources */,
 				4B47FB432C20B83C006457E3 /* PreviewData.swift in Sources */,
+				4BEF3A012C30F3C6000F9A63 /* ChartTest.swift in Sources */,
 				4BF317E72C23344D00DC378B /* QueryFetchHelpers.swift in Sources */,
 				4BF317F42C27B77700DC378B /* DarkModeViewModifier.swift in Sources */,
 				4B1562472C1682AF001A0F57 /* HomeTabView.swift in Sources */,
@@ -306,6 +333,7 @@
 				4B47FB1C2C1F68D3006457E3 /* RoundedStrokeButton.swift in Sources */,
 				4BF317EA2C23AA3F00DC378B /* Extensions.swift in Sources */,
 				4BF317EC2C274BE600DC378B /* ExpenseSearchView.swift in Sources */,
+				4BEF3A062C30FEE8000F9A63 /* HomeChartRefactoredModel.swift in Sources */,
 				4BF317EE2C275F0D00DC378B /* ExpenseList.swift in Sources */,
 				4B1562412C167E05001A0F57 /* ExpenseChartView.swift in Sources */,
 				4B15623F2C167DED001A0F57 /* ExpenseListView.swift in Sources */,
@@ -369,7 +397,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -426,7 +454,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

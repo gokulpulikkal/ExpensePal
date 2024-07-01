@@ -10,9 +10,9 @@ import SwiftUI
 struct LinePlotEntry: Identifiable {
     let xValueType: String
     let yValueType: String
-    
+
     let xValue: Date
     let yValue: Double
-    
+
     var id = UUID()
 }
