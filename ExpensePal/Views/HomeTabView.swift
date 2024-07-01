@@ -14,7 +14,7 @@ struct HomeTabView: View {
     
     var body: some View {
         VStack {
-            HomeChartRefactored(.daily)
+            HomeChartRefactored(.weekly)
             getMainView(currentTab)
                 .animation(.easeInOut(duration: 0.1), value: currentTab)
             Spacer()

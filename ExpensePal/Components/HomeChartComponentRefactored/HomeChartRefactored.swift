@@ -35,15 +35,15 @@ struct HomeChartRefactored: View {
 
     var body: some View {
         Chart {
-            ForEach(viewModel.getExpenseChartDataPoints(.daily, expenseList), id: \.id) { data in
+            ForEach(viewModel.getExpenseChartDataPoints(self.filter, expenseList), id: \.id) { data in
                 LineMark(
-                    x: .value(data.xValueType, viewModel.formatDateToDayOfWeek(date: data.xValue)),
+                    x: .value(data.xValueType, viewModel.formatDateToWeekOfMonth(date: data.xValue)),
                     y: .value(data.yValueType, data.yValue)
                 )
                 .interpolationMethod(.catmullRom)
             }
         }
-        .chartYScale(domain: [viewModel.minYRange - 5, viewModel.maxYRange + 5])
+        .chartYScale(domain: [viewModel.minYRange - 20, viewModel.maxYRange + 10])
         .padding()
     }
 }
