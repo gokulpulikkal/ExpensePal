@@ -29,6 +29,20 @@ struct HomeChartRefactored: View {
     }
 
     var body: some View {
+        VStack {
+            Text(viewModel.totalExpenseWithFilter, format: .currency(code: "USD"))
+                .bold()
+                .font(.largeTitle)
+            chartView()
+        }
+        .onChange(of: viewModel.selectedDateStringInChart) {
+            if viewModel.selectedDateStringInChart != nil {
+                viewModel.persistentSelectedDateString = viewModel.selectedDateStringInChart
+            }
+        }
+    }
+
+    private func chartView() -> some View {
         Chart {
             ForEach(viewModel.getExpenseChartDataPoints(filter, expenseList), id: \.id) { data in
                 LineMark(
@@ -44,17 +58,12 @@ struct HomeChartRefactored: View {
                 }
             }
         }
+        .chartYAxis(.hidden)
         .chartXSelection(value: $viewModel.selectedDateStringInChart)
         .chartYScale(domain: [viewModel.minYRange - 20, viewModel.maxYRange + 10])
         .aspectRatio(1.5, contentMode: .fit)
         .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
         .animation(Animation.easeInOut(duration: 0.1), value: filter)
-        .padding()
-        .onChange(of: viewModel.selectedDateStringInChart) {
-            if viewModel.selectedDateStringInChart != nil {
-                viewModel.persistentSelectedDateString = viewModel.selectedDateStringInChart
-            }
-        }
     }
 
     private func chartSymbol(for xValue: Date) -> some View {
@@ -92,9 +101,12 @@ struct HomeChartRefactored: View {
                     .background {
                         Capsule(style: .circular)
                             .stroke(lineWidth: 2)
-                            .background(.white)
+                            .background(Color(AppColors.primaryBackground.rawValue))
                     }
-                    
+                    .clipShape(
+                        Capsule(style: .circular)
+                    )
+
                 Rectangle()
                     .frame(height: 5)
                     .opacity(0)
@@ -104,6 +116,6 @@ struct HomeChartRefactored: View {
 }
 
 #Preview {
-    HomeChartRefactored(.daily)
+    HomeChartRefactored(.monthly)
         .modelContainer(previewContainer)
 }

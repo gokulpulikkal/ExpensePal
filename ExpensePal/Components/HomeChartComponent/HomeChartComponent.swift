@@ -122,6 +122,6 @@ struct HomeChartComponent: View {
 }
 
 #Preview {
-    HomeChartComponent(.weekly)
+    HomeChartComponent(.monthly)
         .modelContainer(previewContainer)
 }
