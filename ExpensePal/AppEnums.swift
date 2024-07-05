@@ -22,9 +22,9 @@ enum ExpenseChartFilter: String, CaseIterable, Identifiable {
 
     var description: String {
         switch self {
-        case .daily: return "Daily"
-        case .weekly: return "Weekly"
-        case .monthly: return "Monthly"
+        case .daily: return "This week"
+        case .weekly: return "This month"
+        case .monthly: return "This Year"
         case .yearly: return "Yearly"
         }
     }

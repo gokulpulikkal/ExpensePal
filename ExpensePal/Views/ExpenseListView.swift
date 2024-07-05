@@ -9,10 +9,10 @@ import SwiftUI
 
 struct ExpenseListView: View {
     var body: some View {
-        ScrollView {
+        VStack {
             pageTitle
             ExpenseSearchView()
-                .padding(.vertical, -20)
+                .padding(.top, -20)
         }
     }
     

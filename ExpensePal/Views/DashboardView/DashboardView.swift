@@ -20,7 +20,7 @@ struct DashboardView: View {
         ScrollView {
             VStack(spacing:0) {
                 FilterHeaderView(chartFilter: $chartFilter, didTapSearchIcon: $presentingSearchView)
-                HomeChartComponent(chartFilter)
+                HomeChartRefactored(chartFilter)
                     .frame(height: 300)
                     .padding(.vertical)
                 recentExpenseList()

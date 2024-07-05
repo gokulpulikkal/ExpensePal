@@ -26,7 +26,7 @@ struct AddExpenseView: View {
                                 image: Image(systemName: "camera.viewfinder"), action: {
                                 }
             )
-            .padding(.bottom)
+            .padding(.vertical)
             VStack(spacing: 8) {
                 Text(Double(keyPadInput) ?? 0, format: .currency(code: "USD"))
                     .bold()
@@ -34,7 +34,6 @@ struct AddExpenseView: View {
             }
             expenseInputView()
             KeyPad(string: $keyPadInput)
-                .padding(.vertical)
 
             Button("Done") {
                 if let expense = getInputExpense() {
