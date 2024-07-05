@@ -87,44 +87,6 @@ extension HomeChartRefactored {
         }
 
         private func monthWiseExpense(_ allEntries: [Expense]) -> [LinePlot] {
-            let expenses: [Expense] = [
-                Expense(
-                    emoji: "🍎",
-                    title: "Groceries",
-                    subTitle: "Supermarket",
-                    cost: 50.0,
-                    date: getDate(daysOffset: 0)
-                ),
-                Expense(emoji: "☕️", title: "Coffee", subTitle: "Cafe", cost: 5.0, date: getDate(daysOffset: 0)),
-                Expense(emoji: "🍕", title: "Lunch", subTitle: "Pizza Place", cost: 20.0, date: getDate(daysOffset: 1)),
-                Expense(emoji: "📚", title: "Books", subTitle: "Bookstore", cost: 30.0, date: getDate(daysOffset: 32)),
-                Expense(emoji: "🎬", title: "Movie", subTitle: "Cinema", cost: 15.0, date: getDate(daysOffset: 33)),
-                Expense(emoji: "🏋️‍♂️", title: "Gym", subTitle: "Fitness Club", cost: 40.0, date: getDate(daysOffset: 67)),
-                Expense(
-                    emoji: "🍎",
-                    title: "Groceries",
-                    subTitle: "Supermarket",
-                    cost: 50.0,
-                    date: getDate(daysOffset: 99)
-                ),
-                Expense(emoji: "☕️", title: "Coffee", subTitle: "Cafe", cost: 5.0, date: getDate(daysOffset: 10)),
-                Expense(
-                    emoji: "🍕",
-                    title: "Lunch",
-                    subTitle: "Pizza Place",
-                    cost: 20.0,
-                    date: getDate(daysOffset: 121)
-                ),
-                Expense(emoji: "📚", title: "Books", subTitle: "Bookstore", cost: 30.0, date: getDate(daysOffset: 152)),
-                Expense(emoji: "🎬", title: "Movie", subTitle: "Cinema", cost: 15.0, date: getDate(daysOffset: 12)),
-                Expense(emoji: "🏋️‍♂️", title: "Gym", subTitle: "Fitness Club", cost: 40.0, date: getDate(daysOffset: 163)),
-                Expense(emoji: "🍔", title: "Dinner", subTitle: "Restaurant", cost: 25.0, date: getDate(daysOffset: 177))
-            ]
-
-            for expense in expenses {
-                print(Calendar.current.component(.month, from: expense.date))
-            }
-
             var expensesByMonth: [Date: [Expense]] = [:]
 
             // Get the current calendar and the current date
@@ -143,7 +105,7 @@ extension HomeChartRefactored {
                 }
             }
 
-            for expense in expenses {
+            for expense in allEntries {
                 if var startOfMonth = expense.date.startOfMonth() {
                     expensesByMonth[startOfMonth]?.append(expense)
                 }
@@ -240,39 +202,6 @@ extension HomeChartRefactored {
         }
 
         private func dailyWiseExpense(_ allEntries: [Expense]) -> [LinePlot] {
-            let expenses: [Expense] = [
-                Expense(
-                    emoji: "🍎",
-                    title: "Groceries",
-                    subTitle: "Supermarket",
-                    cost: 50.0,
-                    date: getDate(daysOffset: 0)
-                ),
-                Expense(emoji: "☕️", title: "Coffee", subTitle: "Cafe", cost: 5.0, date: getDate(daysOffset: 0)),
-                Expense(emoji: "🍕", title: "Lunch", subTitle: "Pizza Place", cost: 20.0, date: getDate(daysOffset: 1)),
-                Expense(emoji: "📚", title: "Books", subTitle: "Bookstore", cost: 30.0, date: getDate(daysOffset: 32)),
-                Expense(emoji: "🎬", title: "Movie", subTitle: "Cinema", cost: 15.0, date: getDate(daysOffset: 33)),
-                Expense(emoji: "🏋️‍♂️", title: "Gym", subTitle: "Fitness Club", cost: 40.0, date: getDate(daysOffset: 67)),
-                Expense(
-                    emoji: "🍎",
-                    title: "Groceries",
-                    subTitle: "Supermarket",
-                    cost: 50.0,
-                    date: getDate(daysOffset: 99)
-                ),
-                Expense(emoji: "☕️", title: "Coffee", subTitle: "Cafe", cost: 5.0, date: getDate(daysOffset: 10)),
-                Expense(
-                    emoji: "🍕",
-                    title: "Lunch",
-                    subTitle: "Pizza Place",
-                    cost: 20.0,
-                    date: getDate(daysOffset: 121)
-                ),
-                Expense(emoji: "📚", title: "Books", subTitle: "Bookstore", cost: 30.0, date: getDate(daysOffset: 152)),
-                Expense(emoji: "🎬", title: "Movie", subTitle: "Cinema", cost: 15.0, date: getDate(daysOffset: 12)),
-                Expense(emoji: "🏋️‍♂️", title: "Gym", subTitle: "Fitness Club", cost: 40.0, date: getDate(daysOffset: 163)),
-                Expense(emoji: "🍔", title: "Dinner", subTitle: "Restaurant", cost: 25.0, date: getDate(daysOffset: 177))
-            ]
             // From here to
             var expensesByDay: [Date: [Expense]] = [:]
 
@@ -296,7 +225,7 @@ extension HomeChartRefactored {
             }
 
             // Populate expensesByDay with actual expenses
-            for expense in expenses {
+            for expense in allEntries {
                 let date = calendar.startOfDay(for: expense.date)
                 expensesByDay[date]?.append(expense)
             }

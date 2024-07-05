@@ -32,15 +32,21 @@ struct HomeChartRefactored: View {
 
     var body: some View {
         VStack {
-            Text(viewModel.getTotalExpenseForPlot(viewModel.getExpenseChartDataPoints(filter, expenseList)), format: .currency(code: "USD"))
-                .bold()
-                .font(.largeTitle)
+            Text(
+                viewModel.getTotalExpenseForPlot(viewModel.getExpenseChartDataPoints(filter, expenseList)),
+                format: .currency(code: "USD")
+            )
+            .bold()
+            .font(.largeTitle)
             chartView()
         }
         .onChange(of: selectedDateStringInChart) {
             if selectedDateStringInChart != nil {
                 persistentSelectedDateString = selectedDateStringInChart
             }
+        }
+        .onChange(of: filter) {
+            persistentSelectedDateString = nil
         }
     }
 
@@ -70,7 +76,13 @@ struct HomeChartRefactored: View {
 
     private func chartSymbol(for xValue: Date) -> some View {
         VStack {
-            if viewModel.getExpenseChartDataPointsXValue(filter, xValue) == persistentSelectedDateString || (persistentSelectedDateString == nil && viewModel.getExpenseChartDataPointsXValue(filter, xValue) == viewModel.lastDataPointDateString) {
+            if viewModel
+                .getExpenseChartDataPointsXValue(filter, xValue) == persistentSelectedDateString ||
+                (persistentSelectedDateString == nil && viewModel.getExpenseChartDataPointsXValue(
+                    filter,
+                    xValue
+                ) == viewModel.lastDataPointDateString)
+            {
                 Circle()
                     .stroke(lineWidth: 5)
                     .frame(width: 17)
