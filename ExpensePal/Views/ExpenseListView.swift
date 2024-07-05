@@ -12,7 +12,7 @@ struct ExpenseListView: View {
         VStack {
             pageTitle
             ExpenseSearchView()
-                .padding(.vertical, -20)
+                .padding(.top, -20)
         }
     }
     
