@@ -11,9 +11,11 @@ import SwiftUI
 
 struct HomeChartRefactored: View {
     @Query var expenseList: [Expense]
-    @State var viewModel = ViewModel()
-
+    var viewModel = ViewModel()
     var filter: ExpenseChartFilter
+
+    @State var selectedDateStringInChart: String?
+    @State var persistentSelectedDateString: String?
 
     init(_ filter: ExpenseChartFilter) {
         switch filter {
@@ -30,14 +32,14 @@ struct HomeChartRefactored: View {
 
     var body: some View {
         VStack {
-            Text(viewModel.totalExpenseWithFilter, format: .currency(code: "USD"))
+            Text(viewModel.getTotalExpenseForPlot(viewModel.getExpenseChartDataPoints(filter, expenseList)), format: .currency(code: "USD"))
                 .bold()
                 .font(.largeTitle)
             chartView()
         }
-        .onChange(of: viewModel.selectedDateStringInChart) {
-            if viewModel.selectedDateStringInChart != nil {
-                viewModel.persistentSelectedDateString = viewModel.selectedDateStringInChart
+        .onChange(of: selectedDateStringInChart) {
+            if selectedDateStringInChart != nil {
+                persistentSelectedDateString = selectedDateStringInChart
             }
         }
     }
@@ -53,13 +55,13 @@ struct HomeChartRefactored: View {
                     chartSymbol(for: data.xValue)
                 })
                 .interpolationMethod(.catmullRom)
-                if viewModel.shouldShowAnnotationPoint(filter, data.xValue) {
+                if selectedDateStringInChart == viewModel.getExpenseChartDataPointsXValue(filter, data.xValue) {
                     chartPointInfoView(for: data)
                 }
             }
         }
         .chartYAxis(.hidden)
-        .chartXSelection(value: $viewModel.selectedDateStringInChart)
+        .chartXSelection(value: $selectedDateStringInChart)
         .chartYScale(domain: [viewModel.minYRange - 20, viewModel.maxYRange + 10])
         .aspectRatio(1.5, contentMode: .fit)
         .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
@@ -68,7 +70,7 @@ struct HomeChartRefactored: View {
 
     private func chartSymbol(for xValue: Date) -> some View {
         VStack {
-            if viewModel.shouldShowSymbolPoint(filter, xValue) {
+            if viewModel.getExpenseChartDataPointsXValue(filter, xValue) == persistentSelectedDateString || (persistentSelectedDateString == nil && viewModel.getExpenseChartDataPointsXValue(filter, xValue) == viewModel.lastDataPointDateString) {
                 Circle()
                     .stroke(lineWidth: 5)
                     .frame(width: 17)

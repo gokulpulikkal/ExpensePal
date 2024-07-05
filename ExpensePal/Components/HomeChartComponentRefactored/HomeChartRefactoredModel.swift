@@ -19,27 +19,21 @@ struct LinePlot {
 // MARK: - HomeChartRefactored.ViewModel
 
 extension HomeChartRefactored {
-    @Observable
+    
     class ViewModel {
-
-        var selectedDateStringInChart: String?
-        var persistentSelectedDateString: String?
-        var totalExpenseWithFilter: Double = 0
+        
+        var lastDataPointDateString: String?
 
         var maxYRange = 0
         var minYRange = 0
-
-        func shouldShowSymbolPoint(_ filter: ExpenseChartFilter, _ xValue: Date) -> Bool {
-            getExpenseChartDataPointsXValue(filter, xValue) == persistentSelectedDateString
+        
+        func getTotalExpenseForPlot(_ linePlots: [LinePlot]) -> Double {
+            return linePlots.reduce(0, { $0 + $1.yValue })
         }
-
-        func shouldShowAnnotationPoint(_ filter: ExpenseChartFilter, _ xValue: Date) -> Bool {
-            getExpenseChartDataPointsXValue(filter, xValue) == selectedDateStringInChart
-        }
-
+        
         func saveLastPointOfPlot(_ filter: ExpenseChartFilter, _ plotList: [LinePlot]) {
             if let lastPoint = plotList.last {
-                persistentSelectedDateString = getExpenseChartDataPointsXValue(filter, lastPoint.xValue)
+                lastDataPointDateString = getExpenseChartDataPointsXValue(filter, lastPoint.xValue)
             }
         }
 
@@ -67,10 +61,7 @@ extension HomeChartRefactored {
             default:
                 []
             }
-            if persistentSelectedDateString == nil {
-                saveLastPointOfPlot(filter, linePlots)
-            }
-            totalExpenseWithFilter = linePlots.reduce(0) { $0 + $1.yValue }
+            saveLastPointOfPlot(filter, linePlots)
             return linePlots
         }
 
