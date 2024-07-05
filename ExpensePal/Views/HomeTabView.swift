@@ -19,12 +19,14 @@ struct HomeTabView: View {
             Spacer()
             CustomTabBar(selectedTab: $selectedTab, selectedPopOverTab: $shouldShowAddExpenseView)
                 .frame(height: 35)
-        }.onChange(of: selectedTab) {
+        }
+        .onChange(of: selectedTab) {
             currentTab = selectedTab
         }
         .fullScreenCover(isPresented: $shouldShowAddExpenseView) {
             AddExpenseView()
         }
+        .ignoresSafeArea(.keyboard)
     }
 
     private func getMainView(_ selectedTab: Tab) -> some View {
