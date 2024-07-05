@@ -14,27 +14,43 @@ struct AddExpenseView: View {
     @Environment(\.dismiss) var dismiss
     @State private var showingAlert = false
 
-    @State var keyPadInput: String = "0"
-    @State var expenseTitle: String = ""
+    @State var keyPadInput = "0"
+    @State var expenseTitle = ""
     @State var selectedEmoji: Emoji?
-    @State var displayEmojiPicker: Bool = false
+    @State var displayEmojiPicker = false
     @State var selectedDate = Date.now
 
     var body: some View {
         VStack(spacing: 20) {
-            RoundedStrokeButton(text: Text("vision capture"),
-                                image: Image(systemName: "camera.viewfinder"), action: {
-                                }
+            HStack {
+                Spacer()
+                Button(action: {
+                    dismiss()
+                }, label: {
+                    Image(systemName: "multiply.circle.fill")
+                        .resizable()
+                        .frame(width: 31, height: 31)
+                        .padding(.horizontal)
+                        .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
+                })
+            }
+            .padding(.top, 10)
+            RoundedStrokeButton(
+                text: Text("vision capture"),
+                image: Image(systemName: "camera.viewfinder"),
+                action: {}
             )
-            .padding(.vertical)
+
+            .padding(.bottom)
             VStack(spacing: 8) {
                 Text(Double(keyPadInput) ?? 0, format: .currency(code: "USD"))
                     .bold()
                     .font(.largeTitle)
             }
             expenseInputView()
+            Spacer()
             KeyPad(string: $keyPadInput)
-
+            Spacer()
             Button("Done") {
                 if let expense = getInputExpense() {
                     modelContext.insert(expense)
@@ -51,13 +67,17 @@ struct AddExpenseView: View {
         }
         .sheet(isPresented: $displayEmojiPicker) {
             NavigationView {
-                EmojiPickerView(selectedEmoji: $selectedEmoji, selectedColor: .orange, emojiProvider: LimitedEmojiProvider())
-                    .navigationTitle("Emojis")
-                    .navigationBarTitleDisplayMode(.inline)
+                EmojiPickerView(
+                    selectedEmoji: $selectedEmoji,
+                    selectedColor: .orange,
+                    emojiProvider: LimitedEmojiProvider()
+                )
+                .navigationTitle("Emojis")
+                .navigationBarTitleDisplayMode(.inline)
             }
         }
         .alert("Please add expense title", isPresented: $showingAlert) {
-            Button("OK", role: .cancel) { }
+            Button("OK", role: .cancel) {}
         }
     }
 

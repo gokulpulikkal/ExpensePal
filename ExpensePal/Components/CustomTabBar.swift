@@ -16,38 +16,42 @@ enum Tab: String, CaseIterable {
 }
 
 struct CustomTabBar: View {
-    
+
     @Binding var selectedTab: Tab
-    
+    @Binding var selectedPopOverTab: Bool
+
     var fillImage: String {
-        return selectedTab.rawValue + ".fill"
+        selectedTab.rawValue + ".fill"
     }
-    
+
     var body: some View {
         HStack {
             ForEach(Tab.allCases, id: \.rawValue) { tab in
                 Spacer()
-                Image(systemName: selectedTab == tab ? fillImage: tab.rawValue)
+                Image(systemName: selectedTab == tab ? fillImage : tab.rawValue)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 30, height: 30)
 //                    .symbolEffect(.bounce, value: tab == .AddExpense && selectedTab == tab)
-                    .scaleEffect(selectedTab == tab ? 1.25: 1)
+                    .scaleEffect(selectedTab == tab ? 1.25 : 1)
                     .onTapGesture {
                         withAnimation(.smooth(duration: 0.1)) {
-                            selectedTab = tab
+                            if tab != .AddExpense {
+                                selectedTab = tab
+                            } else {
+                                selectedPopOverTab = true
+                            }
                         }
                     }
                 Spacer()
             }
         }
         .frame(height: 50)
-//        .background(.thinMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .padding()
     }
 }
 
 #Preview {
-    CustomTabBar(selectedTab: .constant(.DashBoard))
+    CustomTabBar(selectedTab: .constant(.DashBoard), selectedPopOverTab: .constant(false))
 }

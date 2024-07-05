@@ -10,17 +10,20 @@ import SwiftUI
 struct HomeTabView: View {
     @State var selectedTab: Tab = .DashBoard
     @State var currentTab: Tab = .DashBoard
-    @State private var shouldShowAddExpenseView = false
+    @State var shouldShowAddExpenseView = false
 
     var body: some View {
         VStack {
             getMainView(currentTab)
                 .animation(.easeInOut(duration: 0.1), value: currentTab)
             Spacer()
-            CustomTabBar(selectedTab: $selectedTab)
+            CustomTabBar(selectedTab: $selectedTab, selectedPopOverTab: $shouldShowAddExpenseView)
                 .frame(height: 35)
         }.onChange(of: selectedTab) {
             currentTab = selectedTab
+        }
+        .fullScreenCover(isPresented: $shouldShowAddExpenseView) {
+            AddExpenseView()
         }
     }
 
