@@ -2,6 +2,12 @@
 
 An intuitive and visually appealing minimalistic expense tracker app to help users manage and analyze their spending habits. 
 
+<img src="https://github.com/gokulpulikkal/ExpensePal/assets/52960334/406b1319-4c06-4330-97f0-218442cd3fe1" width="250px" />
+
+
+
+
+
 ## Features
 
 - Track expenses with details including title, cost, and date.
