@@ -47,7 +47,7 @@ struct BarChartPresenter: View {
             chartXSelection: $chartXSelection,
             chartYSelection: $chartYSelection
         )
-        .frame(width: .infinity, height: 300)
+        .frame(height: 300)
         .onChange(of: filter) {
             updateAverageYValue()
         }

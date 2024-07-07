@@ -40,12 +40,7 @@ struct ChartComponentView: View {
         .animation(.spring(duration: 0.3), value: data)
         .onChange(of: currentXSelection) {
             if currentXSelection != nil {
-                chartXSelection = currentXSelection!
-            }
-        }
-        .onChange(of: currentYSelection) {
-            if currentYSelection != nil {
-                chartYSelection = currentYSelection!
+                updateChartSelection(currentXSelection!)
             }
         }
         .onChange(of: chartXSelection) {
@@ -54,6 +49,15 @@ struct ChartComponentView: View {
         .onAppear(perform: {
             updateInitialChartSelectionParams()
         })
+    }
+    
+    private func updateChartSelection(_ xLabel: String) {
+        for item in data {
+            if getExpenseChartDataPointsXValue(item.xValue) == xLabel {
+                chartXSelection = xLabel
+                chartYSelection = item.yValue
+            }
+        }
     }
 
     private func updateInitialChartSelectionParams() {
