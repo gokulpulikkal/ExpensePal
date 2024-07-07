@@ -61,7 +61,7 @@ extension Expense {
         case .thisYear:
             fetch.predicate = currentYearPredicate()
         case .prevYears:
-            fetch.predicate = currentYearPredicate()
+            return fetch
         }
         return fetch
     }

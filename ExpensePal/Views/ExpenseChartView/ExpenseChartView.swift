@@ -53,6 +53,11 @@ struct ExpenseChartView: View {
             Spacer()
         }
         .padding(.horizontal)
+        .onChange(of: chartFilter, {
+            // TODO: refactor this update 
+            currentXSelection = nil
+            currentYSelection = nil
+        })
     }
 
     var pageTitle: some View {

@@ -17,7 +17,7 @@ extension BarChartPresenter {
             case .Month:
                 monthWiseExpense(allEntries)
             case .Year:
-                []
+                yearWiseExpense(allEntries)
             case .Week:
                 dailyWiseExpense(allEntries)
             }
@@ -141,6 +141,60 @@ extension BarChartPresenter {
             }
 
             return linePlotList.sorted(using: KeyPathComparator(\.xValue))
+        }
+        
+        private func yearWiseExpense(_ allEntries: [Expense]) -> [LinePlot] {
+
+            // Get the current calendar and the current date
+            let calendar = Calendar.current
+            let currentDate = Date()
+
+            // Determine the start of the week
+            let thisYear = currentDate.year()
+            if let lastDate = allEntries.last?.date, let startOfThisYear = currentDate.firstDayOfYear() {
+                let startingYear = lastDate.year()
+                var expensesByYear: [Date: [Expense]] = [:]
+                
+                for yearOffset in 0 ..< thisYear - startingYear {
+                    if let yearDate = calendar.date(byAdding: .year, value: -yearOffset, to: startOfThisYear) {
+                        expensesByYear[yearDate] = []
+                    }
+                }
+                // Populate expensesByDay with actual expenses
+                for expense in allEntries {
+                    if let date = expense.date.firstDayOfYear() {
+                        expensesByYear[date]?.append(expense)
+                    }
+                }
+                // Check for days with zero expenses and set them
+                for year in expensesByYear.keys {
+                    if expensesByYear[year]?.isEmpty ?? true {
+                        expensesByYear[year] = [Expense(emoji: "", title: "", cost: 0, date: year)]
+                    }
+                }
+                var linePlotList: [LinePlot] = []
+                // Print the result
+                var minExpense = Int.max
+                var maxExpense = 0
+                var totalForAverage: Double = 0
+                for (date, expenses) in expensesByYear {
+                    let totalAmount = expenses.reduce(0) { $0 + $1.cost }
+                    totalForAverage += totalAmount
+                    minExpense = min(minExpense, Int(totalAmount))
+                    maxExpense = max(maxExpense, Int(totalAmount))
+                    linePlotList.append(LinePlot(
+                        xValueType: "Year",
+                        yValueType: "Expense",
+                        xValue: date,
+                        yValue: totalAmount
+                    ))
+                }
+                if !expensesByYear.isEmpty {
+                    averageSpending = totalForAverage / Double(expensesByYear.count)
+                }
+                return linePlotList.sorted(using: KeyPathComparator(\.xValue))
+            }
+            return []
         }
     }
 }

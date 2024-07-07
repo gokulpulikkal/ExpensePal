@@ -47,6 +47,12 @@ struct ChartComponentView: View {
                 chartYSelection = currentYSelection!
             }
         }
+        .onChange(of: chartXSelection, {
+            if chartXSelection == nil, let point = data.last {
+                chartXSelection = getExpenseChartDataPointsXValue(point.xValue)
+                chartYSelection = point.yValue
+            }
+        })
         .onAppear(perform: {
             if chartXSelection == nil, let point = data.last {
                 chartXSelection = getExpenseChartDataPointsXValue(point.xValue)
@@ -60,7 +66,7 @@ struct ChartComponentView: View {
         case .Month:
             date.formatDateToMonth()
         case .Year:
-            date.formatDateToWeekOfMonth()
+            "\(date.year())"
         case .Week:
             date.formatDateToDayOfWeek()
         }

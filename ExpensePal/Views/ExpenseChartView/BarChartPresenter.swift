@@ -32,7 +32,7 @@ struct BarChartPresenter: View {
         case .Month:
             _expenseList = Query(Expense.getFetchDescriptorForFilter(.thisYear))
         case .Year:
-            _expenseList = Query(Expense.getFetchDescriptorForFilter(.thisYear))
+            _expenseList = Query(Expense.getFetchDescriptorForFilter(.prevYears))
         }
         self.filter = filter
         _chartXSelection = chartXSelection
@@ -49,17 +49,21 @@ struct BarChartPresenter: View {
         )
         .frame(width: .infinity, height: 300)
         .onChange(of: filter) {
-            averageYValue = viewModel.averageSpending
+            updateAverageYValue()
         }
         .onAppear(perform: {
             // sometimes only the chart component only getting reloaded.
             // This update is needed for the first time update. Without any filter change
-            averageYValue = viewModel.averageSpending
+            updateAverageYValue()
         })
+    }
+    
+    private func updateAverageYValue()  {
+        averageYValue = viewModel.averageSpending
     }
 }
 
 #Preview {
-    BarChartPresenter(.Week, .constant(""), .constant(0), .constant(0))
+    BarChartPresenter(.Year, .constant(""), .constant(0), .constant(0))
         .modelContainer(previewContainer)
 }
