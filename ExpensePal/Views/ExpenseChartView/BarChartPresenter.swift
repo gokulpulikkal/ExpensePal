@@ -55,6 +55,6 @@ struct BarChartPresenter: View {
 }
 
 #Preview {
-    BarChartPresenter(.Month, .constant(""), .constant(0), .constant(0))
+    BarChartPresenter(.Week, .constant(""), .constant(0), .constant(0))
         .modelContainer(previewContainer)
 }
