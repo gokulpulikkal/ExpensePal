@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LinePlot {
+struct LinePlot: Equatable {
     var id = UUID()
     let xValueType: String
     let yValueType: String

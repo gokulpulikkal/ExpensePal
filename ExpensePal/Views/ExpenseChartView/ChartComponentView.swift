@@ -37,6 +37,7 @@ struct ChartComponentView: View {
         }
         .chartXSelection(value: $currentXSelection)
         .chartYSelection(value: $currentYSelection)
+        .animation(.spring(duration: 0.3), value: data)
         .onChange(of: currentXSelection) {
             if currentXSelection != nil {
                 chartXSelection = currentXSelection!
@@ -47,18 +48,19 @@ struct ChartComponentView: View {
                 chartYSelection = currentYSelection!
             }
         }
-        .onChange(of: chartXSelection, {
-            if chartXSelection == nil, let point = data.last {
-                chartXSelection = getExpenseChartDataPointsXValue(point.xValue)
-                chartYSelection = point.yValue
-            }
-        })
+        .onChange(of: chartXSelection) {
+            updateInitialChartSelectionParams()
+        }
         .onAppear(perform: {
-            if chartXSelection == nil, let point = data.last {
-                chartXSelection = getExpenseChartDataPointsXValue(point.xValue)
-                chartYSelection = point.yValue
-            }
+            updateInitialChartSelectionParams()
         })
+    }
+
+    private func updateInitialChartSelectionParams() {
+        if chartXSelection == nil, let point = data.last {
+            chartXSelection = getExpenseChartDataPointsXValue(point.xValue)
+            chartYSelection = point.yValue
+        }
     }
 
     func getExpenseChartDataPointsXValue(_ date: Date) -> String {
