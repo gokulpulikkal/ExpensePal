@@ -122,8 +122,10 @@ extension BarChartPresenter {
             // Print the result
             var minExpense = Int.max
             var maxExpense = 0
+            var totalForAverage: Double = 0
             for (date, expenses) in expensesByDay {
                 let totalAmount = expenses.reduce(0) { $0 + $1.cost }
+                totalForAverage += totalAmount
                 minExpense = min(minExpense, Int(totalAmount))
                 maxExpense = max(maxExpense, Int(totalAmount))
                 linePlotList.append(LinePlot(
@@ -132,6 +134,10 @@ extension BarChartPresenter {
                     xValue: date,
                     yValue: totalAmount
                 ))
+            }
+            
+            if !expensesByDay.isEmpty {
+                averageSpending = totalForAverage / Double(expensesByDay.count)
             }
 
             return linePlotList.sorted(using: KeyPathComparator(\.xValue))

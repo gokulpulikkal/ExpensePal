@@ -48,7 +48,12 @@ struct BarChartPresenter: View {
             chartYSelection: $chartYSelection
         )
         .frame(width: .infinity, height: 300)
+        .onChange(of: filter) {
+            averageYValue = viewModel.averageSpending
+        }
         .onAppear(perform: {
+            // sometimes only the chart component only getting reloaded.
+            // This update is needed for the first time update. Without any filter change
             averageYValue = viewModel.averageSpending
         })
     }
