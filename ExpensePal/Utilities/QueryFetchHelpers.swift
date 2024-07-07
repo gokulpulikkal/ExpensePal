@@ -50,7 +50,7 @@ extension Expense {
         }
     }
     
-    static func getFetchDescriptorForFilter(_ filter: ExpenseSearchFilter) -> FetchDescriptor<Expense> {
+    static func getFetchDescriptorForFilter(_ filter: ExpenseListFetchFilters) -> FetchDescriptor<Expense> {
         var fetch = FetchDescriptor<Expense>()
         fetch.sortBy = [SortDescriptor(\Expense.date, order: .reverse)]
         switch filter {
@@ -59,6 +59,8 @@ extension Expense {
         case .thisMonth:
             fetch.predicate = currentMonthPredicate()
         case .thisYear:
+            fetch.predicate = currentYearPredicate()
+        case .prevYears:
             fetch.predicate = currentYearPredicate()
         }
         return fetch

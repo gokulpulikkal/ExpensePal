@@ -17,7 +17,7 @@ struct ExpenseSearchView: View {
         VStack {
             headerView
                 .padding(.top, 20)
-            ExpenseList(queryDescriptor: Expense.getFetchDescriptorForFilter(selectedFilter), searchText: searchText)
+            ExpenseList(queryDescriptor: Expense.getFetchDescriptorForFilter(selectedFilter.fetchFilter), searchText: searchText)
             Spacer()
         }
     }

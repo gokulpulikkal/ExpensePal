@@ -40,11 +40,11 @@ extension HomeChartRefactored {
         func getExpenseChartDataPointsXValue(_ filter: ExpenseChartFilter, _ date: Date) -> String {
             switch filter {
             case .monthly:
-                formatDateToMonth(date: date)
+                date.formatDateToMonth()
             case .weekly:
-                formatDateToWeekOfMonth(date: date)
+                date.formatDateToWeekOfMonth()
             case .daily:
-                formatDateToDayOfWeek(date: date)
+                date.formatDateToDayOfWeek()
             default:
                 ""
             }
@@ -65,21 +65,7 @@ extension HomeChartRefactored {
             return linePlots
         }
 
-        func formatDateToMonth(date: Date) -> String {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MMM" // "EEEE" gives the full name of the day
-            return dateFormatter.string(from: date)
-        }
-
-        func formatDateToDayOfWeek(date: Date) -> String {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "EEE" // "EEEE" gives the full name of the day
-            return dateFormatter.string(from: date)
-        }
-
-        func formatDateToWeekOfMonth(date: Date) -> String {
-            "Week \(Calendar.current.component(.weekOfMonth, from: date))"
-        }
+        
 
         /// Helper function to get a date for a specific day offset from today
         func getDate(daysOffset: Int) -> Date {
