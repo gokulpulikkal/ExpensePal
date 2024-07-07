@@ -10,6 +10,8 @@ import Foundation
 extension BarChartPresenter {
     class ViewModel {
         
+        var averageSpending: Double = 0
+        
         func getExpenseChartDataPoints(_ filter: ExpenseChartMainFilter, _ allEntries: [Expense]) -> [LinePlot] {
             let linePlots: [LinePlot] = switch filter {
             case .Month:
@@ -57,8 +59,12 @@ extension BarChartPresenter {
             // Print the result
             var minExpense = Int.max
             var maxExpense = 0
+            
+            var totalForAverage: Double = 0
+            
             for (date, expenses) in expensesByMonth {
                 let totalAmount = expenses.reduce(0) { $0 + $1.cost }
+                totalForAverage += totalAmount
                 minExpense = min(minExpense, Int(totalAmount))
                 maxExpense = max(maxExpense, Int(totalAmount))
                 linePlotList.append(LinePlot(
@@ -68,7 +74,11 @@ extension BarChartPresenter {
                     yValue: totalAmount
                 ))
             }
-            return linePlotList.sorted(using: KeyPathComparator(\.xValue))
+            if expensesByMonth.count > 0 {
+                averageSpending = totalForAverage / Double(expensesByMonth.count)
+            }
+            let plotPoints = linePlotList.sorted(using: KeyPathComparator(\.xValue))
+            return plotPoints
         }
     }
 }

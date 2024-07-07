@@ -9,8 +9,17 @@ import Charts
 import SwiftUI
 
 struct ChartComponentView: View {
+
     var filter: ExpenseChartMainFilter
     var data: [LinePlot]
+
+    // These are persistent ones
+    @Binding var chartXSelection: String?
+    @Binding var chartYSelection: Double?
+
+    // these are non persistent
+    @State var currentXSelection: String?
+    @State var currentYSelection: Double?
 
     var body: some View {
         Chart {
@@ -19,11 +28,33 @@ struct ChartComponentView: View {
                     x: .value(point.xValueType, getExpenseChartDataPointsXValue(point.xValue)),
                     y: .value(point.yValueType, point.yValue)
                 )
-                .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
+                .foregroundStyle(
+                    chartXSelection == getExpenseChartDataPointsXValue(point.xValue)
+                        ? Color(AppColors.primaryAccent.rawValue)
+                        : .gray
+                )
             }
         }
+        .chartXSelection(value: $currentXSelection)
+        .chartYSelection(value: $currentYSelection)
+        .onChange(of: currentXSelection) {
+            if currentXSelection != nil {
+                chartXSelection = currentXSelection!
+            }
+        }
+        .onChange(of: currentYSelection) {
+            if currentYSelection != nil {
+                chartYSelection = currentYSelection!
+            }
+        }
+        .onAppear(perform: {
+            if chartXSelection == nil, let point = data.last {
+                chartXSelection = getExpenseChartDataPointsXValue(point.xValue)
+                chartYSelection = point.yValue
+            }
+        })
     }
-    
+
     func getExpenseChartDataPointsXValue(_ date: Date) -> String {
         switch filter {
         case .Month:
@@ -37,5 +68,5 @@ struct ChartComponentView: View {
 }
 
 #Preview {
-    ChartComponentView(filter: .Month, data: [])
+    ChartComponentView(filter: .Month, data: [], chartXSelection: .constant(""), chartYSelection: .constant(0))
 }

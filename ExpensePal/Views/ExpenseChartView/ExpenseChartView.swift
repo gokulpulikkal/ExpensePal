@@ -9,16 +9,50 @@ import Charts
 import SwiftUI
 
 struct ExpenseChartView: View {
+
     @State var chartFilter: ExpenseChartMainFilter = .Month
+    @State var currentXSelection: String?
+    @State var currentYSelection: Double?
+    @State var averageYValue: Double = 0
+
     var body: some View {
         VStack {
             pageTitle
             mainFilterSelector
-                .padding(.horizontal)
-            BarChartPresenter(chartFilter)
+                .padding(.bottom)
+            VStack {
+                HStack {
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("\(currentXSelection ?? "") Summary")
+                            .font(.title3)
+                        Text(currentYSelection ?? 0, format: .currency(code: "USD"))
+                            .font(.title3)
+                        Text("Spent so far")
+                            .foregroundStyle(.gray)
+                    }
+                    Spacer()
+                }
+                BarChartPresenter(
+                    chartFilter,
+                    $currentXSelection,
+                    $currentYSelection,
+                    $averageYValue
+                )
+                .padding(.bottom)
+                HStack {
+                    Text("Average spending")
+                        .font(.title3)
+                    Spacer()
+                    Text(averageYValue, format: .currency(code: "USD"))
+                        .font(.title3)
+                }
+            }
+            .padding()
+            .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 10))
 
             Spacer()
         }
+        .padding(.horizontal)
     }
 
     var pageTitle: some View {
@@ -29,7 +63,6 @@ struct ExpenseChartView: View {
                 .bold()
             Spacer()
         }
-        .padding()
     }
 
     var mainFilterSelector: some View {
