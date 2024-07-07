@@ -11,7 +11,7 @@ import SwiftUI
 struct ChartComponentView: View {
 
     var filter: ExpenseChartMainFilter
-    var data: [LinePlot]
+    var data: [LinePlotEntry]
 
     // These are persistent ones
     @Binding var chartXSelection: String?

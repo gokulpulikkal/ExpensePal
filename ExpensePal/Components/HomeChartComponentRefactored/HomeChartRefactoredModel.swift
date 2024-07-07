@@ -7,15 +7,6 @@
 
 import Foundation
 
-struct LinePlot: Equatable {
-    var id = UUID()
-    let xValueType: String
-    let yValueType: String
-
-    let xValue: Date
-    let yValue: Double
-}
-
 // MARK: - HomeChartRefactored.ViewModel
 
 extension HomeChartRefactored {
@@ -27,11 +18,11 @@ extension HomeChartRefactored {
         var maxYRange = 0
         var minYRange = 0
         
-        func getTotalExpenseForPlot(_ linePlots: [LinePlot]) -> Double {
+        func getTotalExpenseForPlot(_ linePlots: [LinePlotEntry]) -> Double {
             return linePlots.reduce(0, { $0 + $1.yValue })
         }
         
-        func saveLastPointOfPlot(_ filter: ExpenseChartFilter, _ plotList: [LinePlot]) {
+        func saveLastPointOfPlot(_ filter: ExpenseChartFilter, _ plotList: [LinePlotEntry]) {
             if let lastPoint = plotList.last {
                 lastDataPointDateString = getExpenseChartDataPointsXValue(filter, lastPoint.xValue)
             }
@@ -50,8 +41,8 @@ extension HomeChartRefactored {
             }
         }
 
-        func getExpenseChartDataPoints(_ filter: ExpenseChartFilter, _ allEntries: [Expense]) -> [LinePlot] {
-            let linePlots: [LinePlot] = switch filter {
+        func getExpenseChartDataPoints(_ filter: ExpenseChartFilter, _ allEntries: [Expense]) -> [LinePlotEntry] {
+            let linePlots: [LinePlotEntry] = switch filter {
             case .monthly:
                 monthWiseExpense(allEntries)
             case .weekly:
@@ -72,7 +63,7 @@ extension HomeChartRefactored {
             Calendar.current.date(byAdding: .day, value: -daysOffset, to: Date())!
         }
 
-        private func monthWiseExpense(_ allEntries: [Expense]) -> [LinePlot] {
+        private func monthWiseExpense(_ allEntries: [Expense]) -> [LinePlotEntry] {
             var expensesByMonth: [Date: [Expense]] = [:]
 
             // Get the current calendar and the current date
@@ -103,7 +94,7 @@ extension HomeChartRefactored {
                 }
             }
 
-            var linePlotList: [LinePlot] = []
+            var linePlotList: [LinePlotEntry] = []
             // Print the result
             var minExpense = Int.max
             var maxExpense = 0
@@ -111,7 +102,7 @@ extension HomeChartRefactored {
                 let totalAmount = expenses.reduce(0) { $0 + $1.cost }
                 minExpense = min(minExpense, Int(totalAmount))
                 maxExpense = max(maxExpense, Int(totalAmount))
-                linePlotList.append(LinePlot(
+                linePlotList.append(LinePlotEntry(
                     xValueType: "Month",
                     yValueType: "Expense",
                     xValue: date,
@@ -125,7 +116,7 @@ extension HomeChartRefactored {
             return linePlotList.sorted(using: KeyPathComparator(\.xValue))
         }
 
-        private func weekWiseExpense(_ allEntries: [Expense]) -> [LinePlot] {
+        private func weekWiseExpense(_ allEntries: [Expense]) -> [LinePlotEntry] {
             var expensesByWeek: [Date: [Expense]] = [:]
 
             // Get the current calendar and the current date
@@ -165,7 +156,7 @@ extension HomeChartRefactored {
                 }
             }
 
-            var linePlotList: [LinePlot] = []
+            var linePlotList: [LinePlotEntry] = []
             // Print the result
             var minExpense = Int.max
             var maxExpense = 0
@@ -173,7 +164,7 @@ extension HomeChartRefactored {
                 let totalAmount = expenses.reduce(0) { $0 + $1.cost }
                 minExpense = min(minExpense, Int(totalAmount))
                 maxExpense = max(maxExpense, Int(totalAmount))
-                linePlotList.append(LinePlot(
+                linePlotList.append(LinePlotEntry(
                     xValueType: "Week",
                     yValueType: "Expense",
                     xValue: date,
@@ -187,7 +178,7 @@ extension HomeChartRefactored {
             return linePlotList.sorted(using: KeyPathComparator(\.xValue))
         }
 
-        private func dailyWiseExpense(_ allEntries: [Expense]) -> [LinePlot] {
+        private func dailyWiseExpense(_ allEntries: [Expense]) -> [LinePlotEntry] {
             // From here to
             var expensesByDay: [Date: [Expense]] = [:]
 
@@ -222,7 +213,7 @@ extension HomeChartRefactored {
                     expensesByDay[day] = [Expense(emoji: "", title: "", cost: 0, date: day)]
                 }
             }
-            var linePlotList: [LinePlot] = []
+            var linePlotList: [LinePlotEntry] = []
             // Print the result
             var minExpense = Int.max
             var maxExpense = 0
@@ -230,7 +221,7 @@ extension HomeChartRefactored {
                 let totalAmount = expenses.reduce(0) { $0 + $1.cost }
                 minExpense = min(minExpense, Int(totalAmount))
                 maxExpense = max(maxExpense, Int(totalAmount))
-                linePlotList.append(LinePlot(
+                linePlotList.append(LinePlotEntry(
                     xValueType: "Day",
                     yValueType: "Expense",
                     xValue: date,

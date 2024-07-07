@@ -92,7 +92,7 @@ struct HomeChartRefactored: View {
         }
     }
 
-    private func chartPointInfoView(for point: LinePlot) -> some ChartContent {
+    private func chartPointInfoView(for point: LinePlotEntry) -> some ChartContent {
         PointMark(
             x: .value(point.xValueType, viewModel.getExpenseChartDataPointsXValue(filter, point.xValue)),
             y: .value(point.yValueType, point.yValue)

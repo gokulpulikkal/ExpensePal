@@ -12,8 +12,8 @@ extension BarChartPresenter {
 
         var averageSpending: Double = 0
 
-        func getExpenseChartDataPoints(_ filter: ExpenseChartMainFilter, _ allEntries: [Expense]) -> [LinePlot] {
-            let linePlots: [LinePlot] = switch filter {
+        func getExpenseChartDataPoints(_ filter: ExpenseChartMainFilter, _ allEntries: [Expense]) -> [LinePlotEntry] {
+            let linePlots: [LinePlotEntry] = switch filter {
             case .Month:
                 monthWiseExpense(allEntries)
             case .Year:
@@ -24,7 +24,7 @@ extension BarChartPresenter {
             return linePlots
         }
 
-        private func monthWiseExpense(_ allEntries: [Expense]) -> [LinePlot] {
+        private func monthWiseExpense(_ allEntries: [Expense]) -> [LinePlotEntry] {
             var expensesByMonth: [Date: [Expense]] = [:]
 
             // Get the current calendar and the current date
@@ -55,7 +55,7 @@ extension BarChartPresenter {
                 }
             }
 
-            var linePlotList: [LinePlot] = []
+            var linePlotList: [LinePlotEntry] = []
             // Print the result
             var minExpense = Int.max
             var maxExpense = 0
@@ -67,7 +67,7 @@ extension BarChartPresenter {
                 totalForAverage += totalAmount
                 minExpense = min(minExpense, Int(totalAmount))
                 maxExpense = max(maxExpense, Int(totalAmount))
-                linePlotList.append(LinePlot(
+                linePlotList.append(LinePlotEntry(
                     xValueType: "Month",
                     yValueType: "Expense",
                     xValue: date,
@@ -81,7 +81,7 @@ extension BarChartPresenter {
             return plotPoints
         }
 
-        private func dailyWiseExpense(_ allEntries: [Expense]) -> [LinePlot] {
+        private func dailyWiseExpense(_ allEntries: [Expense]) -> [LinePlotEntry] {
             // From here to
             var expensesByDay: [Date: [Expense]] = [:]
 
@@ -118,7 +118,7 @@ extension BarChartPresenter {
                     expensesByDay[day] = [Expense(emoji: "", title: "", cost: 0, date: day)]
                 }
             }
-            var linePlotList: [LinePlot] = []
+            var linePlotList: [LinePlotEntry] = []
             // Print the result
             var minExpense = Int.max
             var maxExpense = 0
@@ -128,7 +128,7 @@ extension BarChartPresenter {
                 totalForAverage += totalAmount
                 minExpense = min(minExpense, Int(totalAmount))
                 maxExpense = max(maxExpense, Int(totalAmount))
-                linePlotList.append(LinePlot(
+                linePlotList.append(LinePlotEntry(
                     xValueType: "Day",
                     yValueType: "Expense",
                     xValue: date,
@@ -143,7 +143,7 @@ extension BarChartPresenter {
             return linePlotList.sorted(using: KeyPathComparator(\.xValue))
         }
         
-        private func yearWiseExpense(_ allEntries: [Expense]) -> [LinePlot] {
+        private func yearWiseExpense(_ allEntries: [Expense]) -> [LinePlotEntry] {
 
             // Get the current calendar and the current date
             let calendar = Calendar.current
@@ -172,7 +172,7 @@ extension BarChartPresenter {
                         expensesByYear[year] = [Expense(emoji: "", title: "", cost: 0, date: year)]
                     }
                 }
-                var linePlotList: [LinePlot] = []
+                var linePlotList: [LinePlotEntry] = []
                 // Print the result
                 var minExpense = Int.max
                 var maxExpense = 0
@@ -182,7 +182,7 @@ extension BarChartPresenter {
                     totalForAverage += totalAmount
                     minExpense = min(minExpense, Int(totalAmount))
                     maxExpense = max(maxExpense, Int(totalAmount))
-                    linePlotList.append(LinePlot(
+                    linePlotList.append(LinePlotEntry(
                         xValueType: "Year",
                         yValueType: "Expense",
                         xValue: date,
