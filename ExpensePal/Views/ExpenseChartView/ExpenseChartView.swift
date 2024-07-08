@@ -48,7 +48,7 @@ struct ExpenseChartView: View {
                 }
             }
             .padding()
-            .background(Color.black.opacity(0.08), in: RoundedRectangle(cornerRadius: 10))
+            .background(Color(AppColors.primaryAccent.rawValue).opacity(0.08), in: RoundedRectangle(cornerRadius: 10))
 
             Spacer()
         }
