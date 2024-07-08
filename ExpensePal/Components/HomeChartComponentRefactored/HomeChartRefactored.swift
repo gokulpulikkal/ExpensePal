@@ -94,6 +94,8 @@ struct HomeChartRefactored: View {
                 }
             }
         }
+        .chartYScale(range: .plotDimension(startPadding: 10, endPadding: 10))
+        .chartXScale(range: .plotDimension(startPadding: 10, endPadding: 10))
         .chartYAxis(.hidden)
         .chartXSelection(value: $selectedDateStringInChart)
         .chartYScale(domain: [viewModel.minYRange - 20, viewModel.maxYRange + 10])
