@@ -83,7 +83,7 @@ extension HomeChartRefactored {
             }
 
             for expense in allEntries {
-                if var startOfMonth = expense.date.startOfMonth() {
+                if let startOfMonth = expense.date.startOfMonth() {
                     expensesByMonth[startOfMonth]?.append(expense)
                 }
             }

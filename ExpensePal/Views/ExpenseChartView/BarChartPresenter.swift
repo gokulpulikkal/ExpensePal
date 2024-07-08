@@ -18,12 +18,14 @@ struct BarChartPresenter: View {
     @Binding var chartXSelection: String?
     @Binding var chartYSelection: Double?
     @Binding var averageYValue: Double
+    @Binding var isChartEmpty: Bool
 
     init(
         _ filter: ExpenseChartMainFilter,
         _ chartXSelection: Binding<String?>,
         _ chartYSelection: Binding<Double?>,
-        _ averageYValue: Binding<Double>
+        _ averageYValue: Binding<Double>,
+        _ isChartEmpty: Binding<Bool>
     ) {
         switch filter {
         case .Week:
@@ -38,6 +40,7 @@ struct BarChartPresenter: View {
         _chartXSelection = chartXSelection
         _chartYSelection = chartYSelection
         _averageYValue = averageYValue
+        _isChartEmpty = isChartEmpty
     }
 
     var body: some View {
@@ -55,6 +58,7 @@ struct BarChartPresenter: View {
             // sometimes only the chart component only getting reloaded.
             // This update is needed for the first time update. Without any filter change
             updateAverageYValue()
+            isChartEmpty = expenseList.count == 0
         })
     }
     
@@ -64,6 +68,6 @@ struct BarChartPresenter: View {
 }
 
 #Preview {
-    BarChartPresenter(.Year, .constant(""), .constant(0), .constant(0))
+    BarChartPresenter(.Year, .constant(""), .constant(0), .constant(0), .constant(false))
         .modelContainer(previewContainer)
 }
