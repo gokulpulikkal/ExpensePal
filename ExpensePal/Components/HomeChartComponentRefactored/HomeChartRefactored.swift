@@ -16,6 +16,7 @@ struct HomeChartRefactored: View {
 
     @State var selectedDateStringInChart: String?
     @State var persistentSelectedDateString: String?
+    @State var animationCount = 0
 
     init(_ filter: ExpenseChartFilter) {
         switch filter {
@@ -32,13 +33,17 @@ struct HomeChartRefactored: View {
 
     var body: some View {
         VStack {
-            Text(
-                viewModel.getTotalExpenseForPlot(viewModel.getExpenseChartDataPoints(filter, expenseList)),
-                format: .currency(code: "USD")
-            )
-            .bold()
-            .font(.largeTitle)
-            chartView()
+            if isChartIsEmpty() {
+                noContentAnimationView
+            } else {
+                Text(
+                    viewModel.getTotalExpenseForPlot(viewModel.getExpenseChartDataPoints(filter, expenseList)),
+                    format: .currency(code: "USD")
+                )
+                .bold()
+                .font(.largeTitle)
+                chartView()
+            }
         }
         .onChange(of: selectedDateStringInChart) {
             if selectedDateStringInChart != nil {
@@ -47,6 +52,29 @@ struct HomeChartRefactored: View {
         }
         .onChange(of: filter) {
             persistentSelectedDateString = nil
+        }
+    }
+
+    private func isChartIsEmpty() -> Bool {
+        expenseList.isEmpty
+    }
+
+    var noContentAnimationView: some View {
+        VStack {
+            Image(systemName: "chart.bar.xaxis.ascending")
+                .resizable()
+                .frame(width: 80, height: 80)
+                .symbolEffect(.bounce, value: animationCount)
+                .padding(.bottom)
+            Group {
+                Text("Nothing to show here for \(filter.description.lowercased())")
+            }
+            .bold()
+        }
+        .frame(width: 300, height: 300)
+        .padding()
+        .onTapGesture {
+            animationCount += 1
         }
     }
 

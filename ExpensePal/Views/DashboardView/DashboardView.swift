@@ -9,16 +9,16 @@ import SwiftData
 import SwiftUI
 
 struct DashboardView: View {
-    var viewModel: DashboardViewModel = DashboardViewModel()
+    var viewModel = DashboardViewModel()
     @Environment(\.modelContext) var modelContext
-    
+
     @Query(Expense.firstTen()) var expenseList: [Expense]
     @State var chartFilter: ExpenseChartFilter = .daily
     @State var presentingSearchView = false
 
     var body: some View {
         ScrollView {
-            VStack(spacing:0) {
+            VStack(spacing: 0) {
                 FilterHeaderView(chartFilter: $chartFilter, didTapSearchIcon: $presentingSearchView)
                 HomeChartRefactored(chartFilter)
                     .frame(height: 300)
@@ -27,21 +27,28 @@ struct DashboardView: View {
             }
         }
         .onAppear(perform: {
-            viewModel.expenseList = self.expenseList
+            viewModel.expenseList = expenseList
         })
         .sheet(isPresented: $presentingSearchView) {
             ExpenseSearchView()
         }
-        
     }
 
     func recentExpenseList() -> some View {
         LazyVStack(spacing: 18) {
             Section {
-                // Here goes the items
-                ForEach(expenseList, id: \.id) { expense in
-                    ExpenseListCell(expense: expense)
-                        .padding(.vertical, 5)
+                if !expenseList.isEmpty {
+                    ForEach(expenseList, id: \.id) { expense in
+                        ExpenseListCell(expense: expense)
+                            .padding(.vertical, 5)
+                    }
+                } else {
+                    VStack {
+                        Text("All your recent Expenses will come here")
+                            .multilineTextAlignment(.center)
+                            .bold()
+                    }
+                    .frame(width: 250, height: 300)
                 }
             } header: {
                 RecentExpenseListHeader()
@@ -71,5 +78,3 @@ struct DashboardView: View {
     DashboardView()
         .modelContainer(previewContainer)
 }
-
-
