@@ -35,9 +35,15 @@ struct ChartComponentView: View {
                 )
             }
         }
+        .chartYAxis {
+            AxisMarks(
+                format: Decimal.FormatStyle.Currency(code: "USD")
+            )
+        }
         .chartXSelection(value: $currentXSelection)
         .chartYSelection(value: $currentYSelection)
-        .animation(.spring(duration: 0.3), value: data)
+//        .animation(.spring(duration: 1), value: data) //TODO: hiding for now.
+        // animation is working but it is also affecting bar selection
         .onChange(of: currentXSelection) {
             if currentXSelection != nil {
                 updateChartSelection(currentXSelection!)
