@@ -155,7 +155,7 @@ extension BarChartPresenter {
                 let startingYear = lastDate.year()
                 var expensesByYear: [Date: [Expense]] = [:]
                 
-                for yearOffset in 0 ..< thisYear - startingYear {
+                for yearOffset in 0 ... thisYear - startingYear {
                     if let yearDate = calendar.date(byAdding: .year, value: -yearOffset, to: startOfThisYear) {
                         expensesByYear[yearDate] = []
                     }
