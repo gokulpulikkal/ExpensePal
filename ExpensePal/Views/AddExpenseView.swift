@@ -21,50 +21,52 @@ struct AddExpenseView: View {
     @State var selectedDate = Date.now
 
     var body: some View {
-        VStack(spacing: 20) {
-            HStack {
-                Spacer()
-                Button(action: {
-                    dismiss()
-                }, label: {
-                    Image(systemName: "multiply.circle.fill")
-                        .resizable()
-                        .frame(width: 31, height: 31)
-                        .padding(.horizontal)
-                        .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
-                })
-            }
-            .padding(.top, 10)
-            RoundedStrokeButton(
-                text: Text("vision capture"),
-                image: Image(systemName: "camera.viewfinder"),
-                action: {}
-            )
-
-            .padding(.bottom)
-            VStack(spacing: 8) {
-                Text(Double(keyPadInput) ?? 0, format: .currency(code: "USD"))
-                    .bold()
-                    .font(.largeTitle)
-            }
-            expenseInputView()
-            Spacer()
-            KeyPad(string: $keyPadInput)
-            Spacer()
-            Button("Done") {
-                if let expense = getInputExpense() {
-                    modelContext.insert(expense)
-                    dismiss()
-                } else {
-                    showingAlert = true
+        GeometryReader { _ in
+            VStack(spacing: 20) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        dismiss()
+                    }, label: {
+                        Image(systemName: "multiply.circle.fill")
+                            .resizable()
+                            .frame(width: 31, height: 31)
+                            .padding(.horizontal)
+                            .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
+                    })
                 }
+                .padding(.top, 10)
+                RoundedStrokeButton(
+                    text: Text("vision capture"),
+                    image: Image(systemName: "camera.viewfinder"),
+                    action: {}
+                )
+
+                .padding(.bottom)
+                VStack(spacing: 8) {
+                    Text(Double(keyPadInput) ?? 0, format: .currency(code: "USD"))
+                        .bold()
+                        .font(.largeTitle)
+                }
+                expenseInputView()
+                KeyPad(string: $keyPadInput)
+                Button("Done") {
+                    if let expense = getInputExpense() {
+                        modelContext.insert(expense)
+                        dismiss()
+                    } else {
+                        showingAlert = true
+                    }
+                }
+                .bold()
+                .padding(14)
+                .foregroundStyle(Color(AppColors.primaryBackground.rawValue))
+                .background(Color(AppColors.primaryAccent.rawValue))
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                Spacer()
             }
-            .bold()
-            .padding(14)
-            .foregroundStyle(Color(AppColors.primaryBackground.rawValue))
-            .background(Color(AppColors.primaryAccent.rawValue))
-            .clipShape(RoundedRectangle(cornerRadius: 20))
         }
+        .ignoresSafeArea(.keyboard, edges: .all)
         .sheet(isPresented: $displayEmojiPicker) {
             NavigationView {
                 EmojiPickerView(
