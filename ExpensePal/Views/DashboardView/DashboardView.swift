@@ -7,6 +7,7 @@
 
 import SwiftData
 import SwiftUI
+import SwipeActions
 
 struct DashboardView: View {
     var viewModel = DashboardViewModel()
@@ -41,6 +42,16 @@ struct DashboardView: View {
                     ForEach(expenseList, id: \.id) { expense in
                         ExpenseListCell(expense: expense)
                             .padding(.vertical, 5)
+                            .addSwipeAction(edge: .trailing) {
+                                Button {
+                                    modelContext.delete(expense)
+                                } label: {
+                                    Image(systemName: "trash")
+                                        .foregroundColor(.white)
+                                }
+                                .frame(width: 60, height: 50, alignment: .center)
+                                .background(Color.red, in: RoundedRectangle(cornerRadius: 10))
+                            }
                     }
                 } else {
                     VStack {
@@ -52,9 +63,9 @@ struct DashboardView: View {
                 }
             } header: {
                 RecentExpenseListHeader()
+                    .padding(.horizontal, 20)
             }
         }
-        .padding(.horizontal, 20)
     }
 
     func RecentExpenseListHeader() -> some View {

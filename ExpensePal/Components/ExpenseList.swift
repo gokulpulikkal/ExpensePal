@@ -7,10 +7,12 @@
 
 import SwiftData
 import SwiftUI
+import SwipeActions
 
 struct ExpenseList: View {
     var queryDescriptor: FetchDescriptor<Expense>
     var searchText: String
+    @Environment(\.modelContext) var modelContext
     @Query var expenseList: [Expense]
 
     init(queryDescriptor: FetchDescriptor<Expense>, searchText: String) {
@@ -28,10 +30,20 @@ struct ExpenseList: View {
                         ForEach(searchResults, id: \.id) { expense in
                             ExpenseListCell(expense: expense)
                                 .padding(.vertical, 5)
+                                .addSwipeAction(edge: .trailing) {
+                                    Button {
+                                        modelContext.delete(expense)
+                                    } label: {
+                                        Image(systemName: "trash")
+                                            .foregroundColor(.white)
+                                    }
+                                    .frame(width: 60, height: 50, alignment: .center)
+                                    
+                                    .background(Color.red, in: RoundedRectangle(cornerRadius: 10))
+                                }
                         }
                     }
                 }
-                .padding()
             }
             if searchResults.count <= 0 {
                 VStack {
@@ -50,13 +62,17 @@ struct ExpenseList: View {
 
     var searchResults: [Expense] {
         if searchText.isEmpty {
-            return expenseList
+            expenseList
         } else {
-            return expenseList.filter { $0.title.localizedStandardContains(searchText) || $0.subTitle.localizedStandardContains(searchText) }
+            expenseList
+                .filter {
+                    $0.title.localizedStandardContains(searchText) || $0.subTitle.localizedStandardContains(searchText)
+                }
         }
     }
 }
 
 #Preview {
-    ExpenseList(queryDescriptor: Expense.getFetchDescriptorForFilter(.thisMonth), searchText: "").modelContainer(previewContainer)
+    ExpenseList(queryDescriptor: Expense.getFetchDescriptorForFilter(.thisMonth), searchText: "")
+        .modelContainer(previewContainer)
 }

@@ -24,14 +24,16 @@ struct ExpenseListCell: View {
             Text(expense.cost, format: .currency(code: "USD"))
                 .bold()
         }
-//        .padding()
-//        .background {
-//            RoundedRectangle(cornerRadius: 10)
-//                .stroke(lineWidth: 1)
-//        }
+        .padding(.horizontal, 20)
     }
 }
 
 #Preview {
-    ExpenseListCell(expense: Expense(emoji: "🐶", title: "Pet care", subTitle: "petco", cost: 179, date: Calendar.current.date(byAdding: .day, value: -2, to: Date())!))
+    ExpenseListCell(expense: Expense(
+        emoji: "🐶",
+        title: "Pet care",
+        subTitle: "petco",
+        cost: 179,
+        date: Calendar.current.date(byAdding: .day, value: -2, to: Date())!
+    ))
 }

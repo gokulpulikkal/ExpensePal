@@ -27,6 +27,7 @@
 		4B79DD2E2C3A2C7200B62F9C /* BarChartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B79DD2D2C3A2C7200B62F9C /* BarChartPresenter.swift */; };
 		4B79DD302C3A316B00B62F9C /* BarChartPresenterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B79DD2F2C3A316B00B62F9C /* BarChartPresenterViewModel.swift */; };
 		4B79DD322C3A32C200B62F9C /* ChartComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B79DD312C3A32C200B62F9C /* ChartComponentView.swift */; };
+		4B79DD352C3CF9BF00B62F9C /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 4B79DD342C3CF9BF00B62F9C /* SwipeActions */; };
 		4B9EAD672C19410100A455AD /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9EAD662C19410100A455AD /* TestView.swift */; };
 		4BBE0AA72C1810B00097392F /* FilterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE0AA62C1810B00097392F /* FilterHeaderView.swift */; };
 		4BE52EC92C1E6E20002CF094 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE52EC82C1E6E20002CF094 /* CustomTabBar.swift */; };
@@ -86,6 +87,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B47FB232C1F87E8006457E3 /* EmojiPicker in Frameworks */,
+				4B79DD352C3CF9BF00B62F9C /* SwipeActions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +240,7 @@
 			name = ExpensePal;
 			packageProductDependencies = (
 				4B47FB222C1F87E8006457E3 /* EmojiPicker */,
+				4B79DD342C3CF9BF00B62F9C /* SwipeActions */,
 			);
 			productName = ExpensePal;
 			productReference = 4B1562242C153084001A0F57 /* ExpensePal.app */;
@@ -269,6 +272,7 @@
 			mainGroup = 4B15621B2C153084001A0F57;
 			packageReferences = (
 				4B47FB212C1F87E8006457E3 /* XCRemoteSwiftPackageReference "EmojiPicker" */,
+				4B79DD332C3CF9BF00B62F9C /* XCRemoteSwiftPackageReference "SwipeActions" */,
 			);
 			productRefGroup = 4B1562252C153084001A0F57 /* Products */;
 			projectDirPath = "";
@@ -542,6 +546,14 @@
 				minimumVersion = 1.0.1;
 			};
 		};
+		4B79DD332C3CF9BF00B62F9C /* XCRemoteSwiftPackageReference "SwipeActions" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/c-villain/SwipeActions";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.5;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -549,6 +561,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4B47FB212C1F87E8006457E3 /* XCRemoteSwiftPackageReference "EmojiPicker" */;
 			productName = EmojiPicker;
+		};
+		4B79DD342C3CF9BF00B62F9C /* SwipeActions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4B79DD332C3CF9BF00B62F9C /* XCRemoteSwiftPackageReference "SwipeActions" */;
+			productName = SwipeActions;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
