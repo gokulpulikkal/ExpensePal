@@ -22,7 +22,7 @@ struct AddExpenseView: View {
 
     var body: some View {
         GeometryReader { _ in
-            VStack(spacing: 20) {
+            VStack {
                 HStack {
                     Spacer()
                     Button(action: {
@@ -35,21 +35,21 @@ struct AddExpenseView: View {
                             .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
                     })
                 }
-                .padding(.top, 10)
+                Spacer()
                 RoundedStrokeButton(
                     text: Text("vision capture"),
                     image: Image(systemName: "camera.viewfinder"),
                     action: {}
                 )
-
-                .padding(.bottom)
                 VStack(spacing: 8) {
                     Text(Double(keyPadInput) ?? 0, format: .currency(code: "USD"))
                         .bold()
                         .font(.largeTitle)
                 }
                 expenseInputView()
+                    .padding(.bottom, 20)
                 KeyPad(string: $keyPadInput)
+                    .frame(width: 300, height: 350)
                 Button("Done") {
                     if let expense = getInputExpense() {
                         modelContext.insert(expense)
@@ -65,6 +65,7 @@ struct AddExpenseView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 Spacer()
             }
+            .padding([.leading, .bottom, .trailing])
         }
         .ignoresSafeArea(.keyboard, edges: .all)
         .sheet(isPresented: $displayEmojiPicker) {

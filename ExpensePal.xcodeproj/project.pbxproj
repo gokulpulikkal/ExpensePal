@@ -18,7 +18,6 @@
 		4B1562492C16871C001A0F57 /* AppEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1562482C16871C001A0F57 /* AppEnums.swift */; };
 		4B47FB1A2C1F662B006457E3 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB192C1F662B006457E3 /* AddExpenseView.swift */; };
 		4B47FB1C2C1F68D3006457E3 /* RoundedStrokeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB1B2C1F68D3006457E3 /* RoundedStrokeButton.swift */; };
-		4B47FB1E2C1F75F5006457E3 /* KeyPadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB1D2C1F75F5006457E3 /* KeyPadButton.swift */; };
 		4B47FB202C1F773D006457E3 /* KeyPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB1F2C1F773D006457E3 /* KeyPad.swift */; };
 		4B47FB232C1F87E8006457E3 /* EmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 4B47FB222C1F87E8006457E3 /* EmojiPicker */; };
 		4B47FB252C1F8A47006457E3 /* LimitedEmojiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB242C1F8A47006457E3 /* LimitedEmojiProvider.swift */; };
@@ -57,7 +56,6 @@
 		4B1562482C16871C001A0F57 /* AppEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnums.swift; sourceTree = "<group>"; };
 		4B47FB192C1F662B006457E3 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 		4B47FB1B2C1F68D3006457E3 /* RoundedStrokeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedStrokeButton.swift; sourceTree = "<group>"; };
-		4B47FB1D2C1F75F5006457E3 /* KeyPadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPadButton.swift; sourceTree = "<group>"; };
 		4B47FB1F2C1F773D006457E3 /* KeyPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPad.swift; sourceTree = "<group>"; };
 		4B47FB242C1F8A47006457E3 /* LimitedEmojiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitedEmojiProvider.swift; sourceTree = "<group>"; };
 		4B47FB422C20B83C006457E3 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 				4BE52EC82C1E6E20002CF094 /* CustomTabBar.swift */,
 				4BE52ECA2C1EA724002CF094 /* ExpenseListCell.swift */,
 				4B47FB1B2C1F68D3006457E3 /* RoundedStrokeButton.swift */,
-				4B47FB1D2C1F75F5006457E3 /* KeyPadButton.swift */,
 				4B47FB1F2C1F773D006457E3 /* KeyPad.swift */,
 				4BF317ED2C275F0D00DC378B /* ExpenseList.swift */,
 			);
@@ -303,7 +300,6 @@
 				4B47FB252C1F8A47006457E3 /* LimitedEmojiProvider.swift in Sources */,
 				4BE52ED22C1F48C9002CF094 /* Expense.swift in Sources */,
 				4B79DD302C3A316B00B62F9C /* BarChartPresenterViewModel.swift in Sources */,
-				4B47FB1E2C1F75F5006457E3 /* KeyPadButton.swift in Sources */,
 				4B15623D2C167DCE001A0F57 /* DashboardView.swift in Sources */,
 				4B1562282C153084001A0F57 /* ExpensePalApp.swift in Sources */,
 				4B1562432C167E14001A0F57 /* SettingsView.swift in Sources */,
