@@ -34,6 +34,7 @@ enum ExpenseSearchFilter: String, CaseIterable, Identifiable {
     case thisWeek
     case thisMonth
     case thisYear
+    case all
 
     var id: Self { self }
 
@@ -42,6 +43,7 @@ enum ExpenseSearchFilter: String, CaseIterable, Identifiable {
         case .thisWeek: "This Week"
         case .thisMonth: "This Month"
         case .thisYear: "This Year"
+        case .all: "All expenses"
         }
     }
     
@@ -50,6 +52,7 @@ enum ExpenseSearchFilter: String, CaseIterable, Identifiable {
         case .thisWeek: .thisWeek
         case .thisMonth: .thisMonth
         case .thisYear: .thisYear
+        case .all: .prevYears
         }
     }
 }

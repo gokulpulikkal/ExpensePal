@@ -49,7 +49,7 @@ struct ExpenseSearchView: View {
                     .padding(.vertical)
                 }
             } label: {
-                Image(systemName: "calendar.circle")
+                Image(systemName: "line.3.horizontal.decrease.circle")
                     .resizable()
                     .frame(width: 35, height: 35)
             }
