@@ -24,7 +24,7 @@ struct HomeTabView: View {
             currentTab = selectedTab
         }
         .fullScreenCover(isPresented: $shouldShowAddExpenseView) {
-            AddExpenseView()
+            AddExpenseView(viewModel: AddExpenseView.ViewModel())
         }
         .ignoresSafeArea(.keyboard)
     }
@@ -42,7 +42,7 @@ struct HomeTabView: View {
                 ExpenseChartView()
                     .transition(.opacity)
             case .AddExpense:
-                AddExpenseView()
+                AddExpenseView(viewModel: AddExpenseView.ViewModel())
                     .transition(.opacity)
             case .Settings:
                 SettingsView()

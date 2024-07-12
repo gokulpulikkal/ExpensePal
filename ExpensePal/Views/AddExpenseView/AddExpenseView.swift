@@ -14,11 +14,20 @@ struct AddExpenseView: View {
     @Environment(\.dismiss) var dismiss
     @State private var showingAlert = false
 
-    @State var keyPadInput = "0"
-    @State var expenseTitle = ""
+    @State var viewModel: ViewModel
+
+    @State var keyPadInput: String
+    @State var expenseTitle: String
     @State var selectedEmoji: Emoji?
     @State var displayEmojiPicker = false
-    @State var selectedDate = Date.now
+    @State var selectedDate: Date
+
+    init(viewModel: AddExpenseView.ViewModel) {
+        self.viewModel = viewModel
+        self.expenseTitle = viewModel.expense.title
+        self.keyPadInput = String(viewModel.expense.cost)
+        self.selectedDate = viewModel.expense.date
+    }
 
     var body: some View {
         GeometryReader { _ in
@@ -42,7 +51,7 @@ struct AddExpenseView: View {
                     action: {}
                 )
                 VStack(spacing: 8) {
-                    Text(Double(keyPadInput) ?? 0, format: .currency(code: "USD"))
+                    Text(viewModel.expense.cost, format: .currency(code: "USD"))
                         .bold()
                         .font(.largeTitle)
                 }
@@ -82,11 +91,23 @@ struct AddExpenseView: View {
         .alert("Please add expense title", isPresented: $showingAlert) {
             Button("OK", role: .cancel) {}
         }
+        .onChange(of: keyPadInput) {
+            viewModel.updateCost(input: keyPadInput)
+        }
+        .onChange(of: expenseTitle) {
+            viewModel.updateTitle(title: expenseTitle)
+        }
+        .onChange(of: selectedEmoji) {
+            viewModel.updateEmoji(emoji: selectedEmoji?.value)
+        }
+        .onChange(of: selectedDate) {
+            viewModel.updateSelectedDate(date: selectedDate)
+        }
     }
 
     func expenseInputView() -> some View {
         HStack {
-            Text(selectedEmoji?.value ?? "🛍️")
+            Text(viewModel.expense.emoji)
                 .padding(12)
                 .background(Color(AppColors.primaryAccent.rawValue))
                 .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -119,14 +140,12 @@ struct AddExpenseView: View {
 
     func getInputExpense() -> Expense? {
         if expenseTitle != "" {
-            let expenseCost = keyPadInput
-            let emoji = selectedEmoji?.value ?? "🛍️"
-            return Expense(emoji: emoji, title: expenseTitle, cost: Double(expenseCost) ?? 0, date: selectedDate)
+            return viewModel.expense
         }
         return nil
     }
 }
 
 #Preview {
-    AddExpenseView()
+    AddExpenseView(viewModel: AddExpenseView.ViewModel())
 }
