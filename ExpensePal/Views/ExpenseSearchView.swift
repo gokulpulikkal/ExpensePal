@@ -17,7 +17,7 @@ struct ExpenseSearchView: View {
         VStack {
             headerView
                 .padding(.top, 20)
-            ExpenseList(queryDescriptor: Expense.getFetchDescriptorForFilter(selectedFilter), searchText: searchText)
+            ExpenseList(queryDescriptor: Expense.getFetchDescriptorForFilter(selectedFilter.fetchFilter), searchText: searchText)
             Spacer()
         }
     }
@@ -49,7 +49,7 @@ struct ExpenseSearchView: View {
                     .padding(.vertical)
                 }
             } label: {
-                Image(systemName: "calendar.circle")
+                Image(systemName: "line.3.horizontal.decrease.circle")
                     .resizable()
                     .frame(width: 35, height: 35)
             }

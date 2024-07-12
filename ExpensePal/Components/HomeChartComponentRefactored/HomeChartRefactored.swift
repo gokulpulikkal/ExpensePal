@@ -16,6 +16,7 @@ struct HomeChartRefactored: View {
 
     @State var selectedDateStringInChart: String?
     @State var persistentSelectedDateString: String?
+    @State var animationCount = 0
 
     init(_ filter: ExpenseChartFilter) {
         switch filter {
@@ -32,15 +33,48 @@ struct HomeChartRefactored: View {
 
     var body: some View {
         VStack {
-            Text(viewModel.getTotalExpenseForPlot(viewModel.getExpenseChartDataPoints(filter, expenseList)), format: .currency(code: "USD"))
+            if isChartIsEmpty() {
+                noContentAnimationView
+            } else {
+                Text(
+                    viewModel.getTotalExpenseForPlot(viewModel.getExpenseChartDataPoints(filter, expenseList)),
+                    format: .currency(code: "USD")
+                )
                 .bold()
                 .font(.largeTitle)
-            chartView()
+                chartView()
+            }
         }
         .onChange(of: selectedDateStringInChart) {
             if selectedDateStringInChart != nil {
                 persistentSelectedDateString = selectedDateStringInChart
             }
+        }
+        .onChange(of: filter) {
+            persistentSelectedDateString = nil
+        }
+    }
+
+    private func isChartIsEmpty() -> Bool {
+        expenseList.isEmpty
+    }
+
+    var noContentAnimationView: some View {
+        VStack {
+            Image(systemName: "chart.bar.xaxis.ascending")
+                .resizable()
+                .frame(width: 80, height: 80)
+                .symbolEffect(.bounce, value: animationCount)
+                .padding(.bottom)
+            Group {
+                Text("Nothing to show here for \(filter.description.lowercased())")
+            }
+            .bold()
+        }
+        .frame(width: 300, height: 300)
+        .padding()
+        .onTapGesture {
+            animationCount += 1
         }
     }
 
@@ -60,6 +94,8 @@ struct HomeChartRefactored: View {
                 }
             }
         }
+        .chartYScale(range: .plotDimension(startPadding: 10, endPadding: 10))
+        .chartXScale(range: .plotDimension(startPadding: 10, endPadding: 10))
         .chartYAxis(.hidden)
         .chartXSelection(value: $selectedDateStringInChart)
         .chartYScale(domain: [viewModel.minYRange - 20, viewModel.maxYRange + 10])
@@ -70,7 +106,13 @@ struct HomeChartRefactored: View {
 
     private func chartSymbol(for xValue: Date) -> some View {
         VStack {
-            if viewModel.getExpenseChartDataPointsXValue(filter, xValue) == persistentSelectedDateString || (persistentSelectedDateString == nil && viewModel.getExpenseChartDataPointsXValue(filter, xValue) == viewModel.lastDataPointDateString) {
+            if viewModel
+                .getExpenseChartDataPointsXValue(filter, xValue) == persistentSelectedDateString ||
+                (persistentSelectedDateString == nil && viewModel.getExpenseChartDataPointsXValue(
+                    filter,
+                    xValue
+                ) == viewModel.lastDataPointDateString)
+            {
                 Circle()
                     .stroke(lineWidth: 5)
                     .frame(width: 17)
@@ -80,7 +122,7 @@ struct HomeChartRefactored: View {
         }
     }
 
-    private func chartPointInfoView(for point: LinePlot) -> some ChartContent {
+    private func chartPointInfoView(for point: LinePlotEntry) -> some ChartContent {
         PointMark(
             x: .value(point.xValueType, viewModel.getExpenseChartDataPointsXValue(filter, point.xValue)),
             y: .value(point.yValueType, point.yValue)

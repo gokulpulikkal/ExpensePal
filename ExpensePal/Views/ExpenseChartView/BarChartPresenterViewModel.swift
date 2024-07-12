@@ -1,66 +1,27 @@
 //
-//  HomeChartRefactoredModel.swift
+//  BarChartPresenterViewModel.swift
 //  ExpensePal
 //
-//  Created by Gokul P on 29/06/24.
+//  Created by Gokul P on 06/07/24.
 //
 
 import Foundation
 
-// MARK: - HomeChartRefactored.ViewModel
-
-extension HomeChartRefactored {
-    
+extension BarChartPresenter {
     class ViewModel {
-        
-        var lastDataPointDateString: String?
 
-        var maxYRange = 0
-        var minYRange = 0
-        
-        func getTotalExpenseForPlot(_ linePlots: [LinePlotEntry]) -> Double {
-            return linePlots.reduce(0, { $0 + $1.yValue })
-        }
-        
-        func saveLastPointOfPlot(_ filter: ExpenseChartFilter, _ plotList: [LinePlotEntry]) {
-            if let lastPoint = plotList.last {
-                lastDataPointDateString = getExpenseChartDataPointsXValue(filter, lastPoint.xValue)
-            }
-        }
+        var averageSpending: Double = 0
 
-        func getExpenseChartDataPointsXValue(_ filter: ExpenseChartFilter, _ date: Date) -> String {
-            switch filter {
-            case .monthly:
-                date.formatDateToMonth()
-            case .weekly:
-                date.formatDateToWeekOfMonth()
-            case .daily:
-                date.formatDateToDayOfWeek()
-            default:
-                ""
-            }
-        }
-
-        func getExpenseChartDataPoints(_ filter: ExpenseChartFilter, _ allEntries: [Expense]) -> [LinePlotEntry] {
+        func getExpenseChartDataPoints(_ filter: ExpenseChartMainFilter, _ allEntries: [Expense]) -> [LinePlotEntry] {
             let linePlots: [LinePlotEntry] = switch filter {
-            case .monthly:
+            case .Month:
                 monthWiseExpense(allEntries)
-            case .weekly:
-                weekWiseExpense(allEntries)
-            case .daily:
+            case .Year:
+                yearWiseExpense(allEntries)
+            case .Week:
                 dailyWiseExpense(allEntries)
-            default:
-                []
             }
-            saveLastPointOfPlot(filter, linePlots)
             return linePlots
-        }
-
-        
-
-        /// Helper function to get a date for a specific day offset from today
-        func getDate(daysOffset: Int) -> Date {
-            Calendar.current.date(byAdding: .day, value: -daysOffset, to: Date())!
         }
 
         private func monthWiseExpense(_ allEntries: [Expense]) -> [LinePlotEntry] {
@@ -98,8 +59,12 @@ extension HomeChartRefactored {
             // Print the result
             var minExpense = Int.max
             var maxExpense = 0
+
+            var totalForAverage: Double = 0
+
             for (date, expenses) in expensesByMonth {
                 let totalAmount = expenses.reduce(0) { $0 + $1.cost }
+                totalForAverage += totalAmount
                 minExpense = min(minExpense, Int(totalAmount))
                 maxExpense = max(maxExpense, Int(totalAmount))
                 linePlotList.append(LinePlotEntry(
@@ -109,73 +74,11 @@ extension HomeChartRefactored {
                     yValue: totalAmount
                 ))
             }
-
-            minYRange = minExpense
-            maxYRange = maxExpense
-
-            return linePlotList.sorted(using: KeyPathComparator(\.xValue))
-        }
-
-        private func weekWiseExpense(_ allEntries: [Expense]) -> [LinePlotEntry] {
-            var expensesByWeek: [Date: [Expense]] = [:]
-
-            // Get the current calendar and the current date
-            let calendar = Calendar.current
-            let currentDate = Date() // Only to get previous month data. Should change this to Date()
-
-            // Determine the start of the week
-            let thisWeek = calendar.component(.weekOfMonth, from: currentDate)
-
-            guard let startOfMonth = currentDate.startOfMonth() else {
-                return []
+            if !expensesByMonth.isEmpty {
+                averageSpending = totalForAverage / Double(expensesByMonth.count)
             }
-            for weekOffset in 0..<thisWeek {
-                if let week = calendar.date(byAdding: .weekOfMonth, value: weekOffset, to: startOfMonth),
-                   var startOfWeek = week.startOfWeek()
-                {
-                    if startOfWeek < startOfMonth {
-                        startOfWeek = startOfMonth
-                    }
-                    expensesByWeek[startOfWeek] = []
-                }
-            }
-
-            // Populate expensesByDay with actual expenses
-            for expense in allEntries {
-                if var startOfWeek = expense.date.startOfWeek() {
-                    if startOfWeek < startOfMonth {
-                        startOfWeek = startOfMonth
-                    }
-                    expensesByWeek[startOfWeek]?.append(expense)
-                }
-            }
-
-            for week in expensesByWeek.keys {
-                if expensesByWeek[week]?.isEmpty ?? true {
-                    expensesByWeek[week] = [Expense(emoji: "", title: "", cost: 0, date: week)]
-                }
-            }
-
-            var linePlotList: [LinePlotEntry] = []
-            // Print the result
-            var minExpense = Int.max
-            var maxExpense = 0
-            for (date, expenses) in expensesByWeek {
-                let totalAmount = expenses.reduce(0) { $0 + $1.cost }
-                minExpense = min(minExpense, Int(totalAmount))
-                maxExpense = max(maxExpense, Int(totalAmount))
-                linePlotList.append(LinePlotEntry(
-                    xValueType: "Week",
-                    yValueType: "Expense",
-                    xValue: date,
-                    yValue: totalAmount
-                ))
-            }
-
-            minYRange = minExpense
-            maxYRange = maxExpense
-
-            return linePlotList.sorted(using: KeyPathComparator(\.xValue))
+            let plotPoints = linePlotList.sorted(using: KeyPathComparator(\.xValue))
+            return plotPoints
         }
 
         private func dailyWiseExpense(_ allEntries: [Expense]) -> [LinePlotEntry] {
@@ -185,6 +88,8 @@ extension HomeChartRefactored {
             // Get the current calendar and the current date
             let calendar = Calendar.current
             let currentDate = Date()
+            // Testing
+//            let currentDate = calendar.date(byAdding: .day, value: -1, to: Date())!
 
             // Determine the start of the week
             let thisWeekDay = calendar.component(.weekday, from: currentDate)
@@ -217,8 +122,10 @@ extension HomeChartRefactored {
             // Print the result
             var minExpense = Int.max
             var maxExpense = 0
+            var totalForAverage: Double = 0
             for (date, expenses) in expensesByDay {
                 let totalAmount = expenses.reduce(0) { $0 + $1.cost }
+                totalForAverage += totalAmount
                 minExpense = min(minExpense, Int(totalAmount))
                 maxExpense = max(maxExpense, Int(totalAmount))
                 linePlotList.append(LinePlotEntry(
@@ -228,11 +135,66 @@ extension HomeChartRefactored {
                     yValue: totalAmount
                 ))
             }
-
-            minYRange = minExpense
-            maxYRange = maxExpense
+            
+            if !expensesByDay.isEmpty {
+                averageSpending = totalForAverage / Double(expensesByDay.count)
+            }
 
             return linePlotList.sorted(using: KeyPathComparator(\.xValue))
+        }
+        
+        private func yearWiseExpense(_ allEntries: [Expense]) -> [LinePlotEntry] {
+
+            // Get the current calendar and the current date
+            let calendar = Calendar.current
+            let currentDate = Date()
+
+            // Determine the start of the week
+            let thisYear = currentDate.year()
+            if let lastDate = allEntries.last?.date, let startOfThisYear = currentDate.firstDayOfYear() {
+                let startingYear = lastDate.year()
+                var expensesByYear: [Date: [Expense]] = [:]
+                
+                for yearOffset in 0 ... thisYear - startingYear {
+                    if let yearDate = calendar.date(byAdding: .year, value: -yearOffset, to: startOfThisYear) {
+                        expensesByYear[yearDate] = []
+                    }
+                }
+                // Populate expensesByDay with actual expenses
+                for expense in allEntries {
+                    if let date = expense.date.firstDayOfYear() {
+                        expensesByYear[date]?.append(expense)
+                    }
+                }
+                // Check for days with zero expenses and set them
+                for year in expensesByYear.keys {
+                    if expensesByYear[year]?.isEmpty ?? true {
+                        expensesByYear[year] = [Expense(emoji: "", title: "", cost: 0, date: year)]
+                    }
+                }
+                var linePlotList: [LinePlotEntry] = []
+                // Print the result
+                var minExpense = Int.max
+                var maxExpense = 0
+                var totalForAverage: Double = 0
+                for (date, expenses) in expensesByYear {
+                    let totalAmount = expenses.reduce(0) { $0 + $1.cost }
+                    totalForAverage += totalAmount
+                    minExpense = min(minExpense, Int(totalAmount))
+                    maxExpense = max(maxExpense, Int(totalAmount))
+                    linePlotList.append(LinePlotEntry(
+                        xValueType: "Year",
+                        yValueType: "Expense",
+                        xValue: date,
+                        yValue: totalAmount
+                    ))
+                }
+                if !expensesByYear.isEmpty {
+                    averageSpending = totalForAverage / Double(expensesByYear.count)
+                }
+                return linePlotList.sorted(using: KeyPathComparator(\.xValue))
+            }
+            return []
         }
     }
 }

@@ -16,15 +16,19 @@
 		4B1562432C167E14001A0F57 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1562422C167E14001A0F57 /* SettingsView.swift */; };
 		4B1562472C1682AF001A0F57 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1562462C1682AF001A0F57 /* HomeTabView.swift */; };
 		4B1562492C16871C001A0F57 /* AppEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1562482C16871C001A0F57 /* AppEnums.swift */; };
+		4B3377752C41B2D50046D86A /* AddExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3377742C41B2D50046D86A /* AddExpenseViewModel.swift */; };
 		4B47FB1A2C1F662B006457E3 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB192C1F662B006457E3 /* AddExpenseView.swift */; };
 		4B47FB1C2C1F68D3006457E3 /* RoundedStrokeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB1B2C1F68D3006457E3 /* RoundedStrokeButton.swift */; };
-		4B47FB1E2C1F75F5006457E3 /* KeyPadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB1D2C1F75F5006457E3 /* KeyPadButton.swift */; };
 		4B47FB202C1F773D006457E3 /* KeyPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB1F2C1F773D006457E3 /* KeyPad.swift */; };
 		4B47FB232C1F87E8006457E3 /* EmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 4B47FB222C1F87E8006457E3 /* EmojiPicker */; };
 		4B47FB252C1F8A47006457E3 /* LimitedEmojiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB242C1F8A47006457E3 /* LimitedEmojiProvider.swift */; };
 		4B47FB432C20B83C006457E3 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB422C20B83C006457E3 /* PreviewData.swift */; };
 		4B47FB482C21FF53006457E3 /* LinePlotEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB472C21FF53006457E3 /* LinePlotEntry.swift */; };
 		4B47FB4D2C221C26006457E3 /* ExpensesMockData.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B47FB4C2C221C26006457E3 /* ExpensesMockData.json */; };
+		4B79DD2E2C3A2C7200B62F9C /* BarChartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B79DD2D2C3A2C7200B62F9C /* BarChartPresenter.swift */; };
+		4B79DD302C3A316B00B62F9C /* BarChartPresenterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B79DD2F2C3A316B00B62F9C /* BarChartPresenterViewModel.swift */; };
+		4B79DD322C3A32C200B62F9C /* ChartComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B79DD312C3A32C200B62F9C /* ChartComponentView.swift */; };
+		4B79DD352C3CF9BF00B62F9C /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 4B79DD342C3CF9BF00B62F9C /* SwipeActions */; };
 		4B9EAD672C19410100A455AD /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9EAD662C19410100A455AD /* TestView.swift */; };
 		4BBE0AA72C1810B00097392F /* FilterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE0AA62C1810B00097392F /* FilterHeaderView.swift */; };
 		4BE52EC92C1E6E20002CF094 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE52EC82C1E6E20002CF094 /* CustomTabBar.swift */; };
@@ -52,14 +56,17 @@
 		4B1562422C167E14001A0F57 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		4B1562462C1682AF001A0F57 /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		4B1562482C16871C001A0F57 /* AppEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnums.swift; sourceTree = "<group>"; };
+		4B3377742C41B2D50046D86A /* AddExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewModel.swift; sourceTree = "<group>"; };
 		4B47FB192C1F662B006457E3 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 		4B47FB1B2C1F68D3006457E3 /* RoundedStrokeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedStrokeButton.swift; sourceTree = "<group>"; };
-		4B47FB1D2C1F75F5006457E3 /* KeyPadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPadButton.swift; sourceTree = "<group>"; };
 		4B47FB1F2C1F773D006457E3 /* KeyPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPad.swift; sourceTree = "<group>"; };
 		4B47FB242C1F8A47006457E3 /* LimitedEmojiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitedEmojiProvider.swift; sourceTree = "<group>"; };
 		4B47FB422C20B83C006457E3 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		4B47FB472C21FF53006457E3 /* LinePlotEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinePlotEntry.swift; sourceTree = "<group>"; };
 		4B47FB4C2C221C26006457E3 /* ExpensesMockData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ExpensesMockData.json; sourceTree = "<group>"; };
+		4B79DD2D2C3A2C7200B62F9C /* BarChartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartPresenter.swift; sourceTree = "<group>"; };
+		4B79DD2F2C3A316B00B62F9C /* BarChartPresenterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartPresenterViewModel.swift; sourceTree = "<group>"; };
+		4B79DD312C3A32C200B62F9C /* ChartComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartComponentView.swift; sourceTree = "<group>"; };
 		4B9EAD662C19410100A455AD /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		4BBE0AA62C1810B00097392F /* FilterHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterHeaderView.swift; sourceTree = "<group>"; };
 		4BE52EC82C1E6E20002CF094 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
@@ -82,6 +89,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B47FB232C1F87E8006457E3 /* EmojiPicker in Frameworks */,
+				4B79DD352C3CF9BF00B62F9C /* SwipeActions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,11 +143,20 @@
 				4BE52ED32C1F4A8D002CF094 /* DashboardView */,
 				4B1562462C1682AF001A0F57 /* HomeTabView.swift */,
 				4B15623E2C167DED001A0F57 /* ExpenseListView.swift */,
-				4B1562402C167E05001A0F57 /* ExpenseChartView.swift */,
+				4B79DD2C2C3A2BE200B62F9C /* ExpenseChartView */,
 				4B1562422C167E14001A0F57 /* SettingsView.swift */,
-				4B47FB192C1F662B006457E3 /* AddExpenseView.swift */,
+				4B3377732C41B29F0046D86A /* AddExpenseView */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		4B3377732C41B29F0046D86A /* AddExpenseView */ = {
+			isa = PBXGroup;
+			children = (
+				4B47FB192C1F662B006457E3 /* AddExpenseView.swift */,
+				4B3377742C41B2D50046D86A /* AddExpenseViewModel.swift */,
+			);
+			path = AddExpenseView;
 			sourceTree = "<group>";
 		};
 		4B47FB4E2C222392006457E3 /* MockDataFiles */ = {
@@ -151,6 +168,17 @@
 			path = MockDataFiles;
 			sourceTree = "<group>";
 		};
+		4B79DD2C2C3A2BE200B62F9C /* ExpenseChartView */ = {
+			isa = PBXGroup;
+			children = (
+				4B1562402C167E05001A0F57 /* ExpenseChartView.swift */,
+				4B79DD2D2C3A2C7200B62F9C /* BarChartPresenter.swift */,
+				4B79DD2F2C3A316B00B62F9C /* BarChartPresenterViewModel.swift */,
+				4B79DD312C3A32C200B62F9C /* ChartComponentView.swift */,
+			);
+			path = ExpenseChartView;
+			sourceTree = "<group>";
+		};
 		4BBE0AA52C180EB00097392F /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,7 +188,6 @@
 				4BE52EC82C1E6E20002CF094 /* CustomTabBar.swift */,
 				4BE52ECA2C1EA724002CF094 /* ExpenseListCell.swift */,
 				4B47FB1B2C1F68D3006457E3 /* RoundedStrokeButton.swift */,
-				4B47FB1D2C1F75F5006457E3 /* KeyPadButton.swift */,
 				4B47FB1F2C1F773D006457E3 /* KeyPad.swift */,
 				4BF317ED2C275F0D00DC378B /* ExpenseList.swift */,
 			);
@@ -224,6 +251,7 @@
 			name = ExpensePal;
 			packageProductDependencies = (
 				4B47FB222C1F87E8006457E3 /* EmojiPicker */,
+				4B79DD342C3CF9BF00B62F9C /* SwipeActions */,
 			);
 			productName = ExpensePal;
 			productReference = 4B1562242C153084001A0F57 /* ExpensePal.app */;
@@ -255,6 +283,7 @@
 			mainGroup = 4B15621B2C153084001A0F57;
 			packageReferences = (
 				4B47FB212C1F87E8006457E3 /* XCRemoteSwiftPackageReference "EmojiPicker" */,
+				4B79DD332C3CF9BF00B62F9C /* XCRemoteSwiftPackageReference "SwipeActions" */,
 			);
 			productRefGroup = 4B1562252C153084001A0F57 /* Products */;
 			projectDirPath = "";
@@ -285,15 +314,17 @@
 			files = (
 				4B47FB252C1F8A47006457E3 /* LimitedEmojiProvider.swift in Sources */,
 				4BE52ED22C1F48C9002CF094 /* Expense.swift in Sources */,
-				4B47FB1E2C1F75F5006457E3 /* KeyPadButton.swift in Sources */,
+				4B79DD302C3A316B00B62F9C /* BarChartPresenterViewModel.swift in Sources */,
 				4B15623D2C167DCE001A0F57 /* DashboardView.swift in Sources */,
 				4B1562282C153084001A0F57 /* ExpensePalApp.swift in Sources */,
 				4B1562432C167E14001A0F57 /* SettingsView.swift in Sources */,
 				4BE52ED02C1F4852002CF094 /* MockData.swift in Sources */,
 				4BBE0AA72C1810B00097392F /* FilterHeaderView.swift in Sources */,
+				4B3377752C41B2D50046D86A /* AddExpenseViewModel.swift in Sources */,
 				4BEF3A042C30FE02000F9A63 /* HomeChartRefactored.swift in Sources */,
 				4BEF4ABC2C1F4AF700CFD46A /* DashboardViewModel.swift in Sources */,
 				4B1562492C16871C001A0F57 /* AppEnums.swift in Sources */,
+				4B79DD322C3A32C200B62F9C /* ChartComponentView.swift in Sources */,
 				4B47FB482C21FF53006457E3 /* LinePlotEntry.swift in Sources */,
 				4B47FB432C20B83C006457E3 /* PreviewData.swift in Sources */,
 				4BF317E72C23344D00DC378B /* QueryFetchHelpers.swift in Sources */,
@@ -305,6 +336,7 @@
 				4B9EAD672C19410100A455AD /* TestView.swift in Sources */,
 				4B47FB1C2C1F68D3006457E3 /* RoundedStrokeButton.swift in Sources */,
 				4BF317EA2C23AA3F00DC378B /* Extensions.swift in Sources */,
+				4B79DD2E2C3A2C7200B62F9C /* BarChartPresenter.swift in Sources */,
 				4BF317EC2C274BE600DC378B /* ExpenseSearchView.swift in Sources */,
 				4BEF3A062C30FEE8000F9A63 /* HomeChartRefactoredModel.swift in Sources */,
 				4BF317EE2C275F0D00DC378B /* ExpenseList.swift in Sources */,
@@ -526,6 +558,14 @@
 				minimumVersion = 1.0.1;
 			};
 		};
+		4B79DD332C3CF9BF00B62F9C /* XCRemoteSwiftPackageReference "SwipeActions" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/c-villain/SwipeActions";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.5;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -533,6 +573,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4B47FB212C1F87E8006457E3 /* XCRemoteSwiftPackageReference "EmojiPicker" */;
 			productName = EmojiPicker;
+		};
+		4B79DD342C3CF9BF00B62F9C /* SwipeActions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4B79DD332C3CF9BF00B62F9C /* XCRemoteSwiftPackageReference "SwipeActions" */;
+			productName = SwipeActions;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

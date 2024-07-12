@@ -10,18 +10,23 @@ import SwiftUI
 struct HomeTabView: View {
     @State var selectedTab: Tab = .DashBoard
     @State var currentTab: Tab = .DashBoard
-    @State private var shouldShowAddExpenseView = false
+    @State var shouldShowAddExpenseView = false
 
     var body: some View {
         VStack {
             getMainView(currentTab)
                 .animation(.easeInOut(duration: 0.1), value: currentTab)
             Spacer()
-            CustomTabBar(selectedTab: $selectedTab)
+            CustomTabBar(selectedTab: $selectedTab, selectedPopOverTab: $shouldShowAddExpenseView)
                 .frame(height: 35)
-        }.onChange(of: selectedTab) {
+        }
+        .onChange(of: selectedTab) {
             currentTab = selectedTab
         }
+        .fullScreenCover(isPresented: $shouldShowAddExpenseView) {
+            AddExpenseView(viewModel: AddExpenseView.ViewModel())
+        }
+        .ignoresSafeArea(.keyboard)
     }
 
     private func getMainView(_ selectedTab: Tab) -> some View {
@@ -37,7 +42,7 @@ struct HomeTabView: View {
                 ExpenseChartView()
                     .transition(.opacity)
             case .AddExpense:
-                AddExpenseView()
+                AddExpenseView(viewModel: AddExpenseView.ViewModel())
                     .transition(.opacity)
             case .Settings:
                 SettingsView()

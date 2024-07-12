@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LinePlotEntry: Identifiable {
+struct LinePlotEntry: Identifiable, Equatable {
     let xValueType: String
     let yValueType: String
 

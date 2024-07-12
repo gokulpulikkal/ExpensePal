@@ -6,8 +6,13 @@
 //
 
 import SwiftUI
+import SwipeActions
 
 struct ExpenseListCell: View {
+    
+    @Environment(\.modelContext) var modelContext
+    @State var presentingEditExpenseView = false
+    
     var expense: Expense
     var body: some View {
         HStack {
@@ -24,14 +29,40 @@ struct ExpenseListCell: View {
             Text(expense.cost, format: .currency(code: "USD"))
                 .bold()
         }
-//        .padding()
-//        .background {
-//            RoundedRectangle(cornerRadius: 10)
-//                .stroke(lineWidth: 1)
-//        }
+        .padding(.horizontal, 20)
+        .addSwipeAction(edge: .trailing) {
+            HStack {
+                Button {
+                    presentingEditExpenseView = true
+                } label: {
+                    Image(systemName: "pencil")
+                        .foregroundColor(Color(AppColors.primaryBackground.rawValue))
+                }
+                .frame(width: 60, height: 50, alignment: .center)
+                .background(Color(AppColors.primaryAccent.rawValue), in: RoundedRectangle(cornerRadius: 10))
+                
+                Button {
+                    modelContext.delete(expense)
+                } label: {
+                    Image(systemName: "trash")
+                        .foregroundColor(Color(AppColors.primaryBackground.rawValue))
+                }
+                .frame(width: 60, height: 50, alignment: .center)
+                .background(Color(AppColors.primaryAccent.rawValue), in: RoundedRectangle(cornerRadius: 10))
+            }
+        }
+        .fullScreenCover(isPresented: $presentingEditExpenseView, content: {
+            AddExpenseView(viewModel: AddExpenseView.ViewModel(expense: expense))
+        })
     }
 }
 
 #Preview {
-    ExpenseListCell(expense: Expense(emoji: "🐶", title: "Pet care", subTitle: "petco", cost: 179, date: Calendar.current.date(byAdding: .day, value: -2, to: Date())!))
+    ExpenseListCell(expense: Expense(
+        emoji: "🐶",
+        title: "Pet care",
+        subTitle: "petco",
+        cost: 179,
+        date: Calendar.current.date(byAdding: .day, value: -2, to: Date())!
+    ))
 }

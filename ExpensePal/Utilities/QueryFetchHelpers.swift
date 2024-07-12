@@ -9,7 +9,7 @@ import SwiftData
 import SwiftUI
 
 extension Expense {
-    
+
     static func currentYearPredicate() -> Predicate<Expense> {
         let firstDayOfYear = Date().firstDayOfYear() ?? Date()
 
@@ -25,7 +25,7 @@ extension Expense {
             festival.date < currentDate
         }
     }
-    
+
     static func firstTen() -> FetchDescriptor<Expense> {
         var fetch = FetchDescriptor<Expense>()
         fetch.sortBy = [SortDescriptor(\Expense.date, order: .reverse)]
@@ -33,7 +33,7 @@ extension Expense {
         fetch.fetchLimit = 10
         return fetch
     }
-    
+
     static func currentMonthPredicate() -> Predicate<Expense> {
         let firstDayOfMonth = Date().startOfMonth() ?? Date.now
 
@@ -41,7 +41,7 @@ extension Expense {
             expense.date >= firstDayOfMonth
         }
     }
-    
+
     static func currentWeekPredicate() -> Predicate<Expense> {
         let firstDayOfWeek = Date().startOfWeek() ?? Date.now
 
@@ -49,8 +49,8 @@ extension Expense {
             expense.date >= firstDayOfWeek
         }
     }
-    
-    static func getFetchDescriptorForFilter(_ filter: ExpenseSearchFilter) -> FetchDescriptor<Expense> {
+
+    static func getFetchDescriptorForFilter(_ filter: ExpenseListFetchFilters) -> FetchDescriptor<Expense> {
         var fetch = FetchDescriptor<Expense>()
         fetch.sortBy = [SortDescriptor(\Expense.date, order: .reverse)]
         switch filter {
@@ -60,6 +60,8 @@ extension Expense {
             fetch.predicate = currentMonthPredicate()
         case .thisYear:
             fetch.predicate = currentYearPredicate()
+        case .prevYears:
+            return fetch
         }
         return fetch
     }
