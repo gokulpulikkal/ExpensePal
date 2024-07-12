@@ -2,8 +2,7 @@
 
 An intuitive and visually appealing minimalistic expense tracker app to help users manage and analyze their spending habits. 
 
-<img src="https://github.com/user-attachments/assets/3e81e766-7fdd-4ac5-b8cd-d4a61600d4af" width="250px" />
-
+[![Watch the video]](https://github.com/user-attachments/assets/3e81e766-7fdd-4ac5-b8cd-d4a61600d4af)
 
 
 ## Features
