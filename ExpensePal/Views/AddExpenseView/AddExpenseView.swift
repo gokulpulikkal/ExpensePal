@@ -25,7 +25,11 @@ struct AddExpenseView: View {
     init(viewModel: AddExpenseView.ViewModel) {
         self.viewModel = viewModel
         self.expenseTitle = viewModel.expense.title
-        self.keyPadInput = String(viewModel.expense.cost)
+        if floor(viewModel.expense.cost) == viewModel.expense.cost { // to make sure that the cost input behaves correct
+            self.keyPadInput = String(Int(viewModel.expense.cost))
+        } else {
+            self.keyPadInput = String(viewModel.expense.cost)
+        }
         self.selectedDate = viewModel.expense.date
     }
 
