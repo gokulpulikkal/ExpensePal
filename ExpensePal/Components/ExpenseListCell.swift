@@ -6,8 +6,13 @@
 //
 
 import SwiftUI
+import SwipeActions
 
 struct ExpenseListCell: View {
+    
+    @Environment(\.modelContext) var modelContext
+    @State var presentingEditExpenseView = false
+    
     var expense: Expense
     var body: some View {
         HStack {
@@ -25,6 +30,30 @@ struct ExpenseListCell: View {
                 .bold()
         }
         .padding(.horizontal, 20)
+        .addSwipeAction(edge: .trailing) {
+            HStack {
+                Button {
+                    presentingEditExpenseView = true
+                } label: {
+                    Image(systemName: "pencil")
+                        .foregroundColor(Color(AppColors.primaryBackground.rawValue))
+                }
+                .frame(width: 60, height: 50, alignment: .center)
+                .background(Color(AppColors.primaryAccent.rawValue), in: RoundedRectangle(cornerRadius: 10))
+                
+                Button {
+                    modelContext.delete(expense)
+                } label: {
+                    Image(systemName: "trash")
+                        .foregroundColor(Color(AppColors.primaryBackground.rawValue))
+                }
+                .frame(width: 60, height: 50, alignment: .center)
+                .background(Color(AppColors.primaryAccent.rawValue), in: RoundedRectangle(cornerRadius: 10))
+            }
+        }
+        .fullScreenCover(isPresented: $presentingEditExpenseView, content: {
+            AddExpenseView(viewModel: AddExpenseView.ViewModel(expense: expense))
+        })
     }
 }
 

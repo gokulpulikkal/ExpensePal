@@ -11,7 +11,6 @@ import SwipeActions
 
 struct DashboardView: View {
     var viewModel = DashboardViewModel()
-    @Environment(\.modelContext) var modelContext
 
     @Query(Expense.firstTen()) var expenseList: [Expense]
     @State var chartFilter: ExpenseChartFilter = .daily
@@ -42,16 +41,6 @@ struct DashboardView: View {
                     ForEach(expenseList, id: \.id) { expense in
                         ExpenseListCell(expense: expense)
                             .padding(.vertical, 5)
-                            .addSwipeAction(edge: .trailing) {
-                                Button {
-                                    modelContext.delete(expense)
-                                } label: {
-                                    Image(systemName: "trash")
-                                        .foregroundColor(.white)
-                                }
-                                .frame(width: 60, height: 50, alignment: .center)
-                                .background(Color.red, in: RoundedRectangle(cornerRadius: 10))
-                            }
                     }
                 } else {
                     VStack {
