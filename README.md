@@ -2,9 +2,7 @@
 
 An intuitive and visually appealing minimalistic expense tracker app to help users manage and analyze their spending habits. 
 
-<img src="https://github.com/gokulpulikkal/ExpensePal/assets/52960334/406b1319-4c06-4330-97f0-218442cd3fe1" width="250px" />
-
-
+<img src="https://github.com/user-attachments/assets/3e81e766-7fdd-4ac5-b8cd-d4a61600d4af" width="250px" />
 
 
 
