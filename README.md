@@ -11,8 +11,8 @@ Below are the features that I want to have for this app. Please note that it's a
 - [x] Track expenses with details including title, cost, and date.
 - [ ] Get expense details from physical bills using vision framework and Gemini API
 - [x] Visualize spending with various charts: 
-- [ ] Analyze trends and patterns in your spending.
-- [ ] Interactive and user-friendly interface.
+- [x] Analyze trends and patterns in your spending.
+- [x] Interactive and user-friendly interface.
 
 ## Technologies Used
 
