@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ExpenseChartView: View {
 
-    @State var chartFilter: ExpenseChartMainFilter = .Month
+    @AppStorage("chartFilterExpenseChart") var chartFilter: ExpenseChartMainFilter = .Month
     @State var currentXSelection: String?
     @State var currentYSelection: Double?
     @State var averageYValue: Double = 0

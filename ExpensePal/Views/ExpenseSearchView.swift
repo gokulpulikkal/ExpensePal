@@ -11,7 +11,7 @@ import SwiftUI
 struct ExpenseSearchView: View {
     @State var searchText: String = ""
     @State var selectedDate: Date = Date.now
-    @State var selectedFilter: ExpenseSearchFilter = ExpenseSearchFilter.thisMonth
+    @AppStorage("ExpenseSearchViewFilter") var selectedFilter: ExpenseSearchFilter = ExpenseSearchFilter.thisMonth
 
     var body: some View {
         VStack {
