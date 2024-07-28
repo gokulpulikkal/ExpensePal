@@ -11,11 +11,11 @@ import SwiftData
 @Model
 class Expense: Codable {
     var id = UUID()
-    var emoji: String
-    var title: String
-    var subTitle: String
-    var cost: Double
-    var date: Date
+    var emoji: String = ""
+    var title: String = ""
+    var subTitle: String = ""
+    var cost: Double = 0
+    var date: Date = Date()
 
     init(id: UUID = UUID(), emoji: String, title: String, subTitle: String = "", cost: Double, date: Date = .now) {
         self.id = id

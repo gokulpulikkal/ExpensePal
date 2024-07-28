@@ -134,7 +134,9 @@ struct ExpenseChartView: View {
     }
 }
 
+#if DEBUG
 #Preview {
     ExpenseChartView()
         .modelContainer(previewContainer)
 }
+#endif

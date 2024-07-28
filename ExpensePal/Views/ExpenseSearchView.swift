@@ -57,8 +57,9 @@ struct ExpenseSearchView: View {
         }
     }
 }
-
+#if DEBUG
 #Preview {
     ExpenseSearchView()
         .modelContainer(previewContainer)
 }
+#endif

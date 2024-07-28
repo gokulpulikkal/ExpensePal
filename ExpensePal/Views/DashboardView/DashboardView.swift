@@ -73,8 +73,9 @@ struct DashboardView: View {
         }
     }
 }
-
+#if DEBUG
 #Preview {
     DashboardView()
         .modelContainer(previewContainer)
 }
+#endif
