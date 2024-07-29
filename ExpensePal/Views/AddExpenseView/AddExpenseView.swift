@@ -13,6 +13,7 @@ struct AddExpenseView: View {
     @Environment(\.modelContext) var modelContext
     @Environment(\.dismiss) var dismiss
     @State private var showingAlert = false
+    @State private var showingReceiptScanner = false
 
     @State var viewModel: ViewModel
 
@@ -52,7 +53,9 @@ struct AddExpenseView: View {
                 RoundedStrokeButton(
                     text: Text("vision capture"),
                     image: Image(systemName: "camera.viewfinder"),
-                    action: {}
+                    action: {
+                        showingReceiptScanner = true
+                    }
                 )
                 VStack(spacing: 8) {
                     Text(viewModel.expense.cost, format: .currency(code: "USD"))
@@ -91,6 +94,9 @@ struct AddExpenseView: View {
                 .navigationTitle("Emojis")
                 .navigationBarTitleDisplayMode(.inline)
             }
+        }
+        .sheet(isPresented: $showingReceiptScanner) {
+            ReceiptScanner()
         }
         .alert("Please add expense title", isPresented: $showingAlert) {
             Button("OK", role: .cancel) {}
