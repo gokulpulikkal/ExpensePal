@@ -13,7 +13,7 @@ struct DashboardView: View {
     var viewModel = DashboardViewModel()
 
     @Query(Expense.firstTen()) var expenseList: [Expense]
-    @State var chartFilter: ExpenseChartFilter = .daily
+    @AppStorage("chartFilterDashBoard") var chartFilter: ExpenseChartFilter = .daily
     @State var presentingSearchView = false
 
     var body: some View {
@@ -73,8 +73,9 @@ struct DashboardView: View {
         }
     }
 }
-
+#if DEBUG
 #Preview {
     DashboardView()
         .modelContainer(previewContainer)
 }
+#endif

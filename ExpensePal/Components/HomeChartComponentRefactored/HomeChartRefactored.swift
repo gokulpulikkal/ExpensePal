@@ -159,7 +159,9 @@ struct HomeChartRefactored: View {
     }
 }
 
+#if DEBUG
 #Preview {
     HomeChartRefactored(.monthly)
         .modelContainer(previewContainer)
 }
+#endif

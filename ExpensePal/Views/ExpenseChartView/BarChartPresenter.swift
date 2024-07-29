@@ -67,7 +67,9 @@ struct BarChartPresenter: View {
     }
 }
 
+#if DEBUG
 #Preview {
     BarChartPresenter(.Year, .constant(""), .constant(0), .constant(0), .constant(false))
         .modelContainer(previewContainer)
 }
+#endif

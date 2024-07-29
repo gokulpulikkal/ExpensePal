@@ -28,7 +28,9 @@ struct ExpenseListView: View {
     }
 }
 
+#if DEBUG
 #Preview {
     ExpenseListView()
         .modelContainer(previewContainer)
 }
+#endif

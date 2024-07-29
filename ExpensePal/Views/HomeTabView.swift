@@ -51,8 +51,9 @@ struct HomeTabView: View {
         }
     }
 }
-
+#if DEBUG
 #Preview {
     HomeTabView()
         .modelContainer(previewContainer)
 }
+#endif

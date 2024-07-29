@@ -61,7 +61,9 @@ struct ExpenseList: View {
     }
 }
 
+#if DEBUG
 #Preview {
     ExpenseList(queryDescriptor: Expense.getFetchDescriptorForFilter(.thisMonth), searchText: "")
         .modelContainer(previewContainer)
 }
+#endif
