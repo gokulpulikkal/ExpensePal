@@ -10,7 +10,7 @@ import VisionKit
 
 struct VNDocumentViewControllerRepresentable: UIViewControllerRepresentable {
 
-    @Binding var scanResult: UIImage
+    @Binding var scanResult: UIImage?
 
     func makeUIViewController(context: Context) -> VNDocumentCameraViewController {
         let documentCameraViewController = VNDocumentCameraViewController()
@@ -26,9 +26,9 @@ struct VNDocumentViewControllerRepresentable: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: VNDocumentCameraViewController, context: Context) {}
 
     final class Coordinator: NSObject, VNDocumentCameraViewControllerDelegate {
-        @Binding var scanResult: UIImage
+        @Binding var scanResult: UIImage?
 
-        init(scanResult: Binding<UIImage>) {
+        init(scanResult: Binding<UIImage?>) {
             _scanResult = scanResult
         }
 

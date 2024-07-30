@@ -12,4 +12,5 @@ struct GenAIResponse: Codable {
     var title: String
     var subTitle: String
     var cost: Double
+    var date: Date
 }

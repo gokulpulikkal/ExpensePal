@@ -100,20 +100,31 @@ extension AddExpenseView {
                                 jsonString
                             )
                             this is a extracted text from a receipt. Consolidate everything in this to a single purchase and create a single data as json string. Make the JSON string to be decoded to a model exactly like below one 
-                            
+
                             struct GenAIResponse: Codable {
                                 var emoji: String
                                 var title: String
                                 var subTitle: String
                                 var cost: Double
+                                var date: Date
                             }
 
                             Remove any backticks.
                             """
                             let response = try await model.generateContent(prompt)
                             if let jsonString = response.text, let jsonData = jsonString.data(using: .utf8) {
-                                let expenseResponseFromGenAI = try JSONDecoder().decode(GenAIResponse.self, from: jsonData)
-                                self.expense = Expense(emoji: expenseResponseFromGenAI.emoji, title: expenseResponseFromGenAI.title, cost: expenseResponseFromGenAI.cost)
+                                let decoder = JSONDecoder()
+                                decoder.dateDecodingStrategy = .iso8601
+                                let expenseResponseFromGenAI = try decoder.decode(
+                                    GenAIResponse.self,
+                                    from: jsonData
+                                )
+                                self.expense = Expense(
+                                    emoji: expenseResponseFromGenAI.emoji,
+                                    title: expenseResponseFromGenAI.title,
+                                    cost: expenseResponseFromGenAI.cost,
+                                    date: expenseResponseFromGenAI.date
+                                )
                             } else {
                                 print("Error $$$$$$$$$$$")
                             }

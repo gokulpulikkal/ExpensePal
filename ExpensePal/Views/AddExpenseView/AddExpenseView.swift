@@ -23,7 +23,7 @@ struct AddExpenseView: View {
     @State var selectedEmoji: Emoji?
     @State var displayEmojiPicker = false
     @State var selectedDate: Date
-    @State private var scannedImage = UIImage()
+    @State private var scannedImage: UIImage? = nil
     @State private var showActivityIndicator = false
 
     init(viewModel: AddExpenseView.ViewModel) {
@@ -113,7 +113,11 @@ struct AddExpenseView: View {
             Button("OK", role: .cancel) {}
         }
         .onChange(of: showingReceiptScanner) {
-            showActivityIndicator = true
+            if showActivityIndicator, scannedImage == nil {
+                showActivityIndicator = false
+            } else {
+                showActivityIndicator = true
+            }
         }
         .onChange(of: keyPadInput) {
             viewModel.updateCost(input: keyPadInput)
@@ -128,12 +132,14 @@ struct AddExpenseView: View {
             viewModel.updateSelectedDate(date: selectedDate)
         }
         .onChange(of: scannedImage) {
-            
-            viewModel.recognizeText(scannedImage: scannedImage)
+            if let scannedImage {
+                viewModel.recognizeText(scannedImage: scannedImage)
+            }
         }
         .onChange(of: viewModel.expense) {
             showActivityIndicator = false
             expenseTitle = viewModel.expense.title
+            selectedDate = viewModel.expense.date
         }
     }
 
