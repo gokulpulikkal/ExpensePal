@@ -37,8 +37,10 @@ struct VNDocumentViewControllerRepresentable: UIViewControllerRepresentable {
             _ controller: VNDocumentCameraViewController,
             didFinishWith scan: VNDocumentCameraScan
         ) {
-            controller.dismiss(animated: true, completion: nil)
-            scanResult = scan.imageOfPage(at: 0)
+            controller.dismiss(animated: true) {
+                self.scanResult = scan.imageOfPage(at: 0)
+            }
+            
         }
 
         /// Tells the delegate that the user canceled out of the document scanner camera.

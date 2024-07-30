@@ -10,7 +10,6 @@ import EmojiPicker
 import SwiftData
 import SwiftUI
 
-
 struct AddExpenseView: View {
     @Environment(\.modelContext) var modelContext
     @Environment(\.dismiss) var dismiss
@@ -25,6 +24,7 @@ struct AddExpenseView: View {
     @State var displayEmojiPicker = false
     @State var selectedDate: Date
     @State private var scannedImage = UIImage()
+    @State private var showActivityIndicator = false
 
     init(viewModel: AddExpenseView.ViewModel) {
         self.viewModel = viewModel
@@ -39,52 +39,58 @@ struct AddExpenseView: View {
 
     var body: some View {
         GeometryReader { _ in
-            VStack {
-                HStack {
+            ZStack {
+                VStack {
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            dismiss()
+                        }, label: {
+                            Image(systemName: "multiply.circle.fill")
+                                .resizable()
+                                .frame(width: 31, height: 31)
+                                .padding(.horizontal)
+                                .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
+                        })
+                    }
                     Spacer()
-                    Button(action: {
-                        dismiss()
-                    }, label: {
-                        Image(systemName: "multiply.circle.fill")
-                            .resizable()
-                            .frame(width: 31, height: 31)
-                            .padding(.horizontal)
-                            .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
-                    })
-                }
-                Spacer()
-                RoundedStrokeButton(
-                    text: Text("vision capture"),
-                    image: Image(systemName: "camera.viewfinder"),
-                    action: {
-                        Task {
-                            await setUpCaptureSession()
+                    RoundedStrokeButton(
+                        text: Text("vision capture"),
+                        image: Image(systemName: "camera.viewfinder"),
+                        action: {
+                            Task {
+                                await setUpCaptureSession()
+                            }
+                        }
+                    )
+                    VStack(spacing: 8) {
+                        Text(viewModel.expense.cost, format: .currency(code: "USD"))
+                            .bold()
+                            .font(.largeTitle)
+                    }
+                    expenseInputView()
+                        .padding(.bottom, 20)
+                    KeyPad(string: $keyPadInput)
+                        .frame(width: 300, height: 350)
+                    Button("Done") {
+                        if let expense = getInputExpense() {
+                            modelContext.insert(expense)
+                            dismiss()
+                        } else {
+                            showingAlert = true
                         }
                     }
-                )
-                VStack(spacing: 8) {
-                    Text(viewModel.expense.cost, format: .currency(code: "USD"))
-                        .bold()
-                        .font(.largeTitle)
+                    .bold()
+                    .padding(14)
+                    .foregroundStyle(Color(AppColors.primaryBackground.rawValue))
+                    .background(Color(AppColors.primaryAccent.rawValue))
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    Spacer()
                 }
-                expenseInputView()
-                    .padding(.bottom, 20)
-                KeyPad(string: $keyPadInput)
-                    .frame(width: 300, height: 350)
-                Button("Done") {
-                    if let expense = getInputExpense() {
-                        modelContext.insert(expense)
-                        dismiss()
-                    } else {
-                        showingAlert = true
-                    }
+                if showActivityIndicator {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: Color(AppColors.primaryAccent.rawValue)))
                 }
-                .bold()
-                .padding(14)
-                .foregroundStyle(Color(AppColors.primaryBackground.rawValue))
-                .background(Color(AppColors.primaryAccent.rawValue))
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-                Spacer()
             }
             .padding([.leading, .bottom, .trailing])
         }
@@ -106,6 +112,9 @@ struct AddExpenseView: View {
         .alert("Please add expense title", isPresented: $showingAlert) {
             Button("OK", role: .cancel) {}
         }
+        .onChange(of: showingReceiptScanner) {
+            showActivityIndicator = true
+        }
         .onChange(of: keyPadInput) {
             viewModel.updateCost(input: keyPadInput)
         }
@@ -119,11 +128,13 @@ struct AddExpenseView: View {
             viewModel.updateSelectedDate(date: selectedDate)
         }
         .onChange(of: scannedImage) {
+            
             viewModel.recognizeText(scannedImage: scannedImage)
         }
-        .onChange(of: viewModel.expense, {
-            self.expenseTitle = viewModel.expense.title
-        })
+        .onChange(of: viewModel.expense) {
+            showActivityIndicator = false
+            expenseTitle = viewModel.expense.title
+        }
     }
 
     func expenseInputView() -> some View {
@@ -189,8 +200,7 @@ struct AddExpenseView: View {
             return isAuthorized
         }
     }
-    
-    
+
 }
 
 #Preview {
