@@ -35,6 +35,7 @@
 		4B865CFA2C58339E000E799B /* APIKeyGenAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B865CF92C58339E000E799B /* APIKeyGenAI.swift */; };
 		4B865CFC2C58387D000E799B /* GenerativeAI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B865CFB2C58387D000E799B /* GenerativeAI-Info.plist */; };
 		4B865CFE2C583DE4000E799B /* GenAIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B865CFD2C583DE4000E799B /* GenAIResponse.swift */; };
+		4B865D132C5957B2000E799B /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B865D122C5957B2000E799B /* LaunchScreen.swift */; };
 		4B9EAD672C19410100A455AD /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9EAD662C19410100A455AD /* TestView.swift */; };
 		4BBE0AA72C1810B00097392F /* FilterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE0AA62C1810B00097392F /* FilterHeaderView.swift */; };
 		4BE52EC92C1E6E20002CF094 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE52EC82C1E6E20002CF094 /* CustomTabBar.swift */; };
@@ -78,6 +79,7 @@
 		4B865CF92C58339E000E799B /* APIKeyGenAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeyGenAI.swift; sourceTree = "<group>"; };
 		4B865CFB2C58387D000E799B /* GenerativeAI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GenerativeAI-Info.plist"; sourceTree = "<group>"; };
 		4B865CFD2C583DE4000E799B /* GenAIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAIResponse.swift; sourceTree = "<group>"; };
+		4B865D122C5957B2000E799B /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		4B9EAD662C19410100A455AD /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		4BAFFC042C55A90A00E2626E /* ExpensePal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ExpensePal.entitlements; sourceTree = "<group>"; };
 		4BAFFC052C55AB7900E2626E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				4B1562422C167E14001A0F57 /* SettingsView.swift */,
 				4B3377732C41B29F0046D86A /* AddExpenseView */,
 				4B865CEF2C5710AF000E799B /* ReceiptScanner */,
+				4B865D122C5957B2000E799B /* LaunchScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				4BF317E72C23344D00DC378B /* QueryFetchHelpers.swift in Sources */,
 				4BF317F42C27B77700DC378B /* DarkModeViewModifier.swift in Sources */,
 				4B1562472C1682AF001A0F57 /* HomeTabView.swift in Sources */,
+				4B865D132C5957B2000E799B /* LaunchScreen.swift in Sources */,
 				4B865CFE2C583DE4000E799B /* GenAIResponse.swift in Sources */,
 				4BE52EC92C1E6E20002CF094 /* CustomTabBar.swift in Sources */,
 				4B47FB202C1F773D006457E3 /* KeyPad.swift in Sources */,

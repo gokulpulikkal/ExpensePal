@@ -12,7 +12,7 @@ import SwiftData
 struct ExpensePalApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeTabView()
+            LaunchScreen()
                 .modifier(DarkModeViewModifier())
         }
         .modelContainer(for: Expense.self)
