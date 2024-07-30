@@ -5,9 +5,11 @@
 //  Created by Gokul P on 16/06/24.
 //
 
+import AVFoundation
 import EmojiPicker
 import SwiftData
 import SwiftUI
+
 
 struct AddExpenseView: View {
     @Environment(\.modelContext) var modelContext
@@ -22,6 +24,7 @@ struct AddExpenseView: View {
     @State var selectedEmoji: Emoji?
     @State var displayEmojiPicker = false
     @State var selectedDate: Date
+    @State private var scannedImage = UIImage()
 
     init(viewModel: AddExpenseView.ViewModel) {
         self.viewModel = viewModel
@@ -54,7 +57,9 @@ struct AddExpenseView: View {
                     text: Text("vision capture"),
                     image: Image(systemName: "camera.viewfinder"),
                     action: {
-                        showingReceiptScanner = true
+                        Task {
+                            await setUpCaptureSession()
+                        }
                     }
                 )
                 VStack(spacing: 8) {
@@ -96,7 +101,7 @@ struct AddExpenseView: View {
             }
         }
         .sheet(isPresented: $showingReceiptScanner) {
-            ReceiptScanner()
+            VNDocumentViewControllerRepresentable(scanResult: $scannedImage)
         }
         .alert("Please add expense title", isPresented: $showingAlert) {
             Button("OK", role: .cancel) {}
@@ -113,6 +118,12 @@ struct AddExpenseView: View {
         .onChange(of: selectedDate) {
             viewModel.updateSelectedDate(date: selectedDate)
         }
+        .onChange(of: scannedImage) {
+            viewModel.recognizeText(scannedImage: scannedImage)
+        }
+        .onChange(of: viewModel.expense, {
+            self.expenseTitle = viewModel.expense.title
+        })
     }
 
     func expenseInputView() -> some View {
@@ -154,6 +165,32 @@ struct AddExpenseView: View {
         }
         return nil
     }
+
+    private func setUpCaptureSession() async {
+        guard await isAuthorized else {
+            return
+        }
+        showingReceiptScanner = true
+    }
+
+    var isAuthorized: Bool {
+        get async {
+            let status = AVCaptureDevice.authorizationStatus(for: .video)
+
+            // Determine if the user previously authorized camera access.
+            var isAuthorized = status == .authorized
+
+            // If the system hasn't determined the user's authorization status,
+            // explicitly prompt them for approval.
+            if status == .notDetermined {
+                isAuthorized = await AVCaptureDevice.requestAccess(for: .video)
+            }
+
+            return isAuthorized
+        }
+    }
+    
+    
 }
 
 #Preview {

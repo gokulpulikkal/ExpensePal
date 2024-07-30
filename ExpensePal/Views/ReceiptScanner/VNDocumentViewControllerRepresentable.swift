@@ -10,7 +10,7 @@ import VisionKit
 
 struct VNDocumentViewControllerRepresentable: UIViewControllerRepresentable {
 
-    @Binding var scanResult: [UIImage]
+    @Binding var scanResult: UIImage
 
     func makeUIViewController(context: Context) -> VNDocumentCameraViewController {
         let documentCameraViewController = VNDocumentCameraViewController()
@@ -26,9 +26,9 @@ struct VNDocumentViewControllerRepresentable: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: VNDocumentCameraViewController, context: Context) {}
 
     final class Coordinator: NSObject, VNDocumentCameraViewControllerDelegate {
-        @Binding var scanResult: [UIImage]
+        @Binding var scanResult: UIImage
 
-        init(scanResult: Binding<[UIImage]>) {
+        init(scanResult: Binding<UIImage>) {
             _scanResult = scanResult
         }
 
@@ -38,7 +38,7 @@ struct VNDocumentViewControllerRepresentable: UIViewControllerRepresentable {
             didFinishWith scan: VNDocumentCameraScan
         ) {
             controller.dismiss(animated: true, completion: nil)
-            scanResult = (0..<scan.pageCount).compactMap { scan.imageOfPage(at: $0) }
+            scanResult = scan.imageOfPage(at: 0)
         }
 
         /// Tells the delegate that the user canceled out of the document scanner camera.
@@ -59,6 +59,6 @@ struct VNDocumentViewControllerRepresentable: UIViewControllerRepresentable {
 
 #if DEBUG
 #Preview {
-    VNDocumentViewControllerRepresentable(scanResult: .constant([]))
+    VNDocumentViewControllerRepresentable(scanResult: .constant(UIImage()))
 }
 #endif

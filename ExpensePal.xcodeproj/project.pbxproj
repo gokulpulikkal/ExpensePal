@@ -30,7 +30,11 @@
 		4B79DD322C3A32C200B62F9C /* ChartComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B79DD312C3A32C200B62F9C /* ChartComponentView.swift */; };
 		4B79DD352C3CF9BF00B62F9C /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = 4B79DD342C3CF9BF00B62F9C /* SwipeActions */; };
 		4B865CEE2C570C0F000E799B /* VNDocumentViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B865CED2C570C0F000E799B /* VNDocumentViewControllerRepresentable.swift */; };
-		4B865CF32C5710E9000E799B /* ReceiptScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B865CF22C5710E9000E799B /* ReceiptScanner.swift */; };
+		4B865CF52C580108000E799B /* ExtractedReceiptDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B865CF42C580108000E799B /* ExtractedReceiptDetails.swift */; };
+		4B865CF82C582FBA000E799B /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 4B865CF72C582FBA000E799B /* GoogleGenerativeAI */; };
+		4B865CFA2C58339E000E799B /* APIKeyGenAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B865CF92C58339E000E799B /* APIKeyGenAI.swift */; };
+		4B865CFC2C58387D000E799B /* GenerativeAI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B865CFB2C58387D000E799B /* GenerativeAI-Info.plist */; };
+		4B865CFE2C583DE4000E799B /* GenAIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B865CFD2C583DE4000E799B /* GenAIResponse.swift */; };
 		4B9EAD672C19410100A455AD /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9EAD662C19410100A455AD /* TestView.swift */; };
 		4BBE0AA72C1810B00097392F /* FilterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE0AA62C1810B00097392F /* FilterHeaderView.swift */; };
 		4BE52EC92C1E6E20002CF094 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE52EC82C1E6E20002CF094 /* CustomTabBar.swift */; };
@@ -70,7 +74,10 @@
 		4B79DD2F2C3A316B00B62F9C /* BarChartPresenterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartPresenterViewModel.swift; sourceTree = "<group>"; };
 		4B79DD312C3A32C200B62F9C /* ChartComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartComponentView.swift; sourceTree = "<group>"; };
 		4B865CED2C570C0F000E799B /* VNDocumentViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNDocumentViewControllerRepresentable.swift; sourceTree = "<group>"; };
-		4B865CF22C5710E9000E799B /* ReceiptScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptScanner.swift; sourceTree = "<group>"; };
+		4B865CF42C580108000E799B /* ExtractedReceiptDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractedReceiptDetails.swift; sourceTree = "<group>"; };
+		4B865CF92C58339E000E799B /* APIKeyGenAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeyGenAI.swift; sourceTree = "<group>"; };
+		4B865CFB2C58387D000E799B /* GenerativeAI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GenerativeAI-Info.plist"; sourceTree = "<group>"; };
+		4B865CFD2C583DE4000E799B /* GenAIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAIResponse.swift; sourceTree = "<group>"; };
 		4B9EAD662C19410100A455AD /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		4BAFFC042C55A90A00E2626E /* ExpensePal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ExpensePal.entitlements; sourceTree = "<group>"; };
 		4BAFFC052C55AB7900E2626E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -94,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B865CF82C582FBA000E799B /* GoogleGenerativeAI in Frameworks */,
 				4B47FB232C1F87E8006457E3 /* EmojiPicker in Frameworks */,
 				4B79DD352C3CF9BF00B62F9C /* SwipeActions in Frameworks */,
 			);
@@ -121,6 +129,7 @@
 		4B1562262C153084001A0F57 /* ExpensePal */ = {
 			isa = PBXGroup;
 			children = (
+				4B865CFB2C58387D000E799B /* GenerativeAI-Info.plist */,
 				4BAFFC052C55AB7900E2626E /* Info.plist */,
 				4BAFFC042C55A90A00E2626E /* ExpensePal.entitlements */,
 				4BF317E82C233A0400DC378B /* Utilities */,
@@ -192,7 +201,6 @@
 			isa = PBXGroup;
 			children = (
 				4B865CED2C570C0F000E799B /* VNDocumentViewControllerRepresentable.swift */,
-				4B865CF22C5710E9000E799B /* ReceiptScanner.swift */,
 			);
 			path = ReceiptScanner;
 			sourceTree = "<group>";
@@ -219,6 +227,8 @@
 				4BE52ED12C1F48C9002CF094 /* Expense.swift */,
 				4B47FB242C1F8A47006457E3 /* LimitedEmojiProvider.swift */,
 				4B47FB472C21FF53006457E3 /* LinePlotEntry.swift */,
+				4B865CF42C580108000E799B /* ExtractedReceiptDetails.swift */,
+				4B865CFD2C583DE4000E799B /* GenAIResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -247,6 +257,7 @@
 				4BF317E62C23344D00DC378B /* QueryFetchHelpers.swift */,
 				4BF317E92C23AA3F00DC378B /* Extensions.swift */,
 				4BF317F32C27B77700DC378B /* DarkModeViewModifier.swift */,
+				4B865CF92C58339E000E799B /* APIKeyGenAI.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -270,6 +281,7 @@
 			packageProductDependencies = (
 				4B47FB222C1F87E8006457E3 /* EmojiPicker */,
 				4B79DD342C3CF9BF00B62F9C /* SwipeActions */,
+				4B865CF72C582FBA000E799B /* GoogleGenerativeAI */,
 			);
 			productName = ExpensePal;
 			productReference = 4B1562242C153084001A0F57 /* ExpensePal.app */;
@@ -302,6 +314,7 @@
 			packageReferences = (
 				4B47FB212C1F87E8006457E3 /* XCRemoteSwiftPackageReference "EmojiPicker" */,
 				4B79DD332C3CF9BF00B62F9C /* XCRemoteSwiftPackageReference "SwipeActions" */,
+				4B865CF62C582FBA000E799B /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
 			);
 			productRefGroup = 4B1562252C153084001A0F57 /* Products */;
 			projectDirPath = "";
@@ -319,6 +332,7 @@
 			files = (
 				4B15622F2C153086001A0F57 /* Preview Assets.xcassets in Resources */,
 				4B15622C2C153086001A0F57 /* Assets.xcassets in Resources */,
+				4B865CFC2C58387D000E799B /* GenerativeAI-Info.plist in Resources */,
 				4B47FB4D2C221C26006457E3 /* ExpensesMockData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B865CF52C580108000E799B /* ExtractedReceiptDetails.swift in Sources */,
 				4B47FB252C1F8A47006457E3 /* LimitedEmojiProvider.swift in Sources */,
 				4BE52ED22C1F48C9002CF094 /* Expense.swift in Sources */,
 				4B79DD302C3A316B00B62F9C /* BarChartPresenterViewModel.swift in Sources */,
@@ -337,7 +352,6 @@
 				4B1562282C153084001A0F57 /* ExpensePalApp.swift in Sources */,
 				4B1562432C167E14001A0F57 /* SettingsView.swift in Sources */,
 				4BE52ED02C1F4852002CF094 /* MockData.swift in Sources */,
-				4B865CF32C5710E9000E799B /* ReceiptScanner.swift in Sources */,
 				4BBE0AA72C1810B00097392F /* FilterHeaderView.swift in Sources */,
 				4B3377752C41B2D50046D86A /* AddExpenseViewModel.swift in Sources */,
 				4BEF3A042C30FE02000F9A63 /* HomeChartRefactored.swift in Sources */,
@@ -345,10 +359,12 @@
 				4B1562492C16871C001A0F57 /* AppEnums.swift in Sources */,
 				4B79DD322C3A32C200B62F9C /* ChartComponentView.swift in Sources */,
 				4B47FB482C21FF53006457E3 /* LinePlotEntry.swift in Sources */,
+				4B865CFA2C58339E000E799B /* APIKeyGenAI.swift in Sources */,
 				4B47FB432C20B83C006457E3 /* PreviewData.swift in Sources */,
 				4BF317E72C23344D00DC378B /* QueryFetchHelpers.swift in Sources */,
 				4BF317F42C27B77700DC378B /* DarkModeViewModifier.swift in Sources */,
 				4B1562472C1682AF001A0F57 /* HomeTabView.swift in Sources */,
+				4B865CFE2C583DE4000E799B /* GenAIResponse.swift in Sources */,
 				4BE52EC92C1E6E20002CF094 /* CustomTabBar.swift in Sources */,
 				4B47FB202C1F773D006457E3 /* KeyPad.swift in Sources */,
 				4B865CEE2C570C0F000E799B /* VNDocumentViewControllerRepresentable.swift in Sources */,
@@ -590,6 +606,14 @@
 				minimumVersion = 0.3.5;
 			};
 		};
+		4B865CF62C582FBA000E799B /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/generative-ai-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -602,6 +626,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4B79DD332C3CF9BF00B62F9C /* XCRemoteSwiftPackageReference "SwipeActions" */;
 			productName = SwipeActions;
+		};
+		4B865CF72C582FBA000E799B /* GoogleGenerativeAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4B865CF62C582FBA000E799B /* XCRemoteSwiftPackageReference "generative-ai-swift" */;
+			productName = GoogleGenerativeAI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
