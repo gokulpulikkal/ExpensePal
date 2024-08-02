@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @AppStorage("isLightMode") var isLightMode: Bool = true
+    @AppStorage("isLightMode") var isLightMode = true
     var body: some View {
         VStack(alignment: .leading) {
             pageTitle
@@ -18,9 +18,9 @@ struct SettingsView: View {
                 } header: {
                     sectionTitle(title: "General")
                 }
-                
+
                 Section {
-                    reportBug
+//                    reportBug
                     sendFeedBack
                 } header: {
                     sectionTitle(title: "Support")
@@ -42,7 +42,7 @@ struct SettingsView: View {
         }
         .padding()
     }
-    
+
     func sectionTitle(title: String) -> some View {
         HStack {
             Text(title)
@@ -68,7 +68,7 @@ struct SettingsView: View {
 //                .stroke(lineWidth: 1)
 //        }
     }
-    
+
     var reportBug: some View {
         HStack {
             Image(systemName: "ladybug.circle")
@@ -83,7 +83,7 @@ struct SettingsView: View {
 //                .stroke(lineWidth: 1)
 //        }
     }
-    
+
     var sendFeedBack: some View {
         HStack {
             Image(systemName: "arrow.up.message")
@@ -92,11 +92,23 @@ struct SettingsView: View {
             Text("Send feedback")
             Spacer()
         }
+        .onTapGesture {
+            openMail()
+        }
         .padding()
 //        .background {
 //            RoundedRectangle(cornerRadius: 10)
 //                .stroke(lineWidth: 1)
 //        }
+    }
+
+    func openMail() {
+        let url = URL(string: "mailto: gokulplkl@gmail.com")
+        if let url {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
     }
 }
 
