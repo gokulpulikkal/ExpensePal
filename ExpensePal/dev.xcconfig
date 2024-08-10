@@ -1,0 +1,11 @@
+//
+//  dev.xcconfig
+//  ExpensePal
+//
+//  Created by Gokul P on 08/08/24.
+//
+
+app_bundle_identifier = "Gokul.ExpensePal-dev"
+server_url = "dev server URL"
+AppIcon = AppIcon-debug
+

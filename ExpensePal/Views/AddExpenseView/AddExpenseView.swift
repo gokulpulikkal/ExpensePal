@@ -162,9 +162,12 @@ struct AddExpenseView: View {
                 .background(Color(AppColors.primaryAccent.rawValue))
                 .clipShape(RoundedRectangle(cornerRadius: 20))
 
-            Image(systemName: "calendar.circle")
-                .resizable()
-                .frame(width: 35, height: 35)
+            Text("\(selectedDate.formatted(.dateTime.month(.abbreviated).day(.defaultDigits)))")
+                .bold()
+                .padding(11)
+                .foregroundStyle(Color(AppColors.primaryBackground.rawValue))
+                .background(Color(AppColors.primaryAccent.rawValue))
+                .clipShape(RoundedRectangle(cornerRadius: 20))
                 .overlay {
                     DatePicker(
                         "",

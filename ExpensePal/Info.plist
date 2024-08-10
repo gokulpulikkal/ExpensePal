@@ -8,5 +8,11 @@
 	<array>
 		<string>remote-notification</string>
 	</array>
+	<key>server_url</key>
+	<string>$(server_url)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(app_bundle_identifier)</string>
+	<key>App_icon</key>
+	<string>$(AppIcon)</string>
 </dict>
 </plist>
