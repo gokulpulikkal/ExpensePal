@@ -23,6 +23,7 @@
 		4B47FB232C1F87E8006457E3 /* EmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 4B47FB222C1F87E8006457E3 /* EmojiPicker */; };
 		4B47FB432C20B83C006457E3 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB422C20B83C006457E3 /* PreviewData.swift */; };
 		4B47FB4D2C221C26006457E3 /* ExpensesMockData.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B47FB4C2C221C26006457E3 /* ExpensesMockData.json */; };
+		4B5F80322C752B4F004A8B54 /* GenerativeAI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B5F80312C752B4F004A8B54 /* GenerativeAI-Info.plist */; };
 		4B79DD2E2C3A2C7200B62F9C /* BarChartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B79DD2D2C3A2C7200B62F9C /* BarChartPresenter.swift */; };
 		4B79DD302C3A316B00B62F9C /* BarChartPresenterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B79DD2F2C3A316B00B62F9C /* BarChartPresenterViewModel.swift */; };
 		4B79DD322C3A32C200B62F9C /* ChartComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B79DD312C3A32C200B62F9C /* ChartComponentView.swift */; };
@@ -78,6 +79,7 @@
 		4B47FB1F2C1F773D006457E3 /* KeyPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPad.swift; sourceTree = "<group>"; };
 		4B47FB422C20B83C006457E3 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		4B47FB4C2C221C26006457E3 /* ExpensesMockData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ExpensesMockData.json; sourceTree = "<group>"; };
+		4B5F80312C752B4F004A8B54 /* GenerativeAI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GenerativeAI-Info.plist"; sourceTree = "<group>"; };
 		4B79DD2D2C3A2C7200B62F9C /* BarChartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartPresenter.swift; sourceTree = "<group>"; };
 		4B79DD2F2C3A316B00B62F9C /* BarChartPresenterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartPresenterViewModel.swift; sourceTree = "<group>"; };
 		4B79DD312C3A32C200B62F9C /* ChartComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartComponentView.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				4B15622B2C153086001A0F57 /* Assets.xcassets */,
 				4B15622D2C153086001A0F57 /* Preview Content */,
 				4B1562482C16871C001A0F57 /* AppEnums.swift */,
+				4B5F80312C752B4F004A8B54 /* GenerativeAI-Info.plist */,
 			);
 			path = ExpensePal;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 			files = (
 				4BA9CD7B2C650A20009FB355 /* prod.xcconfig in Resources */,
 				4B15622F2C153086001A0F57 /* Preview Assets.xcassets in Resources */,
+				4B5F80322C752B4F004A8B54 /* GenerativeAI-Info.plist in Resources */,
 				4B15622C2C153086001A0F57 /* Assets.xcassets in Resources */,
 				4BA9CD792C6509ED009FB355 /* dev.xcconfig in Resources */,
 				4B47FB4D2C221C26006457E3 /* ExpensesMockData.json in Resources */,
