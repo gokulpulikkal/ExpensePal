@@ -8,6 +8,7 @@
 import Charts
 import SwiftData
 import SwiftUI
+import ExpensePalModels
 
 struct HomeChartRefactored: View {
     @Query var expenseList: [Expense]

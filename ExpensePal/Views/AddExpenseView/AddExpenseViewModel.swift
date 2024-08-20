@@ -10,6 +10,7 @@ import GoogleGenerativeAI
 import Observation
 import SwiftUI
 import Vision
+import ExpensePalModels
 
 extension AddExpenseView {
     @Observable

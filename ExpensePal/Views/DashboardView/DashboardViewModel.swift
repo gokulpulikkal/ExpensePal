@@ -7,6 +7,7 @@
 
 import Observation
 import SwiftUI
+import ExpensePalModels
 
 class DashboardViewModel {
     var expenseList: [Expense] = []

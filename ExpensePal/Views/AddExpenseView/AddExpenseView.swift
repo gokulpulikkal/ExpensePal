@@ -9,6 +9,7 @@ import AVFoundation
 import EmojiPicker
 import SwiftData
 import SwiftUI
+import ExpensePalModels
 
 struct AddExpenseView: View {
     @Environment(\.modelContext) var modelContext

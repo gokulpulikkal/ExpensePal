@@ -7,6 +7,7 @@
 
 import SwiftData
 import SwiftUI
+import ExpensePalModels
 
 struct ExpenseSearchView: View {
     @State var searchText: String = ""

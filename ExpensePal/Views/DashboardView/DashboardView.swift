@@ -8,6 +8,7 @@
 import SwiftData
 import SwiftUI
 import SwipeActions
+import ExpensePalModels
 
 struct DashboardView: View {
     var viewModel = DashboardViewModel()

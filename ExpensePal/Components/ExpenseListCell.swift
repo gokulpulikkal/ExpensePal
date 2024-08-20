@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwipeActions
+import ExpensePalModels
 
 struct ExpenseListCell: View {
     

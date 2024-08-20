@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import ExpensePalModels
 
 @main
 struct ExpensePalApp: App {

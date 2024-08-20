@@ -8,6 +8,7 @@
 import SwiftData
 import SwiftUI
 import SwipeActions
+import ExpensePalModels
 
 struct ExpenseList: View {
     var queryDescriptor: FetchDescriptor<Expense>
