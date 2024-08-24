@@ -15,6 +15,7 @@ struct HomeTabView: View {
     var body: some View {
         VStack {
             getMainView(currentTab)
+                .transition(.opacity)
                 .animation(.easeInOut(duration: 0.2), value: currentTab)
             Spacer()
             CustomTabBar(selectedTab: $selectedTab, selectedPopOverTab: $shouldShowAddExpenseView)
@@ -34,22 +35,19 @@ struct HomeTabView: View {
             switch selectedTab {
             case .DashBoard:
                 DashboardView()
-                    .transition(.opacity)
             case .ExpenseList:
                 ExpenseListView()
-                    .transition(.opacity)
             case .ExpenseChart:
                 ExpenseChartView()
-                    .transition(.opacity)
             case .AddExpense:
                 AddExpenseView(viewModel: AddExpenseView.ViewModel())
             case .Settings:
                 SettingsView()
-                    .transition(.opacity)
             }
         }
     }
 }
+
 #if DEBUG
 #Preview {
     HomeTabView()
