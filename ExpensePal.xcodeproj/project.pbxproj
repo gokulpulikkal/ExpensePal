@@ -162,7 +162,6 @@
 				4BAFFC052C55AB7900E2626E /* Info.plist */,
 				4BAFFC042C55A90A00E2626E /* ExpensePal.entitlements */,
 				4BF317E82C233A0400DC378B /* Utilities */,
-				4BE52ECE2C1F4843002CF094 /* Model */,
 				4B2B34152C1E685900D2B378 /* Views */,
 				4BBE0AA52C180EB00097392F /* Components */,
 				4B1562272C153084001A0F57 /* ExpensePalApp.swift */,
@@ -258,15 +257,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4BE52ECE2C1F4843002CF094 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				4BCF7FB92C73E89300050350 /* LimitedEmojiProvider.swift */,
-				4B47FB4E2C222392006457E3 /* MockDataFiles */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		4BE52ED32C1F4A8D002CF094 /* DashboardView */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +282,8 @@
 				4BF317E92C23AA3F00DC378B /* Extensions.swift */,
 				4BF317F32C27B77700DC378B /* DarkModeViewModifier.swift */,
 				4B865CF92C58339E000E799B /* APIKeyGenAI.swift */,
+				4BCF7FB92C73E89300050350 /* LimitedEmojiProvider.swift */,
+				4B47FB4E2C222392006457E3 /* MockDataFiles */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
