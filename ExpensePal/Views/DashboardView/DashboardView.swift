@@ -5,10 +5,10 @@
 //  Created by Gokul P on 09/06/24.
 //
 
+import ExpensePalModels
 import SwiftData
 import SwiftUI
 import SwipeActions
-import ExpensePalModels
 
 struct DashboardView: View {
     var viewModel = DashboardViewModel()
@@ -56,6 +56,7 @@ struct DashboardView: View {
                     .padding(.horizontal, 20)
             }
         }
+        .animation(.bouncy, value: expenseList)
     }
 
     func RecentExpenseListHeader() -> some View {
@@ -74,6 +75,7 @@ struct DashboardView: View {
         }
     }
 }
+
 #if DEBUG
 #Preview {
     DashboardView()

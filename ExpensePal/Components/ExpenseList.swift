@@ -34,6 +34,7 @@ struct ExpenseList: View {
                         }
                     }
                 }
+                .animation(.bouncy, value: expenseList)
             }
             if searchResults.count <= 0 {
                 VStack {
