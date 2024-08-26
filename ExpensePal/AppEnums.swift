@@ -46,7 +46,7 @@ enum ExpenseSearchFilter: String, CaseIterable, Identifiable {
         case .all: "All expenses"
         }
     }
-    
+
     var fetchFilter: ExpenseListFetchFilters {
         switch self {
         case .thisWeek: .thisWeek
@@ -76,6 +76,31 @@ enum ExpenseChartMainFilter: String, CaseIterable, Identifiable {
         case .Week: "Week"
         case .Month: "Month"
         case .Year: "Year"
+        }
+    }
+}
+
+enum iPadTabs: String, CaseIterable, Identifiable {
+
+    case DashBoard = "house.circle"
+    case ExpenseList = "list.bullet.circle"
+    case ExpenseChart = "chart.pie"
+    case Settings = "gearshape"
+    
+    var id: String {
+        return rawValue
+    }
+
+    var title: String {
+        switch self {
+        case .DashBoard:
+            "Dashboard"
+        case .ExpenseList:
+            "Expense List"
+        case .ExpenseChart:
+            "Expense Chart"
+        case .Settings:
+            "Settings"
         }
     }
 }

@@ -12,6 +12,7 @@ struct SettingsView: View {
     var body: some View {
         VStack(alignment: .leading) {
             pageTitle
+                .padding(.bottom)
             VStack {
                 Section {
                     darkModeToggleView
@@ -30,6 +31,7 @@ struct SettingsView: View {
 
             Spacer()
         }
+        .padding(.horizontal)
     }
 
     var pageTitle: some View {
@@ -40,7 +42,6 @@ struct SettingsView: View {
                 .bold()
             Spacer()
         }
-        .padding()
     }
 
     func sectionTitle(title: String) -> some View {

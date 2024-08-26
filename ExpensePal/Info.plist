@@ -2,17 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCameraUsageDescription</key>
-	<string>This App needs camera usage permission to capture receipts</string>
+	<key>App_icon</key>
+	<string>$(AppIcon)</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
 	</array>
 	<key>server_url</key>
 	<string>$(server_url)</string>
-	<key>CFBundleIdentifier</key>
-	<string>$(app_bundle_identifier)</string>
-	<key>App_icon</key>
-	<string>$(AppIcon)</string>
 </dict>
 </plist>
