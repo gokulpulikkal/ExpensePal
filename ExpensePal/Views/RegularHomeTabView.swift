@@ -103,4 +103,5 @@ struct RegularHomeTabView: View {
 
 #Preview {
     RegularHomeTabView()
+        .modelContainer(previewContainer)
 }
