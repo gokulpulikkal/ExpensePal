@@ -52,6 +52,7 @@ struct AddExpenseView: View {
                                 .frame(width: 31, height: 31)
                                 .padding(.horizontal)
                                 .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
+                                .opacity(ProcessInfo.processInfo.isiOSAppOnMac ? 0: 1)
                         })
                     }
                     Spacer()
