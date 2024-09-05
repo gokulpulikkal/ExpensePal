@@ -16,7 +16,7 @@ struct ExpenseList: View {
     @Environment(\.modelContext) var modelContext
     @Query var expenseList: [Expense]
     private var columns = [
-        GridItem(.adaptive(minimum: 350, maximum: 350), spacing: 50)
+        GridItem(.adaptive(minimum: 360, maximum: 360), spacing: 50)
     ]
 
     init(queryDescriptor: FetchDescriptor<Expense>, searchText: String) {

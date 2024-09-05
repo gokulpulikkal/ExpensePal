@@ -52,7 +52,7 @@ struct ExpenseListCell: View {
                 .background(Color(AppColors.primaryAccent.rawValue), in: RoundedRectangle(cornerRadius: 10))
             }
         }
-        .frame(width: 350)
+        .frame(width: 360)
         .clipped()
         .fullScreenCover(isPresented: $presentingEditExpenseView, content: {
             AddExpenseView(viewModel: AddExpenseView.ViewModel(expense: expense))
