@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwipeActions
+import ExpensePalModels
 
 struct ExpenseListCell: View {
     
@@ -36,7 +37,7 @@ struct ExpenseListCell: View {
                     presentingEditExpenseView = true
                 } label: {
                     Image(systemName: "pencil")
-                        .foregroundColor(Color(AppColors.primaryBackground.rawValue))
+                        .tint(.primaryBGColour)
                 }
                 .frame(width: 60, height: 50, alignment: .center)
                 .background(Color(AppColors.primaryAccent.rawValue), in: RoundedRectangle(cornerRadius: 10))
@@ -45,12 +46,14 @@ struct ExpenseListCell: View {
                     modelContext.delete(expense)
                 } label: {
                     Image(systemName: "trash")
-                        .foregroundColor(Color(AppColors.primaryBackground.rawValue))
+                        .tint(.primaryBGColour)
                 }
                 .frame(width: 60, height: 50, alignment: .center)
                 .background(Color(AppColors.primaryAccent.rawValue), in: RoundedRectangle(cornerRadius: 10))
             }
         }
+        .frame(width: 350)
+        .clipped()
         .fullScreenCover(isPresented: $presentingEditExpenseView, content: {
             AddExpenseView(viewModel: AddExpenseView.ViewModel(expense: expense))
         })

@@ -32,16 +32,15 @@ struct CustomTabBar: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 30, height: 30)
-//                    .symbolEffect(.bounce, value: tab == .AddExpense && selectedTab == tab)
                     .scaleEffect(selectedTab == tab ? 1.25 : 1)
                     .onTapGesture {
-                        withAnimation(.smooth(duration: 0.1)) {
+//                        withAnimation(.smooth(duration: 0.1)) {
                             if tab != .AddExpense {
                                 selectedTab = tab
                             } else {
                                 selectedPopOverTab = true
                             }
-                        }
+//                        }
                     }
                 Spacer()
             }

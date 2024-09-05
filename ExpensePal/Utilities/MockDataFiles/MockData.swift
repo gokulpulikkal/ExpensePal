@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ExpensePalModels
 
 struct MockData {
     func getMockDataFromJSON() -> [Expense] {

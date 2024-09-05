@@ -5,6 +5,7 @@
 //  Created by Gokul P on 09/06/24.
 //
 
+import ExpensePalModels
 import SwiftData
 import SwiftUI
 import SwipeActions
@@ -15,6 +16,9 @@ struct DashboardView: View {
     @Query(Expense.firstTen()) var expenseList: [Expense]
     @AppStorage("chartFilterDashBoard") var chartFilter: ExpenseChartFilter = .daily
     @State var presentingSearchView = false
+    private var columns = [
+        GridItem(.adaptive(minimum: 350, maximum: 350), spacing: 50)
+    ]
 
     var body: some View {
         ScrollView {
@@ -35,7 +39,7 @@ struct DashboardView: View {
     }
 
     func recentExpenseList() -> some View {
-        LazyVStack(spacing: 18) {
+        LazyVGrid(columns: columns, spacing: 18) {
             Section {
                 if !expenseList.isEmpty {
                     ForEach(expenseList, id: \.id) { expense in
@@ -55,6 +59,7 @@ struct DashboardView: View {
                     .padding(.horizontal, 20)
             }
         }
+        .animation(.bouncy, value: expenseList)
     }
 
     func RecentExpenseListHeader() -> some View {
@@ -73,6 +78,7 @@ struct DashboardView: View {
         }
     }
 }
+
 #if DEBUG
 #Preview {
     DashboardView()

@@ -9,6 +9,7 @@ import AVFoundation
 import EmojiPicker
 import SwiftData
 import SwiftUI
+import ExpensePalModels
 
 struct AddExpenseView: View {
     @Environment(\.modelContext) var modelContext
@@ -51,18 +52,21 @@ struct AddExpenseView: View {
                                 .frame(width: 31, height: 31)
                                 .padding(.horizontal)
                                 .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
+                                .opacity(ProcessInfo.processInfo.isiOSAppOnMac ? 0: 1)
                         })
                     }
                     Spacer()
-                    RoundedStrokeButton(
-                        text: Text("vision capture"),
-                        image: Image(systemName: "camera.viewfinder"),
-                        action: {
-                            Task {
-                                await setUpCaptureSession()
+                    if !ProcessInfo.processInfo.isiOSAppOnMac {
+                        RoundedStrokeButton(
+                            text: Text("vision capture"),
+                            image: Image(systemName: "camera.viewfinder"),
+                            action: {
+                                Task {
+                                    await setUpCaptureSession()
+                                }
                             }
-                        }
-                    )
+                        )
+                    }
                     VStack(spacing: 8) {
                         Text(viewModel.expense.cost, format: .currency(code: "USD"))
                             .bold()

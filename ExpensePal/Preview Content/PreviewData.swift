@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import ExpensePalModels
 
 @MainActor
 let previewContainer: ModelContainer = {

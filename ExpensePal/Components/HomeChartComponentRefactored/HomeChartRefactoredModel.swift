@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ExpensePalModels
 
 // MARK: - HomeChartRefactored.ViewModel
 

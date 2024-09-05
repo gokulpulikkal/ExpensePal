@@ -9,15 +9,15 @@ import Foundation
 import SwiftData
 
 @Model
-class Expense: Codable {
-    var id = UUID()
-    var emoji: String = ""
-    var title: String = ""
-    var subTitle: String = ""
-    var cost: Double = 0
-    var date: Date = Date()
+public class Expense: Codable {
+    public var id = UUID()
+    public var emoji: String = ""
+    public var title: String = ""
+    public var subTitle: String = ""
+    public var cost: Double = 0
+    public var date: Date = Date()
 
-    init(id: UUID = UUID(), emoji: String, title: String, subTitle: String = "", cost: Double, date: Date = .now) {
+    public init(id: UUID = UUID(), emoji: String, title: String, subTitle: String = "", cost: Double, date: Date = .now) {
         self.id = id
         self.emoji = emoji
         self.title = title
@@ -35,7 +35,7 @@ class Expense: Codable {
         case date
     }
 
-    required init(from decoder: Decoder) throws {
+    public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: ExpenseCodingKeys.self)
         id = UUID()
         emoji = try container.decode(String.self, forKey: .emoji)
@@ -45,7 +45,7 @@ class Expense: Codable {
         date = try container.decode(Date.self, forKey: .date)
     }
 
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: ExpenseCodingKeys.self)
         try container.encode(emoji, forKey: .emoji)
         try container.encode(title, forKey: .title)

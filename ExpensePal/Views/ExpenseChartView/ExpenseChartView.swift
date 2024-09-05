@@ -20,19 +20,25 @@ struct ExpenseChartView: View {
     var body: some View {
         VStack {
             pageTitle
-            mainFilterSelector
-                .padding(.bottom)
-            ZStack {
-                if !isChartEmpty {
-                    chartContainer
-                        .padding()
-                        .background(
-                            Color(AppColors.primaryAccent.rawValue).opacity(0.08),
-                            in: RoundedRectangle(cornerRadius: 10)
-                        )
-                } else {
-                    noContentAnimationView
+                .padding(.vertical)
+            ScrollView {
+                VStack {
+                    mainFilterSelector
+                        .padding(.vertical)
+                    ZStack {
+                        if !isChartEmpty {
+                            chartContainer
+                                .padding()
+                                .background(
+                                    Color(AppColors.primaryAccent.rawValue).opacity(0.08),
+                                    in: RoundedRectangle(cornerRadius: 10)
+                                )
+                        } else {
+                            noContentAnimationView
+                        }
+                    }
                 }
+                .padding(.horizontal, 3)
             }
 
             Spacer()

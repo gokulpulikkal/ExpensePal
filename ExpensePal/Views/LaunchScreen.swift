@@ -11,10 +11,15 @@ struct LaunchScreen: View {
 
     @State var showingSplash = true
     @Environment(\.colorScheme) var colorScheme
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
 
     var body: some View {
         if !showingSplash {
-            HomeTabView()
+            if horizontalSizeClass == .compact {
+                HomeTabView()
+            } else {
+                RegularHomeTabView()
+            }
         } else {
             splashScreen
                 .task {
@@ -26,6 +31,7 @@ struct LaunchScreen: View {
                     showingSplash = false
                 }
         }
+        
     }
 
     var splashScreen: some View {
@@ -37,12 +43,12 @@ struct LaunchScreen: View {
                 Image(colorScheme == .dark ? "splashDark" : "splashLight")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .padding(.top, -20)
 
                 Text("Expense Pal")
-                    .font(.largeTitle)
+                    .font(.system(size: horizontalSizeClass == .compact ? 40: 70, weight: .heavy))
                     .bold()
                     .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
+                    .padding(.bottom, 30)
             }
         }
     }

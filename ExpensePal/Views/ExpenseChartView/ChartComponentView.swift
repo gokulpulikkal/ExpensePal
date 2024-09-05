@@ -7,6 +7,7 @@
 
 import Charts
 import SwiftUI
+import ExpensePalModels
 
 struct ChartComponentView: View {
 

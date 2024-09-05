@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension Date {
-    
+
     func formatDateToMonth() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM" // "EEEE" gives the full name of the day
@@ -24,7 +24,7 @@ extension Date {
     func formatDateToWeekOfMonth() -> String {
         "Week \(Calendar.current.component(.weekOfMonth, from: self))"
     }
-    
+
     func year(using calendar: Calendar = .current) -> Int {
         calendar.component(.year, from: self)
     }
