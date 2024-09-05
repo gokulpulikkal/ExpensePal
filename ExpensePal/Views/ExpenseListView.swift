@@ -9,11 +9,13 @@ import SwiftUI
 
 struct ExpenseListView: View {
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             pageTitle
+                .padding(.vertical)
             ExpenseSearchView()
                 .padding(.top, -20)
         }
+        .padding(.horizontal)
     }
     
     var pageTitle: some View {
@@ -24,7 +26,6 @@ struct ExpenseListView: View {
                 .bold()
             Spacer()
         }
-        .padding()
     }
 }
 

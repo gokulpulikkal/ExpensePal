@@ -15,6 +15,9 @@ struct ExpenseList: View {
     var searchText: String
     @Environment(\.modelContext) var modelContext
     @Query var expenseList: [Expense]
+    private var columns = [
+        GridItem(.adaptive(minimum: 350, maximum: 350), spacing: 50)
+    ]
 
     init(queryDescriptor: FetchDescriptor<Expense>, searchText: String) {
         self.queryDescriptor = queryDescriptor
@@ -25,7 +28,7 @@ struct ExpenseList: View {
     var body: some View {
         ZStack {
             ScrollView {
-                LazyVStack(spacing: 18) {
+                LazyVGrid(columns: columns, spacing: 18) {
                     Section {
                         // Here goes the items
                         ForEach(searchResults, id: \.id) { expense in

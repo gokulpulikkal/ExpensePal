@@ -100,8 +100,9 @@ struct RegularHomeTabView: View {
         .padding(50)
     }
 }
-
+#if DEBUG
 #Preview {
     RegularHomeTabView()
         .modelContainer(previewContainer)
 }
+#endif
