@@ -5,10 +5,16 @@
 //  Created by Gokul P on 09/06/24.
 //
 
+import ExpensePalModels
+import SwiftData
 import SwiftUI
 
 struct SettingsView: View {
     @AppStorage("isLightMode") var isLightMode = true
+    @Environment(\.modelContext) var modelContext
+    @State var showDeleteAllDataAlert = false
+    @Query private var items: [Expense]
+
     var body: some View {
         VStack(alignment: .leading) {
             pageTitle
@@ -23,6 +29,7 @@ struct SettingsView: View {
                 Section {
 //                    reportBug
                     sendFeedBack
+                    deleteAllData
                 } header: {
                     sectionTitle(title: "Support")
                 }
@@ -32,6 +39,13 @@ struct SettingsView: View {
             Spacer()
         }
         .padding(.horizontal)
+        .alert("Are You Sure!", isPresented: $showDeleteAllDataAlert, actions: {
+            Button("Yes", role: .destructive, action: {
+                deleteAllExpenses()
+            })
+        }, message: {
+            Text("All expense data will be deleted permanently")
+        })
     }
 
     var pageTitle: some View {
@@ -86,16 +100,38 @@ struct SettingsView: View {
     }
 
     var sendFeedBack: some View {
-        HStack {
-            Image(systemName: "arrow.up.message")
-                .resizable()
-                .frame(width: 25, height: 25)
-            Text("Send feedback")
-            Spacer()
-        }
-        .onTapGesture {
+        Button(action: {
             openMail()
-        }
+        }, label: {
+            HStack {
+                Image(systemName: "arrow.up.message")
+                    .resizable()
+                    .frame(width: 25, height: 25)
+                Text("Send feedback")
+                Spacer()
+            }
+        })
+        .tint(.primary)
+        .padding()
+//        .background {
+//            RoundedRectangle(cornerRadius: 10)
+//                .stroke(lineWidth: 1)
+//        }
+    }
+
+    var deleteAllData: some View {
+        Button(action: {
+            showDeleteAllDataAlert = true
+        }, label: {
+            HStack {
+                Image(systemName: "trash")
+                    .resizable()
+                    .frame(width: 25, height: 25)
+                Text("Delete All Data")
+                Spacer()
+            }
+        })
+        .tint(.primary)
         .padding()
 //        .background {
 //            RoundedRectangle(cornerRadius: 10)
@@ -111,8 +147,27 @@ struct SettingsView: View {
             }
         }
     }
+
+    func deleteAllExpenses() {
+        // Other options are not working reliably
+        for item in items {
+            modelContext.delete(item)
+        }
+    }
 }
 
 #Preview {
     SettingsView()
+}
+
+extension ModelContext {
+    func deleteAll<T>(model: T.Type) where T: PersistentModel {
+        do {
+            let p = #Predicate<T> { _ in true }
+            try delete(model: T.self, where: p, includeSubclasses: false)
+            print("All of \(model.self) cleared !")
+        } catch {
+            print("error: \(error)")
+        }
+    }
 }
