@@ -25,5 +25,6 @@ struct ExpensePalApp: App {
             .defaultSize(width: 700, height: 700)
         }
         .modelContainer(for: Expense.self)
+//        .modelContainer(previewContainer)
     }
 }

@@ -39,27 +39,30 @@ struct DashboardView: View {
     }
 
     func recentExpenseList() -> some View {
-        LazyVGrid(columns: columns, spacing: 18) {
-            Section {
-                if !expenseList.isEmpty {
-                    ForEach(expenseList, id: \.id) { expense in
-                        ExpenseListCell(expense: expense)
-                            .padding(.vertical, 5)
+        Group {
+            LazyVGrid(columns: columns, spacing: 18) {
+                Section {
+                    if !expenseList.isEmpty {
+                        ForEach(expenseList, id: \.id) { expense in
+                            ExpenseListCell(expense: expense)
+                                .padding(.vertical, 5)
+                        }
                     }
-                } else {
-                    VStack {
-                        Text("All your recent Expenses will come here")
-                            .multilineTextAlignment(.center)
-                            .bold()
-                    }
-                    .frame(width: 250, height: 300)
+                } header: {
+                    RecentExpenseListHeader()
+                        .padding(.horizontal, 20)
                 }
-            } header: {
-                RecentExpenseListHeader()
-                    .padding(.horizontal, 20)
+            }
+            .animation(.bouncy, value: expenseList)
+            if expenseList.isEmpty {
+                VStack {
+                    Text("All your recent Expenses will come here")
+                        .multilineTextAlignment(.center)
+                        .bold()
+                }
+                .frame(width: 250, height: 300)
             }
         }
-        .animation(.bouncy, value: expenseList)
     }
 
     func RecentExpenseListHeader() -> some View {
