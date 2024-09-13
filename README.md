@@ -17,7 +17,7 @@ An intuitive and visually appealing minimalistic expense tracker app to help use
 ## Features
 Below are the features that I want to have for this app. Please note that it's a ongoing project and the features are getting added currently.
 - [x] Track expenses with details including title, cost, and date.
-- [ ] Get expense details from physical bills using vision framework and Gemini API
+- [x] Get expense details from physical bills using vision framework and Gemini API
 - [x] Visualize spending with various charts: 
 - [x] Analyze trends and patterns in your spending.
 - [x] Interactive and user-friendly interface.
