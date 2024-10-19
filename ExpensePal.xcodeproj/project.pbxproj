@@ -16,6 +16,7 @@
 		4B1562432C167E14001A0F57 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1562422C167E14001A0F57 /* SettingsView.swift */; };
 		4B1562472C1682AF001A0F57 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1562462C1682AF001A0F57 /* HomeTabView.swift */; };
 		4B1562492C16871C001A0F57 /* AppEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1562482C16871C001A0F57 /* AppEnums.swift */; };
+		4B244B7D2CC31DBF00D50D0A /* CurrencyInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B244B7C2CC31DBF00D50D0A /* CurrencyInputField.swift */; };
 		4B3377752C41B2D50046D86A /* AddExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3377742C41B2D50046D86A /* AddExpenseViewModel.swift */; };
 		4B47FB1A2C1F662B006457E3 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB192C1F662B006457E3 /* AddExpenseView.swift */; };
 		4B47FB1C2C1F68D3006457E3 /* RoundedStrokeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB1B2C1F68D3006457E3 /* RoundedStrokeButton.swift */; };
@@ -71,6 +72,7 @@
 		4B1562422C167E14001A0F57 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		4B1562462C1682AF001A0F57 /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		4B1562482C16871C001A0F57 /* AppEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnums.swift; sourceTree = "<group>"; };
+		4B244B7C2CC31DBF00D50D0A /* CurrencyInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyInputField.swift; sourceTree = "<group>"; };
 		4B3377742C41B2D50046D86A /* AddExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewModel.swift; sourceTree = "<group>"; };
 		4B47FB192C1F662B006457E3 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 		4B47FB1B2C1F68D3006457E3 /* RoundedStrokeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedStrokeButton.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				4B865CEF2C5710AF000E799B /* ReceiptScanner */,
 				4B865D122C5957B2000E799B /* LaunchScreen.swift */,
 				4B6975252C7C11C600DFFA15 /* RegularHomeTabView.swift */,
+				4B244B7C2CC31DBF00D50D0A /* CurrencyInputField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				4BBE0AA72C1810B00097392F /* FilterHeaderView.swift in Sources */,
 				4B3377752C41B2D50046D86A /* AddExpenseViewModel.swift in Sources */,
 				4BEF3A042C30FE02000F9A63 /* HomeChartRefactored.swift in Sources */,
+				4B244B7D2CC31DBF00D50D0A /* CurrencyInputField.swift in Sources */,
 				4BEF4ABC2C1F4AF700CFD46A /* DashboardViewModel.swift in Sources */,
 				4B1562492C16871C001A0F57 /* AppEnums.swift in Sources */,
 				4B79DD322C3A32C200B62F9C /* ChartComponentView.swift in Sources */,

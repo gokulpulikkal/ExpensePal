@@ -14,6 +14,8 @@ import ExpensePalModels
 struct AddExpenseView: View {
     @Environment(\.modelContext) var modelContext
     @Environment(\.dismiss) var dismiss
+    @AppStorage("localeIdentifier") var localeIdentifier: String = "en_CA"
+    
     @State private var showingAlert = false
     @State private var showingReceiptScanner = false
 
@@ -68,7 +70,7 @@ struct AddExpenseView: View {
                         )
                     }
                     VStack(spacing: 8) {
-                        Text(viewModel.expense.cost, format: .currency(code: "USD"))
+                        CurrencyTextView(amountString: $keyPadInput, locale: Locale(identifier: localeIdentifier))
                             .bold()
                             .font(.largeTitle)
                     }

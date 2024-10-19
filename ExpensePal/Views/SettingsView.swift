@@ -15,6 +15,14 @@ struct SettingsView: View {
     @State var showDeleteAllDataAlert = false
     @Query private var items: [Expense]
 
+    @AppStorage("localeIdentifier") var localeIdentifier = "en_CA"
+
+    private let localeIdentifiers = [
+        "en_US",
+        "en_CA",
+        "en_IN"
+    ]
+
     var body: some View {
         VStack(alignment: .leading) {
             pageTitle
@@ -22,6 +30,7 @@ struct SettingsView: View {
             VStack {
                 Section {
                     darkModeToggleView
+                    currencySelector
                 } header: {
                     sectionTitle(title: "General")
                 }
@@ -65,6 +74,27 @@ struct SettingsView: View {
                 .font(.title3)
             Spacer()
         }
+    }
+    
+    var currencySelector: some View {
+        HStack {
+            Image(systemName: "dollarsign.circle")
+                .resizable()
+                .frame(width: 25, height: 25)
+            Text("Currency")
+            Spacer()
+            Picker(selection: $localeIdentifier) {
+                ForEach(localeIdentifiers, id: \.self) {
+                    let locale = Locale(identifier: $0)
+                    if let cc = locale.currency?.identifier, let sym = locale.currencySymbol {
+                        Text("\(cc) \(sym)")
+                    }
+                }
+            } label: {}
+                .tint(.primary)
+        }
+        .padding([.leading, .bottom])
+        
     }
 
     var darkModeToggleView: some View {

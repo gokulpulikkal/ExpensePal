@@ -121,7 +121,7 @@ extension AddExpenseView {
                                     from: jsonData
                                 )
                                 self.expense = Expense(
-                                    emoji: expenseResponseFromGenAI.emoji,
+                                    emoji: "🛍️"/*expenseResponseFromGenAI.emoji*/,
                                     title: expenseResponseFromGenAI.title,
                                     cost: expenseResponseFromGenAI.cost,
                                     date: expenseResponseFromGenAI.date
