@@ -34,6 +34,7 @@ struct KeyPad: View {
                             .background(.thinMaterial)
                             .clipShape(Circle())
                     }
+                    .opacity(getKeyText(i) == "." ? 0: 1)
                 }
             }
         }
