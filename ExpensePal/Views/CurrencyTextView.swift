@@ -25,6 +25,7 @@ struct CurrencyTextView: View {
 
     var body: some View {
         Text(amountString)
+            .contentTransition(.numericText())
             .onChange(of: amountString) {
                 formatString(amountString)
             }
@@ -36,7 +37,9 @@ struct CurrencyTextView: View {
     private func formatString(_ amountString: String) {
         let valueFormatted = format(string: amountString)
         if self.amountString != valueFormatted {
-            self.amountString = valueFormatted
+            withAnimation {
+                self.amountString = valueFormatted
+            }
         }
     }
 
