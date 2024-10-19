@@ -26,8 +26,10 @@ extension AddExpenseView {
             }
         }
 
-        func updateCost(input: String) {
-            expense.cost = Double(input) ?? 0
+        func updateCost(input: String, locale: Locale) {
+            let digits = input.components(separatedBy: CharacterSet(charactersIn: "0123456789").inverted).joined()
+            let value = (Double(digits) ?? 0) / 100.0
+            expense.cost = value
         }
 
         func updateTitle(title: String) {

@@ -72,7 +72,9 @@ struct KeyPad: View {
 
     private func keyWasPressed(_ key: String) {
         if key == "⌫" {
-            string.removeLast()
+            if !string.isEmpty {
+                string.removeLast()
+            }
         } else {
             string += key
         }

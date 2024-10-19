@@ -32,11 +32,7 @@ struct AddExpenseView: View {
     init(viewModel: AddExpenseView.ViewModel) {
         self.viewModel = viewModel
         self.expenseTitle = viewModel.expense.title
-        if floor(viewModel.expense.cost) == viewModel.expense.cost { // to make sure that the cost input behaves correct
-            self.keyPadInput = String(Int(viewModel.expense.cost))
-        } else {
-            self.keyPadInput = String(viewModel.expense.cost)
-        }
+        self.keyPadInput = String(format: "%.2f",viewModel.expense.cost)
         self.selectedDate = viewModel.expense.date
     }
 
@@ -70,7 +66,7 @@ struct AddExpenseView: View {
                         )
                     }
                     VStack(spacing: 8) {
-                        CurrencyTextView(amountString: $keyPadInput, locale: Locale(identifier: localeIdentifier))
+                        CurrencyTextView(amountString: keyPadInput, locale: Locale(identifier: localeIdentifier))
                             .bold()
                             .font(.largeTitle)
                     }
@@ -126,7 +122,7 @@ struct AddExpenseView: View {
             }
         }
         .onChange(of: keyPadInput) {
-            viewModel.updateCost(input: keyPadInput)
+            viewModel.updateCost(input: keyPadInput, locale: Locale(identifier: localeIdentifier))
         }
         .onChange(of: expenseTitle) {
             viewModel.updateTitle(title: expenseTitle)

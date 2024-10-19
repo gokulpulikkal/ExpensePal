@@ -10,21 +10,22 @@ import SwiftUI
 
 struct CurrencyTextView: View {
 
-    @Binding var amountString: String
+    var amountString: String
+    @State var formattedText: String = "0.00"
     @State var locale: Locale
 
-    init(amountString: Binding<String>, locale: Locale) {
-        _amountString = amountString
+    init(amountString: String, locale: Locale) {
+        self.amountString = amountString
         self.locale = locale
     }
 
-    init(amountString: Binding<String>) {
-        _amountString = amountString
+    init(amountString: String) {
+        self.amountString = amountString
         self.locale = Locale.current
     }
 
     var body: some View {
-        Text(amountString)
+        Text(formattedText)
             .contentTransition(.numericText())
             .onChange(of: amountString) {
                 formatString(amountString)
@@ -36,9 +37,9 @@ struct CurrencyTextView: View {
 
     private func formatString(_ amountString: String) {
         let valueFormatted = format(string: amountString)
-        if self.amountString != valueFormatted {
+        if self.formattedText != valueFormatted {
             withAnimation {
-                self.amountString = valueFormatted
+                self.formattedText = valueFormatted
             }
         }
     }
@@ -58,5 +59,5 @@ struct CurrencyTextView: View {
 }
 
 #Preview {
-    CurrencyTextView(amountString: .constant("123"))
+    CurrencyTextView(amountString: "123")
 }
