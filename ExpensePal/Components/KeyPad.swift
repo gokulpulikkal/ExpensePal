@@ -42,60 +42,35 @@ struct KeyPad: View {
     private func getKeyText(_ index: Int) -> String {
         switch index {
         case 0:
-            return "1"
+            "1"
         case 1:
-            return "2"
+            "2"
         case 2:
-            return "3"
+            "3"
         case 3:
-            return "4"
+            "4"
         case 4:
-            return "5"
+            "5"
         case 5:
-            return "6"
+            "6"
         case 6:
-            return "7"
+            "7"
         case 7:
-            return "8"
+            "8"
         case 8:
-            return "9"
+            "9"
         case 9:
-            return "."
+            "."
         case 10:
-            return "0"
+            "0"
         case 11:
-            return "⌫"
+            "⌫"
         default:
-            return "0"
+            "0"
         }
     }
 
     private func keyWasPressed(_ key: String) {
-//        switch key {
-//        case "." where string == "0":
-//            string = "0."
-//        case "." where !string.contains("."):
-//            string += "."
-//        case "⌫":
-//            if string.count > 1 {
-//                let last = string.removeLast()
-//                if last == "." {
-//                    string.removeLast()
-//                }
-//            } else {
-//                string = "0"
-//            }
-//        case _ where string == "0":
-//            string = key
-//        default:
-//            if string.contains(".") {
-//                let split = string.split(separator: ".")
-//                if split.count > 1, split[1].count > 1 {
-//                    return
-//                }
-//            }
-//            string += key
-//        }
         if key == "⌫" {
             string.removeLast()
         } else {
