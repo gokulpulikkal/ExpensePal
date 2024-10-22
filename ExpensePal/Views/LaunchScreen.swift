@@ -23,11 +23,7 @@ struct LaunchScreen: View {
         } else {
             splashScreen
                 .task {
-                    do {
-                        try await createDelay()
-                    } catch {
-                        print("couldn't create delay!! \(error.localizedDescription)")
-                    }
+                    await updateExchangeRate()
                     showingSplash = false
                 }
         }
@@ -53,8 +49,9 @@ struct LaunchScreen: View {
         }
     }
     
-    func createDelay() async throws {
-        try await Task.sleep(nanoseconds: UInt64(1.5 * Double(NSEC_PER_SEC)))
+    func updateExchangeRate() async {
+        let currencyConverter = CurrencyConverter.shared
+        await currencyConverter.updateExchangeRates()
     }
 }
 
