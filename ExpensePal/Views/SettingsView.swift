@@ -15,12 +15,13 @@ struct SettingsView: View {
     @State var showDeleteAllDataAlert = false
     @Query private var items: [Expense]
 
-    @AppStorage("localeIdentifier") var localeIdentifier = "en_CA"
+    @AppStorage("localeIdentifier") var localeIdentifier = Locales.USA.localeIdentifier
 
     private let localeIdentifiers = [
-        "en_US",
-        "en_CA",
-        "en_IN"
+        Locales.USA.localeIdentifier,
+        Locales.EUROPE.localeIdentifier,
+        Locales.CANADA.localeIdentifier,
+        Locales.INDIA.localeIdentifier
     ]
 
     var body: some View {

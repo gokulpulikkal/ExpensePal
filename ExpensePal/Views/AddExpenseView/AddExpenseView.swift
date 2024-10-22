@@ -14,7 +14,7 @@ import ExpensePalModels
 struct AddExpenseView: View {
     @Environment(\.modelContext) var modelContext
     @Environment(\.dismiss) var dismiss
-    @AppStorage("localeIdentifier") var localeIdentifier: String = "en_CA"
+    @AppStorage("localeIdentifier") var localeIdentifier: String = Locales.USA.localeIdentifier
     
     @State private var showingAlert = false
     @State private var showingReceiptScanner = false
