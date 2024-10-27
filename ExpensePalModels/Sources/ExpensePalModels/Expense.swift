@@ -16,14 +16,16 @@ public class Expense: Codable {
     public var subTitle: String = ""
     public var cost: Double = 0
     public var date: Date = Date()
+    public var locale: String = "USA"
 
-    public init(id: UUID = UUID(), emoji: String, title: String, subTitle: String = "", cost: Double, date: Date = .now) {
+    public init(id: UUID = UUID(), emoji: String, title: String, subTitle: String = "", cost: Double, date: Date = .now, locale: String = "USA") {
         self.id = id
         self.emoji = emoji
         self.title = title
         self.subTitle = subTitle
         self.cost = cost
         self.date = date
+        self.locale = locale
     }
 
     enum ExpenseCodingKeys: CodingKey {

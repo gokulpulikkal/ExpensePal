@@ -14,10 +14,15 @@ extension HomeChartRefactored {
     
     class ViewModel {
         
+        var localeIdentifier: String?
         var lastDataPointDateString: String?
 
         var maxYRange = 0
         var minYRange = 0
+        
+        init() {
+            localeIdentifier = UserDefaults.standard.string(forKey: "localeIdentifier")
+        }
         
         func getTotalExpenseForPlot(_ linePlots: [LinePlotEntry]) -> Double {
             return linePlots.reduce(0, { $0 + $1.yValue })
@@ -100,7 +105,10 @@ extension HomeChartRefactored {
             var minExpense = Int.max
             var maxExpense = 0
             for (date, expenses) in expensesByMonth {
-                let totalAmount = expenses.reduce(0) { $0 + $1.cost }
+                let totalAmount = expenses.reduce(0) {
+                    let convertedVal = CurrencyConverter.shared.convert($1.cost, valueCurrency: (Locales(rawValue: $1.locale)?.currency ?? .USD), outputCurrency: Locales(localeIdentifier: localeIdentifier ?? "en_US")?.currency ?? .USD) ?? 0
+                    return $0 + convertedVal
+                }
                 minExpense = min(minExpense, Int(totalAmount))
                 maxExpense = max(maxExpense, Int(totalAmount))
                 linePlotList.append(LinePlotEntry(
@@ -162,7 +170,10 @@ extension HomeChartRefactored {
             var minExpense = Int.max
             var maxExpense = 0
             for (date, expenses) in expensesByWeek {
-                let totalAmount = expenses.reduce(0) { $0 + $1.cost }
+                let totalAmount = expenses.reduce(0) {
+                    let convertedVal = CurrencyConverter.shared.convert($1.cost, valueCurrency: (Locales(rawValue: $1.locale)?.currency ?? .USD), outputCurrency: Locales(localeIdentifier: localeIdentifier ?? "en_US")?.currency ?? .USD) ?? 0
+                    return $0 + convertedVal
+                }
                 minExpense = min(minExpense, Int(totalAmount))
                 maxExpense = max(maxExpense, Int(totalAmount))
                 linePlotList.append(LinePlotEntry(
@@ -219,7 +230,10 @@ extension HomeChartRefactored {
             var minExpense = Int.max
             var maxExpense = 0
             for (date, expenses) in expensesByDay {
-                let totalAmount = expenses.reduce(0) { $0 + $1.cost }
+                let totalAmount = expenses.reduce(0) {
+                    let convertedVal = CurrencyConverter.shared.convert($1.cost, valueCurrency: (Locales(rawValue: $1.locale)?.currency ?? .USD), outputCurrency: Locales(localeIdentifier: localeIdentifier ?? "en_US")?.currency ?? .USD) ?? 0
+                    return $0 + convertedVal
+                }
                 minExpense = min(minExpense, Int(totalAmount))
                 maxExpense = max(maxExpense, Int(totalAmount))
                 linePlotList.append(LinePlotEntry(

@@ -27,7 +27,7 @@ struct ExpenseListCell: View {
                     .foregroundStyle(.gray)
             }
             Spacer()
-            Text(expense.cost, format: .currency(code: "USD"))
+            Text(expense.cost, format: .currency(code: (Locales(rawValue: expense.locale)?.currency ?? .USD).rawValue))
                 .bold()
         }
         .padding(.horizontal, 20)

@@ -14,6 +14,7 @@ struct HomeChartRefactored: View {
     @Query var expenseList: [Expense]
     var viewModel = ViewModel()
     var filter: ExpenseChartFilter
+    @AppStorage("localeIdentifier") var localeIdentifier: String = Locales.USA.localeIdentifier
 
     @State var selectedDateStringInChart: String?
     @State var persistentSelectedDateString: String?
@@ -39,7 +40,7 @@ struct HomeChartRefactored: View {
             } else {
                 Text(
                     viewModel.getTotalExpenseForPlot(viewModel.getExpenseChartDataPoints(filter, expenseList)),
-                    format: .currency(code: "USD")
+                    format: .currency(code:( Locales(localeIdentifier: localeIdentifier)?.currency ?? .USD).rawValue)
                 )
                 .bold()
                 .font(.largeTitle)
@@ -53,6 +54,9 @@ struct HomeChartRefactored: View {
         }
         .onChange(of: filter) {
             persistentSelectedDateString = nil
+        }
+        .onChange(of: localeIdentifier) {
+            viewModel.localeIdentifier = localeIdentifier
         }
     }
 

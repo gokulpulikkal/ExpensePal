@@ -7,15 +7,15 @@
 
 import AVFoundation
 import EmojiPicker
+import ExpensePalModels
 import SwiftData
 import SwiftUI
-import ExpensePalModels
 
 struct AddExpenseView: View {
     @Environment(\.modelContext) var modelContext
     @Environment(\.dismiss) var dismiss
     @AppStorage("localeIdentifier") var localeIdentifier: String = Locales.USA.localeIdentifier
-    
+
     @State private var showingAlert = false
     @State private var showingReceiptScanner = false
 
@@ -32,7 +32,7 @@ struct AddExpenseView: View {
     init(viewModel: AddExpenseView.ViewModel) {
         self.viewModel = viewModel
         self.expenseTitle = viewModel.expense.title
-        self.keyPadInput = String(format: "%.2f",viewModel.expense.cost)
+        self.keyPadInput = String(format: "%.2f", viewModel.expense.cost)
         self.selectedDate = viewModel.expense.date
     }
 
@@ -50,7 +50,7 @@ struct AddExpenseView: View {
                                 .frame(width: 31, height: 31)
                                 .padding(.horizontal)
                                 .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
-                                .opacity(ProcessInfo.processInfo.isiOSAppOnMac ? 0: 1)
+                                .opacity(ProcessInfo.processInfo.isiOSAppOnMac ? 0 : 1)
                         })
                     }
                     Spacer()
@@ -183,6 +183,10 @@ struct AddExpenseView: View {
 
     func getInputExpense() -> Expense? {
         if expenseTitle != "" {
+            if let locale = Locales(localeIdentifier: localeIdentifier) {
+                viewModel.expense.locale = locale.rawValue
+            }
+            
             return viewModel.expense
         }
         return nil
