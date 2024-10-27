@@ -141,7 +141,7 @@ struct HomeChartRefactored: View {
             )
         ) {
             VStack {
-                Text(point.yValue, format: .currency(code: "USD"))
+                Text(point.yValue, format: .currency(code: (Locales(localeIdentifier: localeIdentifier)?.currency ?? .USD).rawValue))
                     .bold()
                     .font(.system(size: 12))
                     .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
