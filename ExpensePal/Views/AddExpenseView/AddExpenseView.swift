@@ -15,6 +15,7 @@ struct AddExpenseView: View {
     @Environment(\.modelContext) var modelContext
     @Environment(\.dismiss) var dismiss
     @AppStorage("localeIdentifier") var localeIdentifier: String = Locales.USA.localeIdentifier
+    @FocusState var isTitleTextFieldFocused: Bool
 
     @State private var showingAlert = false
     @State private var showingReceiptScanner = false
@@ -96,7 +97,6 @@ struct AddExpenseView: View {
             }
             .padding([.leading, .bottom, .trailing])
         }
-        .ignoresSafeArea(.keyboard, edges: .all)
         .sheet(isPresented: $displayEmojiPicker) {
             NavigationView {
                 EmojiPickerView(
@@ -123,6 +123,7 @@ struct AddExpenseView: View {
         }
         .onChange(of: keyPadInput) {
             viewModel.updateCost(input: keyPadInput, locale: Locale(identifier: localeIdentifier))
+            isTitleTextFieldFocused = false
         }
         .onChange(of: expenseTitle) {
             viewModel.updateTitle(title: expenseTitle)
@@ -156,6 +157,7 @@ struct AddExpenseView: View {
                 }
 
             TextField("", text: $expenseTitle, prompt: Text("Expense Title").foregroundColor(.gray))
+                .focused($isTitleTextFieldFocused)
                 .frame(maxWidth: 100)
                 .font(.system(size: 15))
                 .bold()
@@ -186,7 +188,7 @@ struct AddExpenseView: View {
             if let locale = Locales(localeIdentifier: localeIdentifier) {
                 viewModel.expense.locale = locale.rawValue
             }
-            
+
             return viewModel.expense
         }
         return nil
