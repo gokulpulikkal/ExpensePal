@@ -12,7 +12,8 @@ import ExpensePalModels
 struct BarChartPresenter: View {
 
     var filter: ExpenseChartMainFilter
-    let viewModel = ViewModel()
+    @State var viewModel = ViewModel()
+    @AppStorage("localeIdentifier") var localeIdentifier: String = Locales.USA.localeIdentifier
 
     @Query var expenseList: [Expense]
 
@@ -54,6 +55,9 @@ struct BarChartPresenter: View {
         .frame(height: 300)
         .onChange(of: filter) {
             updateAverageYValue()
+        }
+        .onChange(of: localeIdentifier) {
+            viewModel.localeIdentifier = localeIdentifier
         }
         .onAppear(perform: {
             // sometimes only the chart component only getting reloaded.

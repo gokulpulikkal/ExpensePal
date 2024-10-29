@@ -88,4 +88,5 @@ struct ChartComponentView: View {
 
 #Preview {
     ChartComponentView(filter: .Month, data: [], chartXSelection: .constant(""), chartYSelection: .constant(0))
+        .modelContainer(previewContainer)
 }

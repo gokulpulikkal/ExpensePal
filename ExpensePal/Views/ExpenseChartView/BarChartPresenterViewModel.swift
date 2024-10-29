@@ -5,13 +5,21 @@
 //  Created by Gokul P on 06/07/24.
 //
 
-import Foundation
 import ExpensePalModels
+import Foundation
+import Observation
 
 extension BarChartPresenter {
+
+    @Observable
     class ViewModel {
 
         var averageSpending: Double = 0
+        var localeIdentifier: String?
+
+        init() {
+            self.localeIdentifier = UserDefaults.standard.string(forKey: "localeIdentifier")
+        }
 
         func getExpenseChartDataPoints(_ filter: ExpenseChartMainFilter, _ allEntries: [Expense]) -> [LinePlotEntry] {
             let linePlots: [LinePlotEntry] = switch filter {
@@ -64,7 +72,14 @@ extension BarChartPresenter {
             var totalForAverage: Double = 0
 
             for (date, expenses) in expensesByMonth {
-                let totalAmount = expenses.reduce(0) { $0 + $1.cost }
+                let totalAmount = expenses.reduce(0) {
+                    let convertedVal = CurrencyConverter.shared.convert(
+                        $1.cost,
+                        valueCurrency: (Locales(rawValue: $1.locale)?.currency ?? .USD),
+                        outputCurrency: Locales(localeIdentifier: localeIdentifier ?? "en_US")?.currency ?? .USD
+                    ) ?? 0
+                    return $0 + convertedVal
+                }
                 totalForAverage += totalAmount
                 minExpense = min(minExpense, Int(totalAmount))
                 maxExpense = max(maxExpense, Int(totalAmount))
@@ -125,7 +140,14 @@ extension BarChartPresenter {
             var maxExpense = 0
             var totalForAverage: Double = 0
             for (date, expenses) in expensesByDay {
-                let totalAmount = expenses.reduce(0) { $0 + $1.cost }
+                let totalAmount = expenses.reduce(0) {
+                    let convertedVal = CurrencyConverter.shared.convert(
+                        $1.cost,
+                        valueCurrency: (Locales(rawValue: $1.locale)?.currency ?? .USD),
+                        outputCurrency: Locales(localeIdentifier: localeIdentifier ?? "en_US")?.currency ?? .USD
+                    ) ?? 0
+                    return $0 + convertedVal
+                }
                 totalForAverage += totalAmount
                 minExpense = min(minExpense, Int(totalAmount))
                 maxExpense = max(maxExpense, Int(totalAmount))
@@ -136,16 +158,15 @@ extension BarChartPresenter {
                     yValue: totalAmount
                 ))
             }
-            
+
             if !expensesByDay.isEmpty {
                 averageSpending = totalForAverage / Double(expensesByDay.count)
             }
 
             return linePlotList.sorted(using: KeyPathComparator(\.xValue))
         }
-        
-        private func yearWiseExpense(_ allEntries: [Expense]) -> [LinePlotEntry] {
 
+        private func yearWiseExpense(_ allEntries: [Expense]) -> [LinePlotEntry] {
             // Get the current calendar and the current date
             let calendar = Calendar.current
             let currentDate = Date()
@@ -155,8 +176,8 @@ extension BarChartPresenter {
             if let lastDate = allEntries.last?.date, let startOfThisYear = currentDate.firstDayOfYear() {
                 let startingYear = lastDate.year()
                 var expensesByYear: [Date: [Expense]] = [:]
-                
-                for yearOffset in 0 ... thisYear - startingYear {
+
+                for yearOffset in 0...thisYear - startingYear {
                     if let yearDate = calendar.date(byAdding: .year, value: -yearOffset, to: startOfThisYear) {
                         expensesByYear[yearDate] = []
                     }
@@ -179,7 +200,14 @@ extension BarChartPresenter {
                 var maxExpense = 0
                 var totalForAverage: Double = 0
                 for (date, expenses) in expensesByYear {
-                    let totalAmount = expenses.reduce(0) { $0 + $1.cost }
+                    let totalAmount = expenses.reduce(0) {
+                        let convertedVal = CurrencyConverter.shared.convert(
+                            $1.cost,
+                            valueCurrency: (Locales(rawValue: $1.locale)?.currency ?? .USD),
+                            outputCurrency: Locales(localeIdentifier: localeIdentifier ?? "en_US")?.currency ?? .USD
+                        ) ?? 0
+                        return $0 + convertedVal
+                    }
                     totalForAverage += totalAmount
                     minExpense = min(minExpense, Int(totalAmount))
                     maxExpense = max(maxExpense, Int(totalAmount))

@@ -11,6 +11,8 @@ import SwiftUI
 struct ExpenseChartView: View {
 
     @AppStorage("chartFilterExpenseChart") var chartFilter: ExpenseChartMainFilter = .Month
+    @AppStorage("localeIdentifier") var localeIdentifier: String = Locales.USA.localeIdentifier
+    
     @State var currentXSelection: String?
     @State var currentYSelection: Double?
     @State var averageYValue: Double = 0
@@ -90,7 +92,7 @@ struct ExpenseChartView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("\(currentXSelection ?? "") Summary")
                         .font(.title3)
-                    Text(currentYSelection ?? 0, format: .currency(code: "USD"))
+                    Text(currentYSelection ?? 0, format: .currency(code: (Locales(localeIdentifier: localeIdentifier)?.currency ?? .USD).rawValue))
                         .font(.title3)
                     Text("Spent so far")
                         .foregroundStyle(.gray)
@@ -106,10 +108,10 @@ struct ExpenseChartView: View {
             )
             .padding(.bottom)
             HStack {
-                Text("Average spending")
+                Text("\(chartFilter.description)ly average spending")
                     .font(.title3)
                 Spacer()
-                Text(averageYValue, format: .currency(code: "USD"))
+                Text(averageYValue, format: .currency(code: (Locales(localeIdentifier: localeIdentifier)?.currency ?? .USD).rawValue))
                     .font(.title3)
             }
         }
