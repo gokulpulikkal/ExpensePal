@@ -6,9 +6,9 @@
 //
 
 import Charts
+import ExpensePalModels
 import SwiftData
 import SwiftUI
-import ExpensePalModels
 
 struct HomeChartRefactored: View {
     @Query var expenseList: [Expense]
@@ -40,7 +40,7 @@ struct HomeChartRefactored: View {
             } else {
                 Text(
                     viewModel.getTotalExpenseForPlot(viewModel.getExpenseChartDataPoints(filter, expenseList)),
-                    format: .currency(code:( Locales(localeIdentifier: localeIdentifier)?.currency ?? .USD).rawValue)
+                    format: .currency(code: (Locales(localeIdentifier: localeIdentifier)?.currency ?? .USD).rawValue)
                 )
                 .bold()
                 .font(.largeTitle)
@@ -99,6 +99,47 @@ struct HomeChartRefactored: View {
                 }
             }
         }
+        .chartXAxis {
+            AxisMarks { value in
+                AxisValueLabel {
+                    Text(
+                        "\(viewModel.getExpenseChartDataPointsXValue(filter, viewModel.getExpenseChartDataPoints(filter, expenseList)[value.index].xValue))"
+                    )
+                    .foregroundStyle(
+                        (viewModel.getExpenseChartDataPointsXValue(
+                            filter,
+                            viewModel.getExpenseChartDataPoints(
+                                filter,
+                                expenseList
+                            )[value.index].xValue
+                        ) == persistentSelectedDateString)
+                            ||
+                            (persistentSelectedDateString == nil && viewModel.getExpenseChartDataPointsXValue(
+                                filter,
+                                viewModel.getExpenseChartDataPoints(
+                                    filter,
+                                    expenseList
+                                )[value.index].xValue
+                            ) == viewModel.lastDataPointDateString) ? .primaryAccentColour : .gray
+                    )
+                    .bold((viewModel.getExpenseChartDataPointsXValue(
+                        filter,
+                        viewModel.getExpenseChartDataPoints(
+                            filter,
+                            expenseList
+                        )[value.index].xValue
+                    ) == persistentSelectedDateString)
+                        ||
+                        (persistentSelectedDateString == nil && viewModel.getExpenseChartDataPointsXValue(
+                            filter,
+                            viewModel.getExpenseChartDataPoints(
+                                filter,
+                                expenseList
+                            )[value.index].xValue
+                        ) == viewModel.lastDataPointDateString))
+                }
+            }
+        }
         .chartYScale(range: .plotDimension(startPadding: 10, endPadding: 10))
         .chartXScale(range: .plotDimension(startPadding: 10, endPadding: 10))
         .chartYAxis(.hidden)
@@ -141,20 +182,23 @@ struct HomeChartRefactored: View {
             )
         ) {
             VStack {
-                Text(point.yValue, format: .currency(code: (Locales(localeIdentifier: localeIdentifier)?.currency ?? .USD).rawValue))
-                    .bold()
-                    .font(.system(size: 12))
-                    .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
-                    .padding(.vertical, 8)
-                    .padding(.horizontal, 10)
-                    .background {
-                        Capsule(style: .circular)
-                            .stroke(lineWidth: 2)
-                            .background(Color(AppColors.primaryBackground.rawValue))
-                    }
-                    .clipShape(
-                        Capsule(style: .circular)
-                    )
+                Text(
+                    point.yValue,
+                    format: .currency(code: (Locales(localeIdentifier: localeIdentifier)?.currency ?? .USD).rawValue)
+                )
+                .bold()
+                .font(.system(size: 12))
+                .foregroundStyle(Color(AppColors.primaryAccent.rawValue))
+                .padding(.vertical, 8)
+                .padding(.horizontal, 10)
+                .background {
+                    Capsule(style: .circular)
+                        .stroke(lineWidth: 2)
+                        .background(Color(AppColors.primaryBackground.rawValue))
+                }
+                .clipShape(
+                    Capsule(style: .circular)
+                )
 
                 Rectangle()
                     .frame(height: 5)
