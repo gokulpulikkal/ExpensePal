@@ -11,10 +11,11 @@ import SwiftUI
 import SwipeActions
 
 struct DashboardView: View {
-    var viewModel = DashboardViewModel()
+    @State var viewModel = DashboardViewModel()
 
     @Query(Expense.firstTen()) var expenseList: [Expense]
     @AppStorage("chartFilterDashBoard") var chartFilter: ExpenseChartFilter = .daily
+    @AppStorage("localeIdentifier") var localeIdentifier: String = Locales.USA.localeIdentifier
     @State var presentingSearchView = false
     private var columns = [
         GridItem(.adaptive(minimum: 350, maximum: 350), spacing: 50)
@@ -32,9 +33,13 @@ struct DashboardView: View {
         }
         .onAppear(perform: {
             viewModel.expenseList = expenseList
+            viewModel.getRecentExpenses()
         })
         .sheet(isPresented: $presentingSearchView) {
             ExpenseSearchView()
+        }
+        .onChange(of: localeIdentifier) {
+            viewModel.localeIdentifier = localeIdentifier
         }
     }
 
@@ -72,7 +77,7 @@ struct DashboardView: View {
                     .foregroundStyle(.gray)
                     .font(.subheadline)
                 Spacer()
-                Text(expenseList.reduce(0) { $0 + $1.cost }, format: .currency(code: "USD"))
+                Text(viewModel.totalRecentExpenses, format: .currency(code: (Locales(localeIdentifier: localeIdentifier)?.currency ?? .USD).rawValue))
                     .foregroundStyle(.gray)
                     .font(.subheadline)
             }

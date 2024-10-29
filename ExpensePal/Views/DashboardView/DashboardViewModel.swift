@@ -8,17 +8,23 @@
 import Observation
 import SwiftUI
 import ExpensePalModels
+import Observation
 
+@Observable
 class DashboardViewModel {
     var expenseList: [Expense] = []
     var totalRecentExpenses: Double = 0
+    var localeIdentifier: String?
 
     init() {
         getRecentExpenses()
+        localeIdentifier = UserDefaults.standard.string(forKey: "localeIdentifier")
     }
 
-    private func getRecentExpenses() {
-//        expenseList = MockData().getMockDataFromJSON()
-        totalRecentExpenses = expenseList.reduce(0) { $0 + $1.cost }
+    func getRecentExpenses() {
+        totalRecentExpenses = expenseList.reduce(0) {
+            let convertedVal = CurrencyConverter.shared.convert($1.cost, valueCurrency: (Locales(rawValue: $1.locale)?.currency ?? .USD), outputCurrency: Locales(localeIdentifier: localeIdentifier ?? "en_US")?.currency ?? .USD) ?? 0
+            return $0 + convertedVal
+        }
     }
 }
