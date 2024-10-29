@@ -6,7 +6,6 @@
 //
 
 import AVFoundation
-import EmojiPicker
 import ExpensePalModels
 import SwiftData
 import SwiftUI
@@ -24,7 +23,7 @@ struct AddExpenseView: View {
 
     @State var keyPadInput: String
     @State var expenseTitle: String
-    @State var selectedEmoji: Emoji?
+    @State var selectedEmojiString = ""
     @State var displayEmojiPicker = false
     @State var selectedDate: Date
     @State private var scannedImage: UIImage? = nil
@@ -97,17 +96,6 @@ struct AddExpenseView: View {
             }
             .padding([.leading, .bottom, .trailing])
         }
-        .sheet(isPresented: $displayEmojiPicker) {
-            NavigationView {
-                EmojiPickerView(
-                    selectedEmoji: $selectedEmoji,
-                    selectedColor: .orange,
-                    emojiProvider: LimitedEmojiProvider()
-                )
-                .navigationTitle("Emojis")
-                .navigationBarTitleDisplayMode(.inline)
-            }
-        }
         .sheet(isPresented: $showingReceiptScanner) {
             VNDocumentViewControllerRepresentable(scanResult: $scannedImage)
         }
@@ -128,8 +116,8 @@ struct AddExpenseView: View {
         .onChange(of: expenseTitle) {
             viewModel.updateTitle(title: expenseTitle)
         }
-        .onChange(of: selectedEmoji) {
-            viewModel.updateEmoji(emoji: selectedEmoji?.value)
+        .onChange(of: selectedEmojiString) {
+            viewModel.updateEmoji(emoji: selectedEmojiString)
         }
         .onChange(of: selectedDate) {
             viewModel.updateSelectedDate(date: selectedDate)
@@ -148,13 +136,15 @@ struct AddExpenseView: View {
 
     func expenseInputView() -> some View {
         HStack {
-            Text(viewModel.expense.emoji)
-                .padding(12)
-                .background(Color(AppColors.primaryAccent.rawValue))
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-                .onTapGesture {
-                    displayEmojiPicker = true
-                }
+            Button(viewModel.expense.emoji) {
+                displayEmojiPicker.toggle()
+            }.emojiPicker(
+                isPresented: $displayEmojiPicker,
+                selectedEmoji: $selectedEmojiString
+            )
+            .padding(12)
+            .background(Color(AppColors.primaryAccent.rawValue))
+            .clipShape(RoundedRectangle(cornerRadius: 20))
 
             TextField("", text: $expenseTitle, prompt: Text("Expense Title").foregroundColor(.gray))
                 .focused($isTitleTextFieldFocused)

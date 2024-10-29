@@ -5,7 +5,6 @@
 //  Created by Gokul P on 12/07/24.
 //
 
-import EmojiPicker
 import GoogleGenerativeAI
 import Observation
 import SwiftUI
