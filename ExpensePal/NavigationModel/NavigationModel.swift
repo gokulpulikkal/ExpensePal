@@ -27,7 +27,7 @@ class NavigationModel {
         }
     }
 
-    func setSelectedTab(tab: Tab) {
+    func setSelectedTab(_ tab: Tab) {
         switch tab {
         case .DashBoard,
              .ExpenseList,

@@ -133,6 +133,9 @@ struct AddExpenseView: View {
             expenseTitle = viewModel.expense.title
             selectedDate = viewModel.expense.date
         }
+        .onAppear {
+            navigationModel.selectedPopoverTab = nil // setting it to the default
+        }
     }
     
     func closeView() {

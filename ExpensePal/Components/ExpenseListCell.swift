@@ -11,6 +11,8 @@ import ExpensePalModels
 
 struct ExpenseListCell: View {
     
+    @Environment(NavigationModel.self) private var navigationModel
+    @Environment(\.openWindow) private var openWindow
     @Environment(\.modelContext) var modelContext
     @State var presentingEditExpenseView = false
     
@@ -34,7 +36,11 @@ struct ExpenseListCell: View {
         .addSwipeAction(edge: .trailing) {
             HStack {
                 Button {
-                    presentingEditExpenseView = true
+                    if ProcessInfo.processInfo.isiOSAppOnMac {
+                        openWindow(id: "addExpenseView")
+                    } else {
+                        presentingEditExpenseView = true
+                    }
                 } label: {
                     Image(systemName: "pencil")
                         .tint(.primaryBGColour)
