@@ -11,6 +11,13 @@ import SwiftUI
 
 @main
 struct ExpensePalApp: App {
+    private let sceneNavigationModel: NavigationModel
+    
+    init() {
+        let navigationModel = NavigationModel(selectedTab: nil)
+        sceneNavigationModel = navigationModel
+    }
+    
     var body: some Scene {
         Group {
             WindowGroup {
@@ -26,5 +33,6 @@ struct ExpensePalApp: App {
         }
         .modelContainer(for: Expense.self)
 //        .modelContainer(previewContainer)
+        .environment(sceneNavigationModel)
     }
 }

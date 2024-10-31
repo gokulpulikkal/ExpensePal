@@ -16,31 +16,23 @@ enum Tab: String, CaseIterable {
 }
 
 struct CustomTabBar: View {
-
-    @Binding var selectedTab: Tab
-    @Binding var selectedPopOverTab: Bool
+    @Environment(NavigationModel.self) private var navigationModel
 
     var fillImage: String {
-        selectedTab.rawValue + ".fill"
+        navigationModel.selectedTab.rawValue + ".fill"
     }
 
     var body: some View {
         HStack {
             ForEach(Tab.allCases, id: \.rawValue) { tab in
                 Spacer()
-                Image(systemName: selectedTab == tab ? fillImage : tab.rawValue)
+                Image(systemName: navigationModel.selectedTab == tab ? fillImage : tab.rawValue)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 30, height: 30)
-                    .scaleEffect(selectedTab == tab ? 1.25 : 1)
+                    .scaleEffect(navigationModel.selectedTab == tab ? 1.25 : 1)
                     .onTapGesture {
-//                        withAnimation(.smooth(duration: 0.1)) {
-                            if tab != .AddExpense {
-                                selectedTab = tab
-                            } else {
-                                selectedPopOverTab = true
-                            }
-//                        }
+                        navigationModel.setSelectedTab(tab: tab)
                     }
                 Spacer()
             }
@@ -52,5 +44,5 @@ struct CustomTabBar: View {
 }
 
 #Preview {
-    CustomTabBar(selectedTab: .constant(.DashBoard), selectedPopOverTab: .constant(false))
+    CustomTabBar()
 }

@@ -11,6 +11,7 @@ import SwiftData
 import SwiftUI
 
 struct AddExpenseView: View {
+    @Environment(NavigationModel.self) private var navigationModel
     @Environment(\.modelContext) var modelContext
     @Environment(\.dismiss) var dismiss
     @AppStorage("localeIdentifier") var localeIdentifier: String = Locales.USA.localeIdentifier
@@ -43,7 +44,7 @@ struct AddExpenseView: View {
                     HStack {
                         Spacer()
                         Button(action: {
-                            dismiss()
+                            closeView()
                         }, label: {
                             Image(systemName: "multiply.circle.fill")
                                 .resizable()
@@ -77,7 +78,7 @@ struct AddExpenseView: View {
                     Button("Done") {
                         if let expense = getInputExpense() {
                             modelContext.insert(expense)
-                            dismiss()
+                            closeView()
                         } else {
                             showingAlert = true
                         }
@@ -132,6 +133,11 @@ struct AddExpenseView: View {
             expenseTitle = viewModel.expense.title
             selectedDate = viewModel.expense.date
         }
+    }
+    
+    func closeView() {
+        navigationModel.selectedPopoverTab = nil
+        dismiss()
     }
 
     func expenseInputView() -> some View {

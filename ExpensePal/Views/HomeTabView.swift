@@ -8,31 +8,36 @@
 import SwiftUI
 
 struct HomeTabView: View {
-    @State var selectedTab: Tab = .DashBoard
-    @State var currentTab: Tab = .DashBoard
     @State var shouldShowAddExpenseView = false
+
+    @Environment(NavigationModel.self) private var navigationModel
 
     var body: some View {
         VStack {
-            getMainView(currentTab)
+            mainView
                 .transition(.opacity)
-                .animation(.easeInOut(duration: 0.2), value: currentTab)
+                .animation(.easeInOut(duration: 0.2), value: navigationModel.selectedTab)
             Spacer()
-            CustomTabBar(selectedTab: $selectedTab, selectedPopOverTab: $shouldShowAddExpenseView)
+            CustomTabBar()
                 .frame(height: 35)
         }
-        .onChange(of: selectedTab) {
-            currentTab = selectedTab
+        .onChange(of: navigationModel.selectedPopoverTab) {
+            if navigationModel.selectedPopoverTab == .AddExpense {
+                shouldShowAddExpenseView = true
+            }
         }
         .fullScreenCover(isPresented: $shouldShowAddExpenseView) {
-            AddExpenseView(viewModel: AddExpenseView.ViewModel())
+            switch navigationModel.selectedPopoverTab {
+            default:
+                AddExpenseView(viewModel: AddExpenseView.ViewModel())
+            }
         }
         .ignoresSafeArea(.keyboard)
     }
 
-    private func getMainView(_ selectedTab: Tab) -> some View {
+    var mainView: some View {
         ZStack {
-            switch selectedTab {
+            switch navigationModel.selectedTab {
             case .DashBoard:
                 DashboardView()
             case .ExpenseList:
@@ -40,7 +45,7 @@ struct HomeTabView: View {
             case .ExpenseChart:
                 ExpenseChartView()
             case .AddExpense:
-                AddExpenseView(viewModel: AddExpenseView.ViewModel())
+                DashboardView()
             case .Settings:
                 SettingsView()
             }

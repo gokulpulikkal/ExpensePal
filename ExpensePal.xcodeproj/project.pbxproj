@@ -203,7 +203,9 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		4B69D3822CD32F2E00BBEA85 /* NavigationModel */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = NavigationModel; sourceTree = "<group>"; };
 		4BA9CD812C65298F009FB355 /* ExpensePalTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ExpensePalTests; sourceTree = "<group>"; };
+		4BB175822CD2C6FE0081356D /* AppIntents */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AppIntents; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +252,8 @@
 		4B1562262C153084001A0F57 /* ExpensePal */ = {
 			isa = PBXGroup;
 			children = (
+				4B69D3822CD32F2E00BBEA85 /* NavigationModel */,
+				4BB175822CD2C6FE0081356D /* AppIntents */,
 				4B71ED482CC41CD4003B1D69 /* GenerativeAI-Info.plist */,
 				4BA9CD782C6509C4009FB355 /* dev.xcconfig */,
 				4BA9CD7A2C650A20009FB355 /* prod.xcconfig */,
@@ -537,6 +541,10 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				4B69D3822CD32F2E00BBEA85 /* NavigationModel */,
+				4BB175822CD2C6FE0081356D /* AppIntents */,
 			);
 			name = ExpensePal;
 			packageProductDependencies = (
