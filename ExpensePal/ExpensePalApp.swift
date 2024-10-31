@@ -4,7 +4,7 @@
 //
 //  Created by Gokul P on 08/06/24.
 //
-
+import AppIntents
 import ExpensePalModels
 import SwiftData
 import SwiftUI
@@ -12,12 +12,14 @@ import SwiftUI
 @main
 struct ExpensePalApp: App {
     private let sceneNavigationModel: NavigationModel
-    
+
     init() {
         let navigationModel = NavigationModel(selectedTab: nil)
-        sceneNavigationModel = navigationModel
+        self.sceneNavigationModel = navigationModel
+
+        AppDependencyManager.shared.add(dependency: navigationModel)
     }
-    
+
     var body: some Scene {
         Group {
             WindowGroup {

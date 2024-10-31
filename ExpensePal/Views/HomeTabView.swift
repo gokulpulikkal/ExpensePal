@@ -33,6 +33,11 @@ struct HomeTabView: View {
             }
         }
         .ignoresSafeArea(.keyboard)
+        .onAppear {
+            if navigationModel.selectedPopoverTab == .AddExpense {
+                shouldShowAddExpenseView = true
+            }
+        }
     }
 
     var mainView: some View {
