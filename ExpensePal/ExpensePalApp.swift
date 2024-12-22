@@ -11,9 +11,19 @@ import SwiftUI
 
 @main
 struct ExpensePalApp: App {
+
+    let container: ModelContainer
+
     private let sceneNavigationModel: NavigationModel
 
     init() {
+        ExpenseShortcuts.updateAppShortcutParameters()
+        do {
+            container = try ModelContainer(for: Expense.self)
+            SwiftDataServiceForAppIntents.shared.modelContext = container.mainContext
+        } catch  {
+            fatalError("Failed to configure SwiftData container.")
+        }
         let navigationModel = NavigationModel(selectedTab: nil)
         self.sceneNavigationModel = navigationModel
 
@@ -33,7 +43,7 @@ struct ExpensePalApp: App {
             }
             .defaultSize(width: 700, height: 700)
         }
-        .modelContainer(for: Expense.self)
+        .modelContainer(container)
 //        .modelContainer(previewContainer)
         .environment(sceneNavigationModel)
     }

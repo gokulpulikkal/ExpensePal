@@ -24,6 +24,7 @@
 		4B47FB432C20B83C006457E3 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB422C20B83C006457E3 /* PreviewData.swift */; };
 		4B47FB4D2C221C26006457E3 /* ExpensesMockData.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B47FB4C2C221C26006457E3 /* ExpensesMockData.json */; };
 		4B6975262C7C11C700DFFA15 /* RegularHomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6975252C7C11C600DFFA15 /* RegularHomeTabView.swift */; };
+		4B69D3982CD960BD00BBEA85 /* SwiftDataServiceForAppIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B69D3972CD960BD00BBEA85 /* SwiftDataServiceForAppIntents.swift */; };
 		4B71ED492CC41CD4003B1D69 /* GenerativeAI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B71ED482CC41CD4003B1D69 /* GenerativeAI-Info.plist */; };
 		4B79DD2E2C3A2C7200B62F9C /* BarChartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B79DD2D2C3A2C7200B62F9C /* BarChartPresenter.swift */; };
 		4B79DD302C3A316B00B62F9C /* BarChartPresenterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B79DD2F2C3A316B00B62F9C /* BarChartPresenterViewModel.swift */; };
@@ -34,33 +35,33 @@
 		4B865CFA2C58339E000E799B /* APIKeyGenAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B865CF92C58339E000E799B /* APIKeyGenAI.swift */; };
 		4B865D132C5957B2000E799B /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B865D122C5957B2000E799B /* LaunchScreen.swift */; };
 		4B9EAD672C19410100A455AD /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9EAD662C19410100A455AD /* TestView.swift */; };
-		4BB175662CD066140081356D /* MCUnicodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB175502CD066140081356D /* MCUnicodeManager.swift */; };
-		4BB175672CD066140081356D /* MCEmojiPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB175632CD066140081356D /* MCEmojiPickerViewModel.swift */; };
-		4BB175682CD066140081356D /* MCEmojiSkinTonePickerBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB175582CD066140081356D /* MCEmojiSkinTonePickerBackgroundView.swift */; };
-		4BB175692CD066140081356D /* MCPickerArrowDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB175232CD066140081356D /* MCPickerArrowDirection.swift */; };
-		4BB1756A2CD066140081356D /* UICollectionReusableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB1751C2CD066140081356D /* UICollectionReusableView+Extension.swift */; };
-		4BB1756B2CD066140081356D /* NSNotification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB1751B2CD066140081356D /* NSNotification.Name+Extension.swift */; };
-		4BB1756C2CD066140081356D /* MCEmojiCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB1755C2CD066140081356D /* MCEmojiCollectionViewCell.swift */; };
-		4BB1756D2CD066140081356D /* MCEmojiPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB1755D2CD066140081356D /* MCEmojiPickerView.swift */; };
-		4BB1756E2CD066140081356D /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB175192CD066140081356D /* Bundle+Extension.swift */; };
-		4BB1756F2CD066140081356D /* MCEmojiPreviewBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB175552CD066140081356D /* MCEmojiPreviewBackgroundView.swift */; };
-		4BB175702CD066140081356D /* MCEmojiPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB175612CD066140081356D /* MCEmojiPickerViewController.swift */; };
-		4BB175712CD066140081356D /* MCEmojiCategoryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB175522CD066140081356D /* MCEmojiCategoryIconView.swift */; };
-		4BB175722CD066140081356D /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB175162CD066140081356D /* Observable.swift */; };
-		4BB175732CD066140081356D /* MCEmojiSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB1755E2CD066140081356D /* MCEmojiSectionHeader.swift */; };
-		4BB175742CD066140081356D /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB175182CD066140081356D /* Array+Extension.swift */; };
-		4BB175752CD066140081356D /* MCEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB175212CD066140081356D /* MCEmoji.swift */; };
-		4BB175762CD066140081356D /* MCTouchableEmojiCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB175532CD066140081356D /* MCTouchableEmojiCategoryView.swift */; };
-		4BB175772CD066140081356D /* MCEmojiPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB175562CD066140081356D /* MCEmojiPreviewView.swift */; };
-		4BB175782CD066140081356D /* MCEmojiCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB175222CD066140081356D /* MCEmojiCategory.swift */; };
-		4BB175792CD066140081356D /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB1751E2CD066140081356D /* View+Extension.swift */; };
-		4BB1757A2CD066140081356D /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB1751A2CD066140081356D /* Double+Extension.swift */; };
-		4BB1757B2CD066140081356D /* MCEmojiSkinTonePickerContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB175592CD066140081356D /* MCEmojiSkinTonePickerContainerView.swift */; };
-		4BB1757C2CD066140081356D /* MCEmojiPickerRepresentableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB175602CD066140081356D /* MCEmojiPickerRepresentableController.swift */; };
-		4BB1757D2CD066140081356D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB1751D2CD066140081356D /* UIColor+Extension.swift */; };
-		4BB1757E2CD066140081356D /* MCEmojiSkinTonePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB1755A2CD066140081356D /* MCEmojiSkinTonePickerView.swift */; };
-		4BB1757F2CD066140081356D /* MCEmojiPickerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4BB1754D2CD066140081356D /* MCEmojiPickerLocalizable.strings */; };
 		4BBE0AA72C1810B00097392F /* FilterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE0AA62C1810B00097392F /* FilterHeaderView.swift */; };
+		4BC28A742CDAFB970013DDF8 /* MCEmojiPreviewBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A632CDAFB970013DDF8 /* MCEmojiPreviewBackgroundView.swift */; };
+		4BC28A752CDAFB970013DDF8 /* MCEmojiPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A642CDAFB970013DDF8 /* MCEmojiPreviewView.swift */; };
+		4BC28A762CDAFB970013DDF8 /* MCEmojiCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A6A2CDAFB970013DDF8 /* MCEmojiCollectionViewCell.swift */; };
+		4BC28A772CDAFB970013DDF8 /* MCEmojiSkinTonePickerBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A662CDAFB970013DDF8 /* MCEmojiSkinTonePickerBackgroundView.swift */; };
+		4BC28A782CDAFB970013DDF8 /* MCEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A2F2CDAFB970013DDF8 /* MCEmoji.swift */; };
+		4BC28A792CDAFB970013DDF8 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A272CDAFB970013DDF8 /* Bundle+Extension.swift */; };
+		4BC28A7A2CDAFB970013DDF8 /* MCEmojiCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A302CDAFB970013DDF8 /* MCEmojiCategory.swift */; };
+		4BC28A7B2CDAFB970013DDF8 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A262CDAFB970013DDF8 /* Array+Extension.swift */; };
+		4BC28A7C2CDAFB970013DDF8 /* MCEmojiSkinTonePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A682CDAFB970013DDF8 /* MCEmojiSkinTonePickerView.swift */; };
+		4BC28A7D2CDAFB970013DDF8 /* MCTouchableEmojiCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A612CDAFB970013DDF8 /* MCTouchableEmojiCategoryView.swift */; };
+		4BC28A7E2CDAFB970013DDF8 /* MCUnicodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A5E2CDAFB970013DDF8 /* MCUnicodeManager.swift */; };
+		4BC28A7F2CDAFB970013DDF8 /* MCPickerArrowDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A312CDAFB970013DDF8 /* MCPickerArrowDirection.swift */; };
+		4BC28A802CDAFB970013DDF8 /* MCEmojiPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A6F2CDAFB970013DDF8 /* MCEmojiPickerViewController.swift */; };
+		4BC28A812CDAFB970013DDF8 /* MCEmojiSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A6C2CDAFB970013DDF8 /* MCEmojiSectionHeader.swift */; };
+		4BC28A822CDAFB970013DDF8 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A2B2CDAFB970013DDF8 /* UIColor+Extension.swift */; };
+		4BC28A832CDAFB970013DDF8 /* MCEmojiPickerRepresentableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A6E2CDAFB970013DDF8 /* MCEmojiPickerRepresentableController.swift */; };
+		4BC28A842CDAFB970013DDF8 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A2C2CDAFB970013DDF8 /* View+Extension.swift */; };
+		4BC28A852CDAFB970013DDF8 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A242CDAFB970013DDF8 /* Observable.swift */; };
+		4BC28A862CDAFB970013DDF8 /* NSNotification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A292CDAFB970013DDF8 /* NSNotification.Name+Extension.swift */; };
+		4BC28A872CDAFB970013DDF8 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A282CDAFB970013DDF8 /* Double+Extension.swift */; };
+		4BC28A882CDAFB970013DDF8 /* MCEmojiCategoryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A602CDAFB970013DDF8 /* MCEmojiCategoryIconView.swift */; };
+		4BC28A892CDAFB970013DDF8 /* MCEmojiPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A712CDAFB970013DDF8 /* MCEmojiPickerViewModel.swift */; };
+		4BC28A8A2CDAFB970013DDF8 /* MCEmojiSkinTonePickerContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A672CDAFB970013DDF8 /* MCEmojiSkinTonePickerContainerView.swift */; };
+		4BC28A8B2CDAFB970013DDF8 /* UICollectionReusableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A2A2CDAFB970013DDF8 /* UICollectionReusableView+Extension.swift */; };
+		4BC28A8C2CDAFB970013DDF8 /* MCEmojiPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A6B2CDAFB970013DDF8 /* MCEmojiPickerView.swift */; };
+		4BC28A8D2CDAFB970013DDF8 /* MCEmojiPickerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4BC28A5B2CDAFB970013DDF8 /* MCEmojiPickerLocalizable.strings */; };
 		4BC2DFEC2CC766DE000E4F68 /* CurrencyConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC2DFEB2CC766DE000E4F68 /* CurrencyConverter.swift */; };
 		4BC2DFF22CCDE4E8000E4F68 /* Locales.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC2DFF12CCDE4E8000E4F68 /* Locales.swift */; };
 		4BCF7FB52C73E36A00050350 /* ExpensePalModels in Resources */ = {isa = PBXBuildFile; fileRef = 4BCF7FB42C73E36A00050350 /* ExpensePalModels */; };
@@ -107,6 +108,7 @@
 		4B47FB422C20B83C006457E3 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		4B47FB4C2C221C26006457E3 /* ExpensesMockData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ExpensesMockData.json; sourceTree = "<group>"; };
 		4B6975252C7C11C600DFFA15 /* RegularHomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularHomeTabView.swift; sourceTree = "<group>"; };
+		4B69D3972CD960BD00BBEA85 /* SwiftDataServiceForAppIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataServiceForAppIntents.swift; sourceTree = "<group>"; };
 		4B71ED482CC41CD4003B1D69 /* GenerativeAI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GenerativeAI-Info.plist"; sourceTree = "<group>"; };
 		4B79DD2D2C3A2C7200B62F9C /* BarChartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartPresenter.swift; sourceTree = "<group>"; };
 		4B79DD2F2C3A316B00B62F9C /* BarChartPresenterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartPresenterViewModel.swift; sourceTree = "<group>"; };
@@ -120,72 +122,72 @@
 		4BA9CD802C65298F009FB355 /* ExpensePalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpensePalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BAFFC042C55A90A00E2626E /* ExpensePal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ExpensePal.entitlements; sourceTree = "<group>"; };
 		4BAFFC052C55AB7900E2626E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		4BB175162CD066140081356D /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
-		4BB175182CD066140081356D /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
-		4BB175192CD066140081356D /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
-		4BB1751A2CD066140081356D /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
-		4BB1751B2CD066140081356D /* NSNotification.Name+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification.Name+Extension.swift"; sourceTree = "<group>"; };
-		4BB1751C2CD066140081356D /* UICollectionReusableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionReusableView+Extension.swift"; sourceTree = "<group>"; };
-		4BB1751D2CD066140081356D /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		4BB1751E2CD066140081356D /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
-		4BB175212CD066140081356D /* MCEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmoji.swift; sourceTree = "<group>"; };
-		4BB175222CD066140081356D /* MCEmojiCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiCategory.swift; sourceTree = "<group>"; };
-		4BB175232CD066140081356D /* MCPickerArrowDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCPickerArrowDirection.swift; sourceTree = "<group>"; };
-		4BB175252CD066140081356D /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB175262CD066140081356D /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB175272CD066140081356D /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB175282CD066140081356D /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB175292CD066140081356D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB1752A2CD066140081356D /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB1752B2CD066140081356D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB1752C2CD066140081356D /* en-AU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-AU"; path = "en-AU.lproj/MCEmojiPickerLocalizable.strings"; sourceTree = "<group>"; };
-		4BB1752D2CD066140081356D /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/MCEmojiPickerLocalizable.strings"; sourceTree = "<group>"; };
-		4BB1752E2CD066140081356D /* en-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-IN"; path = "en-IN.lproj/MCEmojiPickerLocalizable.strings"; sourceTree = "<group>"; };
-		4BB1752F2CD066140081356D /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB175302CD066140081356D /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/MCEmojiPickerLocalizable.strings"; sourceTree = "<group>"; };
-		4BB175312CD066140081356D /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB175322CD066140081356D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB175332CD066140081356D /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/MCEmojiPickerLocalizable.strings"; sourceTree = "<group>"; };
-		4BB175342CD066140081356D /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB175352CD066140081356D /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB175362CD066140081356D /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB175372CD066140081356D /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB175382CD066140081356D /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB175392CD066140081356D /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB1753A2CD066140081356D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB1753B2CD066140081356D /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB1753C2CD066140081356D /* ms */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ms; path = ms.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB1753D2CD066140081356D /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB1753E2CD066140081356D /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB1753F2CD066140081356D /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB175402CD066140081356D /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/MCEmojiPickerLocalizable.strings"; sourceTree = "<group>"; };
-		4BB175412CD066140081356D /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/MCEmojiPickerLocalizable.strings"; sourceTree = "<group>"; };
-		4BB175422CD066140081356D /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB175432CD066140081356D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB175442CD066140081356D /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB175452CD066140081356D /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB175462CD066140081356D /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB175472CD066140081356D /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB175482CD066140081356D /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB175492CD066140081356D /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
-		4BB1754A2CD066140081356D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MCEmojiPickerLocalizable.strings"; sourceTree = "<group>"; };
-		4BB1754B2CD066140081356D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/MCEmojiPickerLocalizable.strings"; sourceTree = "<group>"; };
-		4BB1754C2CD066140081356D /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/MCEmojiPickerLocalizable.strings"; sourceTree = "<group>"; };
-		4BB175502CD066140081356D /* MCUnicodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCUnicodeManager.swift; sourceTree = "<group>"; };
-		4BB175522CD066140081356D /* MCEmojiCategoryIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiCategoryIconView.swift; sourceTree = "<group>"; };
-		4BB175532CD066140081356D /* MCTouchableEmojiCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCTouchableEmojiCategoryView.swift; sourceTree = "<group>"; };
-		4BB175552CD066140081356D /* MCEmojiPreviewBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiPreviewBackgroundView.swift; sourceTree = "<group>"; };
-		4BB175562CD066140081356D /* MCEmojiPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiPreviewView.swift; sourceTree = "<group>"; };
-		4BB175582CD066140081356D /* MCEmojiSkinTonePickerBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiSkinTonePickerBackgroundView.swift; sourceTree = "<group>"; };
-		4BB175592CD066140081356D /* MCEmojiSkinTonePickerContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiSkinTonePickerContainerView.swift; sourceTree = "<group>"; };
-		4BB1755A2CD066140081356D /* MCEmojiSkinTonePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiSkinTonePickerView.swift; sourceTree = "<group>"; };
-		4BB1755C2CD066140081356D /* MCEmojiCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiCollectionViewCell.swift; sourceTree = "<group>"; };
-		4BB1755D2CD066140081356D /* MCEmojiPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiPickerView.swift; sourceTree = "<group>"; };
-		4BB1755E2CD066140081356D /* MCEmojiSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiSectionHeader.swift; sourceTree = "<group>"; };
-		4BB175602CD066140081356D /* MCEmojiPickerRepresentableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiPickerRepresentableController.swift; sourceTree = "<group>"; };
-		4BB175612CD066140081356D /* MCEmojiPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiPickerViewController.swift; sourceTree = "<group>"; };
-		4BB175632CD066140081356D /* MCEmojiPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiPickerViewModel.swift; sourceTree = "<group>"; };
 		4BBE0AA62C1810B00097392F /* FilterHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterHeaderView.swift; sourceTree = "<group>"; };
+		4BC28A242CDAFB970013DDF8 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		4BC28A262CDAFB970013DDF8 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		4BC28A272CDAFB970013DDF8 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		4BC28A282CDAFB970013DDF8 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		4BC28A292CDAFB970013DDF8 /* NSNotification.Name+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification.Name+Extension.swift"; sourceTree = "<group>"; };
+		4BC28A2A2CDAFB970013DDF8 /* UICollectionReusableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionReusableView+Extension.swift"; sourceTree = "<group>"; };
+		4BC28A2B2CDAFB970013DDF8 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		4BC28A2C2CDAFB970013DDF8 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		4BC28A2F2CDAFB970013DDF8 /* MCEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmoji.swift; sourceTree = "<group>"; };
+		4BC28A302CDAFB970013DDF8 /* MCEmojiCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiCategory.swift; sourceTree = "<group>"; };
+		4BC28A312CDAFB970013DDF8 /* MCPickerArrowDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCPickerArrowDirection.swift; sourceTree = "<group>"; };
+		4BC28A332CDAFB970013DDF8 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A342CDAFB970013DDF8 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A352CDAFB970013DDF8 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A362CDAFB970013DDF8 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A372CDAFB970013DDF8 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A382CDAFB970013DDF8 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A392CDAFB970013DDF8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A3A2CDAFB970013DDF8 /* en-AU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-AU"; path = "en-AU.lproj/MCEmojiPickerLocalizable.strings"; sourceTree = "<group>"; };
+		4BC28A3B2CDAFB970013DDF8 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/MCEmojiPickerLocalizable.strings"; sourceTree = "<group>"; };
+		4BC28A3C2CDAFB970013DDF8 /* en-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-IN"; path = "en-IN.lproj/MCEmojiPickerLocalizable.strings"; sourceTree = "<group>"; };
+		4BC28A3D2CDAFB970013DDF8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A3E2CDAFB970013DDF8 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/MCEmojiPickerLocalizable.strings"; sourceTree = "<group>"; };
+		4BC28A3F2CDAFB970013DDF8 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A402CDAFB970013DDF8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A412CDAFB970013DDF8 /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/MCEmojiPickerLocalizable.strings"; sourceTree = "<group>"; };
+		4BC28A422CDAFB970013DDF8 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A432CDAFB970013DDF8 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A442CDAFB970013DDF8 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A452CDAFB970013DDF8 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A462CDAFB970013DDF8 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A472CDAFB970013DDF8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A482CDAFB970013DDF8 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A492CDAFB970013DDF8 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A4A2CDAFB970013DDF8 /* ms */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ms; path = ms.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A4B2CDAFB970013DDF8 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A4C2CDAFB970013DDF8 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A4D2CDAFB970013DDF8 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A4E2CDAFB970013DDF8 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/MCEmojiPickerLocalizable.strings"; sourceTree = "<group>"; };
+		4BC28A4F2CDAFB970013DDF8 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/MCEmojiPickerLocalizable.strings"; sourceTree = "<group>"; };
+		4BC28A502CDAFB970013DDF8 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A512CDAFB970013DDF8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A522CDAFB970013DDF8 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A532CDAFB970013DDF8 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A542CDAFB970013DDF8 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A552CDAFB970013DDF8 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A562CDAFB970013DDF8 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A572CDAFB970013DDF8 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/MCEmojiPickerLocalizable.strings; sourceTree = "<group>"; };
+		4BC28A582CDAFB970013DDF8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MCEmojiPickerLocalizable.strings"; sourceTree = "<group>"; };
+		4BC28A592CDAFB970013DDF8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/MCEmojiPickerLocalizable.strings"; sourceTree = "<group>"; };
+		4BC28A5A2CDAFB970013DDF8 /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/MCEmojiPickerLocalizable.strings"; sourceTree = "<group>"; };
+		4BC28A5E2CDAFB970013DDF8 /* MCUnicodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCUnicodeManager.swift; sourceTree = "<group>"; };
+		4BC28A602CDAFB970013DDF8 /* MCEmojiCategoryIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiCategoryIconView.swift; sourceTree = "<group>"; };
+		4BC28A612CDAFB970013DDF8 /* MCTouchableEmojiCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCTouchableEmojiCategoryView.swift; sourceTree = "<group>"; };
+		4BC28A632CDAFB970013DDF8 /* MCEmojiPreviewBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiPreviewBackgroundView.swift; sourceTree = "<group>"; };
+		4BC28A642CDAFB970013DDF8 /* MCEmojiPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiPreviewView.swift; sourceTree = "<group>"; };
+		4BC28A662CDAFB970013DDF8 /* MCEmojiSkinTonePickerBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiSkinTonePickerBackgroundView.swift; sourceTree = "<group>"; };
+		4BC28A672CDAFB970013DDF8 /* MCEmojiSkinTonePickerContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiSkinTonePickerContainerView.swift; sourceTree = "<group>"; };
+		4BC28A682CDAFB970013DDF8 /* MCEmojiSkinTonePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiSkinTonePickerView.swift; sourceTree = "<group>"; };
+		4BC28A6A2CDAFB970013DDF8 /* MCEmojiCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiCollectionViewCell.swift; sourceTree = "<group>"; };
+		4BC28A6B2CDAFB970013DDF8 /* MCEmojiPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiPickerView.swift; sourceTree = "<group>"; };
+		4BC28A6C2CDAFB970013DDF8 /* MCEmojiSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiSectionHeader.swift; sourceTree = "<group>"; };
+		4BC28A6E2CDAFB970013DDF8 /* MCEmojiPickerRepresentableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiPickerRepresentableController.swift; sourceTree = "<group>"; };
+		4BC28A6F2CDAFB970013DDF8 /* MCEmojiPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiPickerViewController.swift; sourceTree = "<group>"; };
+		4BC28A712CDAFB970013DDF8 /* MCEmojiPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCEmojiPickerViewModel.swift; sourceTree = "<group>"; };
 		4BC2DFEB2CC766DE000E4F68 /* CurrencyConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverter.swift; sourceTree = "<group>"; };
 		4BC2DFF12CCDE4E8000E4F68 /* Locales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locales.swift; sourceTree = "<group>"; };
 		4BCF7FB42C73E36A00050350 /* ExpensePalModels */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ExpensePalModels; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		4B69D3822CD32F2E00BBEA85 /* NavigationModel */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = NavigationModel; sourceTree = "<group>"; };
+		4B69D3992CDA8C8B00BBEA85 /* Shortcuts */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Shortcuts; sourceTree = "<group>"; };
 		4BA9CD812C65298F009FB355 /* ExpensePalTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ExpensePalTests; sourceTree = "<group>"; };
 		4BB175822CD2C6FE0081356D /* AppIntents */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AppIntents; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -252,6 +255,7 @@
 		4B1562262C153084001A0F57 /* ExpensePal */ = {
 			isa = PBXGroup;
 			children = (
+				4B69D3992CDA8C8B00BBEA85 /* Shortcuts */,
 				4B69D3822CD32F2E00BBEA85 /* NavigationModel */,
 				4BB175822CD2C6FE0081356D /* AppIntents */,
 				4B71ED482CC41CD4003B1D69 /* GenerativeAI-Info.plist */,
@@ -266,7 +270,7 @@
 				4B15622B2C153086001A0F57 /* Assets.xcassets */,
 				4B15622D2C153086001A0F57 /* Preview Content */,
 				4B1562482C16871C001A0F57 /* AppEnums.swift */,
-				4BB175652CD066140081356D /* MCEmojiPicker */,
+				4BC28A732CDAFB970013DDF8 /* MCEmojiPicker 2 */,
 			);
 			path = ExpensePal;
 			sourceTree = "<group>";
@@ -335,144 +339,6 @@
 			path = ReceiptScanner;
 			sourceTree = "<group>";
 		};
-		4BB175172CD066140081356D /* Bindings */ = {
-			isa = PBXGroup;
-			children = (
-				4BB175162CD066140081356D /* Observable.swift */,
-			);
-			path = Bindings;
-			sourceTree = "<group>";
-		};
-		4BB1751F2CD066140081356D /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				4BB175182CD066140081356D /* Array+Extension.swift */,
-				4BB175192CD066140081356D /* Bundle+Extension.swift */,
-				4BB1751A2CD066140081356D /* Double+Extension.swift */,
-				4BB1751B2CD066140081356D /* NSNotification.Name+Extension.swift */,
-				4BB1751C2CD066140081356D /* UICollectionReusableView+Extension.swift */,
-				4BB1751D2CD066140081356D /* UIColor+Extension.swift */,
-				4BB1751E2CD066140081356D /* View+Extension.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		4BB175202CD066140081356D /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				4BB1751F2CD066140081356D /* Extensions */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		4BB175242CD066140081356D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				4BB175212CD066140081356D /* MCEmoji.swift */,
-				4BB175222CD066140081356D /* MCEmojiCategory.swift */,
-				4BB175232CD066140081356D /* MCPickerArrowDirection.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		4BB1754E2CD066140081356D /* Localization */ = {
-			isa = PBXGroup;
-			children = (
-				4BB1754D2CD066140081356D /* MCEmojiPickerLocalizable.strings */,
-			);
-			path = Localization;
-			sourceTree = "<group>";
-		};
-		4BB1754F2CD066140081356D /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				4BB1754E2CD066140081356D /* Localization */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		4BB175512CD066140081356D /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				4BB175502CD066140081356D /* MCUnicodeManager.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		4BB175542CD066140081356D /* EmojiCategoryView */ = {
-			isa = PBXGroup;
-			children = (
-				4BB175522CD066140081356D /* MCEmojiCategoryIconView.swift */,
-				4BB175532CD066140081356D /* MCTouchableEmojiCategoryView.swift */,
-			);
-			path = EmojiCategoryView;
-			sourceTree = "<group>";
-		};
-		4BB175572CD066140081356D /* EmojiPreviewView */ = {
-			isa = PBXGroup;
-			children = (
-				4BB175552CD066140081356D /* MCEmojiPreviewBackgroundView.swift */,
-				4BB175562CD066140081356D /* MCEmojiPreviewView.swift */,
-			);
-			path = EmojiPreviewView;
-			sourceTree = "<group>";
-		};
-		4BB1755B2CD066140081356D /* EmojiSkinTonePickerView */ = {
-			isa = PBXGroup;
-			children = (
-				4BB175582CD066140081356D /* MCEmojiSkinTonePickerBackgroundView.swift */,
-				4BB175592CD066140081356D /* MCEmojiSkinTonePickerContainerView.swift */,
-				4BB1755A2CD066140081356D /* MCEmojiSkinTonePickerView.swift */,
-			);
-			path = EmojiSkinTonePickerView;
-			sourceTree = "<group>";
-		};
-		4BB1755F2CD066140081356D /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				4BB175542CD066140081356D /* EmojiCategoryView */,
-				4BB175572CD066140081356D /* EmojiPreviewView */,
-				4BB1755B2CD066140081356D /* EmojiSkinTonePickerView */,
-				4BB1755C2CD066140081356D /* MCEmojiCollectionViewCell.swift */,
-				4BB1755D2CD066140081356D /* MCEmojiPickerView.swift */,
-				4BB1755E2CD066140081356D /* MCEmojiSectionHeader.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		4BB175622CD066140081356D /* View */ = {
-			isa = PBXGroup;
-			children = (
-				4BB1755F2CD066140081356D /* Views */,
-				4BB175602CD066140081356D /* MCEmojiPickerRepresentableController.swift */,
-				4BB175612CD066140081356D /* MCEmojiPickerViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		4BB175642CD066140081356D /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				4BB175632CD066140081356D /* MCEmojiPickerViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		4BB175652CD066140081356D /* MCEmojiPicker */ = {
-			isa = PBXGroup;
-			children = (
-				4BB175172CD066140081356D /* Bindings */,
-				4BB175202CD066140081356D /* Common */,
-				4BB175242CD066140081356D /* Model */,
-				4BB1754F2CD066140081356D /* Resources */,
-				4BB175512CD066140081356D /* Services */,
-				4BB175622CD066140081356D /* View */,
-				4BB175642CD066140081356D /* ViewModel */,
-			);
-			name = MCEmojiPicker;
-			path = "/Users/gokulp/Downloads/MCEmojiPicker-main/Sources/MCEmojiPicker";
-			sourceTree = "<absolute>";
-		};
 		4BBE0AA52C180EB00097392F /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,6 +352,143 @@
 				4BF317ED2C275F0D00DC378B /* ExpenseList.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		4BC28A252CDAFB970013DDF8 /* Bindings */ = {
+			isa = PBXGroup;
+			children = (
+				4BC28A242CDAFB970013DDF8 /* Observable.swift */,
+			);
+			path = Bindings;
+			sourceTree = "<group>";
+		};
+		4BC28A2D2CDAFB970013DDF8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4BC28A262CDAFB970013DDF8 /* Array+Extension.swift */,
+				4BC28A272CDAFB970013DDF8 /* Bundle+Extension.swift */,
+				4BC28A282CDAFB970013DDF8 /* Double+Extension.swift */,
+				4BC28A292CDAFB970013DDF8 /* NSNotification.Name+Extension.swift */,
+				4BC28A2A2CDAFB970013DDF8 /* UICollectionReusableView+Extension.swift */,
+				4BC28A2B2CDAFB970013DDF8 /* UIColor+Extension.swift */,
+				4BC28A2C2CDAFB970013DDF8 /* View+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4BC28A2E2CDAFB970013DDF8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				4BC28A2D2CDAFB970013DDF8 /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		4BC28A322CDAFB970013DDF8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4BC28A2F2CDAFB970013DDF8 /* MCEmoji.swift */,
+				4BC28A302CDAFB970013DDF8 /* MCEmojiCategory.swift */,
+				4BC28A312CDAFB970013DDF8 /* MCPickerArrowDirection.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4BC28A5C2CDAFB970013DDF8 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				4BC28A5B2CDAFB970013DDF8 /* MCEmojiPickerLocalizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		4BC28A5D2CDAFB970013DDF8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4BC28A5C2CDAFB970013DDF8 /* Localization */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4BC28A5F2CDAFB970013DDF8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4BC28A5E2CDAFB970013DDF8 /* MCUnicodeManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		4BC28A622CDAFB970013DDF8 /* EmojiCategoryView */ = {
+			isa = PBXGroup;
+			children = (
+				4BC28A602CDAFB970013DDF8 /* MCEmojiCategoryIconView.swift */,
+				4BC28A612CDAFB970013DDF8 /* MCTouchableEmojiCategoryView.swift */,
+			);
+			path = EmojiCategoryView;
+			sourceTree = "<group>";
+		};
+		4BC28A652CDAFB970013DDF8 /* EmojiPreviewView */ = {
+			isa = PBXGroup;
+			children = (
+				4BC28A632CDAFB970013DDF8 /* MCEmojiPreviewBackgroundView.swift */,
+				4BC28A642CDAFB970013DDF8 /* MCEmojiPreviewView.swift */,
+			);
+			path = EmojiPreviewView;
+			sourceTree = "<group>";
+		};
+		4BC28A692CDAFB970013DDF8 /* EmojiSkinTonePickerView */ = {
+			isa = PBXGroup;
+			children = (
+				4BC28A662CDAFB970013DDF8 /* MCEmojiSkinTonePickerBackgroundView.swift */,
+				4BC28A672CDAFB970013DDF8 /* MCEmojiSkinTonePickerContainerView.swift */,
+				4BC28A682CDAFB970013DDF8 /* MCEmojiSkinTonePickerView.swift */,
+			);
+			path = EmojiSkinTonePickerView;
+			sourceTree = "<group>";
+		};
+		4BC28A6D2CDAFB970013DDF8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4BC28A622CDAFB970013DDF8 /* EmojiCategoryView */,
+				4BC28A652CDAFB970013DDF8 /* EmojiPreviewView */,
+				4BC28A692CDAFB970013DDF8 /* EmojiSkinTonePickerView */,
+				4BC28A6A2CDAFB970013DDF8 /* MCEmojiCollectionViewCell.swift */,
+				4BC28A6B2CDAFB970013DDF8 /* MCEmojiPickerView.swift */,
+				4BC28A6C2CDAFB970013DDF8 /* MCEmojiSectionHeader.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4BC28A702CDAFB970013DDF8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4BC28A6D2CDAFB970013DDF8 /* Views */,
+				4BC28A6E2CDAFB970013DDF8 /* MCEmojiPickerRepresentableController.swift */,
+				4BC28A6F2CDAFB970013DDF8 /* MCEmojiPickerViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4BC28A722CDAFB970013DDF8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4BC28A712CDAFB970013DDF8 /* MCEmojiPickerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4BC28A732CDAFB970013DDF8 /* MCEmojiPicker 2 */ = {
+			isa = PBXGroup;
+			children = (
+				4BC28A252CDAFB970013DDF8 /* Bindings */,
+				4BC28A2E2CDAFB970013DDF8 /* Common */,
+				4BC28A322CDAFB970013DDF8 /* Model */,
+				4BC28A5D2CDAFB970013DDF8 /* Resources */,
+				4BC28A5F2CDAFB970013DDF8 /* Services */,
+				4BC28A702CDAFB970013DDF8 /* View */,
+				4BC28A722CDAFB970013DDF8 /* ViewModel */,
+			);
+			path = "MCEmojiPicker 2";
 			sourceTree = "<group>";
 		};
 		4BCF7FB62C73E39600050350 /* Frameworks */ = {
@@ -523,6 +526,7 @@
 				4B865CF92C58339E000E799B /* APIKeyGenAI.swift */,
 				4B47FB4E2C222392006457E3 /* MockDataFiles */,
 				4BC2DFEB2CC766DE000E4F68 /* CurrencyConverter.swift */,
+				4B69D3972CD960BD00BBEA85 /* SwiftDataServiceForAppIntents.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -544,6 +548,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				4B69D3822CD32F2E00BBEA85 /* NavigationModel */,
+				4B69D3992CDA8C8B00BBEA85 /* Shortcuts */,
 				4BB175822CD2C6FE0081356D /* AppIntents */,
 			);
 			name = ExpensePal;
@@ -667,7 +672,7 @@
 			files = (
 				4B15622F2C153086001A0F57 /* Preview Assets.xcassets in Resources */,
 				4B15622C2C153086001A0F57 /* Assets.xcassets in Resources */,
-				4BB1757F2CD066140081356D /* MCEmojiPickerLocalizable.strings in Resources */,
+				4BC28A8D2CDAFB970013DDF8 /* MCEmojiPickerLocalizable.strings in Resources */,
 				4B71ED492CC41CD4003B1D69 /* GenerativeAI-Info.plist in Resources */,
 				4B47FB4D2C221C26006457E3 /* ExpensesMockData.json in Resources */,
 			);
@@ -693,31 +698,32 @@
 				4B1562282C153084001A0F57 /* ExpensePalApp.swift in Sources */,
 				4B1562432C167E14001A0F57 /* SettingsView.swift in Sources */,
 				4BE52ED02C1F4852002CF094 /* MockData.swift in Sources */,
-				4BB175662CD066140081356D /* MCUnicodeManager.swift in Sources */,
-				4BB175672CD066140081356D /* MCEmojiPickerViewModel.swift in Sources */,
-				4BB175682CD066140081356D /* MCEmojiSkinTonePickerBackgroundView.swift in Sources */,
-				4BB175692CD066140081356D /* MCPickerArrowDirection.swift in Sources */,
-				4BB1756A2CD066140081356D /* UICollectionReusableView+Extension.swift in Sources */,
-				4BB1756B2CD066140081356D /* NSNotification.Name+Extension.swift in Sources */,
-				4BB1756C2CD066140081356D /* MCEmojiCollectionViewCell.swift in Sources */,
-				4BB1756D2CD066140081356D /* MCEmojiPickerView.swift in Sources */,
-				4BB1756E2CD066140081356D /* Bundle+Extension.swift in Sources */,
-				4BB1756F2CD066140081356D /* MCEmojiPreviewBackgroundView.swift in Sources */,
-				4BB175702CD066140081356D /* MCEmojiPickerViewController.swift in Sources */,
-				4BB175712CD066140081356D /* MCEmojiCategoryIconView.swift in Sources */,
-				4BB175722CD066140081356D /* Observable.swift in Sources */,
-				4BB175732CD066140081356D /* MCEmojiSectionHeader.swift in Sources */,
-				4BB175742CD066140081356D /* Array+Extension.swift in Sources */,
-				4BB175752CD066140081356D /* MCEmoji.swift in Sources */,
-				4BB175762CD066140081356D /* MCTouchableEmojiCategoryView.swift in Sources */,
-				4BB175772CD066140081356D /* MCEmojiPreviewView.swift in Sources */,
-				4BB175782CD066140081356D /* MCEmojiCategory.swift in Sources */,
-				4BB175792CD066140081356D /* View+Extension.swift in Sources */,
-				4BB1757A2CD066140081356D /* Double+Extension.swift in Sources */,
-				4BB1757B2CD066140081356D /* MCEmojiSkinTonePickerContainerView.swift in Sources */,
-				4BB1757C2CD066140081356D /* MCEmojiPickerRepresentableController.swift in Sources */,
-				4BB1757D2CD066140081356D /* UIColor+Extension.swift in Sources */,
-				4BB1757E2CD066140081356D /* MCEmojiSkinTonePickerView.swift in Sources */,
+				4BC28A742CDAFB970013DDF8 /* MCEmojiPreviewBackgroundView.swift in Sources */,
+				4BC28A752CDAFB970013DDF8 /* MCEmojiPreviewView.swift in Sources */,
+				4BC28A762CDAFB970013DDF8 /* MCEmojiCollectionViewCell.swift in Sources */,
+				4BC28A772CDAFB970013DDF8 /* MCEmojiSkinTonePickerBackgroundView.swift in Sources */,
+				4BC28A782CDAFB970013DDF8 /* MCEmoji.swift in Sources */,
+				4BC28A792CDAFB970013DDF8 /* Bundle+Extension.swift in Sources */,
+				4BC28A7A2CDAFB970013DDF8 /* MCEmojiCategory.swift in Sources */,
+				4BC28A7B2CDAFB970013DDF8 /* Array+Extension.swift in Sources */,
+				4BC28A7C2CDAFB970013DDF8 /* MCEmojiSkinTonePickerView.swift in Sources */,
+				4BC28A7D2CDAFB970013DDF8 /* MCTouchableEmojiCategoryView.swift in Sources */,
+				4BC28A7E2CDAFB970013DDF8 /* MCUnicodeManager.swift in Sources */,
+				4BC28A7F2CDAFB970013DDF8 /* MCPickerArrowDirection.swift in Sources */,
+				4BC28A802CDAFB970013DDF8 /* MCEmojiPickerViewController.swift in Sources */,
+				4BC28A812CDAFB970013DDF8 /* MCEmojiSectionHeader.swift in Sources */,
+				4BC28A822CDAFB970013DDF8 /* UIColor+Extension.swift in Sources */,
+				4BC28A832CDAFB970013DDF8 /* MCEmojiPickerRepresentableController.swift in Sources */,
+				4BC28A842CDAFB970013DDF8 /* View+Extension.swift in Sources */,
+				4BC28A852CDAFB970013DDF8 /* Observable.swift in Sources */,
+				4BC28A862CDAFB970013DDF8 /* NSNotification.Name+Extension.swift in Sources */,
+				4BC28A872CDAFB970013DDF8 /* Double+Extension.swift in Sources */,
+				4BC28A882CDAFB970013DDF8 /* MCEmojiCategoryIconView.swift in Sources */,
+				4BC28A892CDAFB970013DDF8 /* MCEmojiPickerViewModel.swift in Sources */,
+				4BC28A8A2CDAFB970013DDF8 /* MCEmojiSkinTonePickerContainerView.swift in Sources */,
+				4BC28A8B2CDAFB970013DDF8 /* UICollectionReusableView+Extension.swift in Sources */,
+				4BC28A8C2CDAFB970013DDF8 /* MCEmojiPickerView.swift in Sources */,
+				4B69D3982CD960BD00BBEA85 /* SwiftDataServiceForAppIntents.swift in Sources */,
 				4BBE0AA72C1810B00097392F /* FilterHeaderView.swift in Sources */,
 				4B3377752C41B2D50046D86A /* AddExpenseViewModel.swift in Sources */,
 				4BEF3A042C30FE02000F9A63 /* HomeChartRefactored.swift in Sources */,
@@ -769,49 +775,49 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4BB1754D2CD066140081356D /* MCEmojiPickerLocalizable.strings */ = {
+		4BC28A5B2CDAFB970013DDF8 /* MCEmojiPickerLocalizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4BB175252CD066140081356D /* ar */,
-				4BB175262CD066140081356D /* ca */,
-				4BB175272CD066140081356D /* cs */,
-				4BB175282CD066140081356D /* da */,
-				4BB175292CD066140081356D /* de */,
-				4BB1752A2CD066140081356D /* el */,
-				4BB1752B2CD066140081356D /* en */,
-				4BB1752C2CD066140081356D /* en-AU */,
-				4BB1752D2CD066140081356D /* en-GB */,
-				4BB1752E2CD066140081356D /* en-IN */,
-				4BB1752F2CD066140081356D /* es */,
-				4BB175302CD066140081356D /* es-419 */,
-				4BB175312CD066140081356D /* fi */,
-				4BB175322CD066140081356D /* fr */,
-				4BB175332CD066140081356D /* fr-CA */,
-				4BB175342CD066140081356D /* he */,
-				4BB175352CD066140081356D /* hi */,
-				4BB175362CD066140081356D /* hr */,
-				4BB175372CD066140081356D /* hu */,
-				4BB175382CD066140081356D /* id */,
-				4BB175392CD066140081356D /* it */,
-				4BB1753A2CD066140081356D /* ja */,
-				4BB1753B2CD066140081356D /* ko */,
-				4BB1753C2CD066140081356D /* ms */,
-				4BB1753D2CD066140081356D /* nb */,
-				4BB1753E2CD066140081356D /* nl */,
-				4BB1753F2CD066140081356D /* pl */,
-				4BB175402CD066140081356D /* pt-BR */,
-				4BB175412CD066140081356D /* pt-PT */,
-				4BB175422CD066140081356D /* ro */,
-				4BB175432CD066140081356D /* ru */,
-				4BB175442CD066140081356D /* sk */,
-				4BB175452CD066140081356D /* sv */,
-				4BB175462CD066140081356D /* th */,
-				4BB175472CD066140081356D /* tr */,
-				4BB175482CD066140081356D /* uk */,
-				4BB175492CD066140081356D /* vi */,
-				4BB1754A2CD066140081356D /* zh-Hans */,
-				4BB1754B2CD066140081356D /* zh-Hant */,
-				4BB1754C2CD066140081356D /* zh-HK */,
+				4BC28A332CDAFB970013DDF8 /* ar */,
+				4BC28A342CDAFB970013DDF8 /* ca */,
+				4BC28A352CDAFB970013DDF8 /* cs */,
+				4BC28A362CDAFB970013DDF8 /* da */,
+				4BC28A372CDAFB970013DDF8 /* de */,
+				4BC28A382CDAFB970013DDF8 /* el */,
+				4BC28A392CDAFB970013DDF8 /* en */,
+				4BC28A3A2CDAFB970013DDF8 /* en-AU */,
+				4BC28A3B2CDAFB970013DDF8 /* en-GB */,
+				4BC28A3C2CDAFB970013DDF8 /* en-IN */,
+				4BC28A3D2CDAFB970013DDF8 /* es */,
+				4BC28A3E2CDAFB970013DDF8 /* es-419 */,
+				4BC28A3F2CDAFB970013DDF8 /* fi */,
+				4BC28A402CDAFB970013DDF8 /* fr */,
+				4BC28A412CDAFB970013DDF8 /* fr-CA */,
+				4BC28A422CDAFB970013DDF8 /* he */,
+				4BC28A432CDAFB970013DDF8 /* hi */,
+				4BC28A442CDAFB970013DDF8 /* hr */,
+				4BC28A452CDAFB970013DDF8 /* hu */,
+				4BC28A462CDAFB970013DDF8 /* id */,
+				4BC28A472CDAFB970013DDF8 /* it */,
+				4BC28A482CDAFB970013DDF8 /* ja */,
+				4BC28A492CDAFB970013DDF8 /* ko */,
+				4BC28A4A2CDAFB970013DDF8 /* ms */,
+				4BC28A4B2CDAFB970013DDF8 /* nb */,
+				4BC28A4C2CDAFB970013DDF8 /* nl */,
+				4BC28A4D2CDAFB970013DDF8 /* pl */,
+				4BC28A4E2CDAFB970013DDF8 /* pt-BR */,
+				4BC28A4F2CDAFB970013DDF8 /* pt-PT */,
+				4BC28A502CDAFB970013DDF8 /* ro */,
+				4BC28A512CDAFB970013DDF8 /* ru */,
+				4BC28A522CDAFB970013DDF8 /* sk */,
+				4BC28A532CDAFB970013DDF8 /* sv */,
+				4BC28A542CDAFB970013DDF8 /* th */,
+				4BC28A552CDAFB970013DDF8 /* tr */,
+				4BC28A562CDAFB970013DDF8 /* uk */,
+				4BC28A572CDAFB970013DDF8 /* vi */,
+				4BC28A582CDAFB970013DDF8 /* zh-Hans */,
+				4BC28A592CDAFB970013DDF8 /* zh-Hant */,
+				4BC28A5A2CDAFB970013DDF8 /* zh-HK */,
 			);
 			name = MCEmojiPickerLocalizable.strings;
 			sourceTree = "<group>";
