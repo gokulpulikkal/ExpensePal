@@ -46,7 +46,7 @@ enum Currency: String, CaseIterable {
 }
 
 /// Global Classes:
-class CurrencyConverter {
+class CurrencyConverter: CurrencyConverterProtocol {
 
     /// Singleton
     static let shared = CurrencyConverter()

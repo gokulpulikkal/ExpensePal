@@ -34,6 +34,9 @@
 		4B865CF82C582FBA000E799B /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 4B865CF72C582FBA000E799B /* GoogleGenerativeAI */; };
 		4B865CFA2C58339E000E799B /* APIKeyGenAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B865CF92C58339E000E799B /* APIKeyGenAI.swift */; };
 		4B865D132C5957B2000E799B /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B865D122C5957B2000E799B /* LaunchScreen.swift */; };
+		4B9E885A2D187A00005D3BE7 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9E88592D1879FF005D3BE7 /* WidgetKit.framework */; };
+		4B9E885C2D187A00005D3BE7 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9E885B2D187A00005D3BE7 /* SwiftUI.framework */; };
+		4B9E886D2D187A02005D3BE7 /* ExpensePalWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4B9E88582D1879FF005D3BE7 /* ExpensePalWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4B9EAD672C19410100A455AD /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9EAD662C19410100A455AD /* TestView.swift */; };
 		4BBE0AA72C1810B00097392F /* FilterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBE0AA62C1810B00097392F /* FilterHeaderView.swift */; };
 		4BC28A742CDAFB970013DDF8 /* MCEmojiPreviewBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC28A632CDAFB970013DDF8 /* MCEmojiPreviewBackgroundView.swift */; };
@@ -80,6 +83,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4B9E886B2D187A02005D3BE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B15621C2C153084001A0F57 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B9E88572D1879FF005D3BE7;
+			remoteInfo = ExpensePalWidgetsExtension;
+		};
 		4BA9CD842C65298F009FB355 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4B15621C2C153084001A0F57 /* Project object */;
@@ -88,6 +98,20 @@
 			remoteInfo = ExpensePal;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4B9E88762D187A02005D3BE7 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4B9E886D2D187A02005D3BE7 /* ExpensePalWidgetsExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4B1562242C153084001A0F57 /* ExpensePal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpensePal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +140,9 @@
 		4B865CED2C570C0F000E799B /* VNDocumentViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNDocumentViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		4B865CF92C58339E000E799B /* APIKeyGenAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeyGenAI.swift; sourceTree = "<group>"; };
 		4B865D122C5957B2000E799B /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
+		4B9E88582D1879FF005D3BE7 /* ExpensePalWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ExpensePalWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B9E88592D1879FF005D3BE7 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		4B9E885B2D187A00005D3BE7 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		4B9EAD662C19410100A455AD /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		4BA9CD782C6509C4009FB355 /* dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = dev.xcconfig; sourceTree = "<group>"; };
 		4BA9CD7A2C650A20009FB355 /* prod.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = prod.xcconfig; sourceTree = "<group>"; };
@@ -204,9 +231,22 @@
 		4BF317F32C27B77700DC378B /* DarkModeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		4B9E886E2D187A02005D3BE7 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 4B9E88572D1879FF005D3BE7 /* ExpensePalWidgetsExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		4B69D3822CD32F2E00BBEA85 /* NavigationModel */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = NavigationModel; sourceTree = "<group>"; };
 		4B69D3992CDA8C8B00BBEA85 /* Shortcuts */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Shortcuts; sourceTree = "<group>"; };
+		4B9E885D2D187A00005D3BE7 /* ExpensePalWidgets */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (4B9E886E2D187A02005D3BE7 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = ExpensePalWidgets; sourceTree = "<group>"; };
+		4B9E88772D188A40005D3BE7 /* Repositories */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Repositories; sourceTree = "<group>"; };
+		4B9E89A62D1C7AF2005D3BE7 /* Protocols */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Protocols; sourceTree = "<group>"; };
 		4BA9CD812C65298F009FB355 /* ExpensePalTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ExpensePalTests; sourceTree = "<group>"; };
 		4BB175822CD2C6FE0081356D /* AppIntents */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AppIntents; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -219,6 +259,15 @@
 				4B865CF82C582FBA000E799B /* GoogleGenerativeAI in Frameworks */,
 				4BCF7FB82C73E39600050350 /* ExpensePalModels in Frameworks */,
 				4B79DD352C3CF9BF00B62F9C /* SwipeActions in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B9E88552D1879FF005D3BE7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B9E885C2D187A00005D3BE7 /* SwiftUI.framework in Frameworks */,
+				4B9E885A2D187A00005D3BE7 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +287,7 @@
 				4BCF7FB42C73E36A00050350 /* ExpensePalModels */,
 				4B1562262C153084001A0F57 /* ExpensePal */,
 				4BA9CD812C65298F009FB355 /* ExpensePalTests */,
+				4B9E885D2D187A00005D3BE7 /* ExpensePalWidgets */,
 				4BCF7FB62C73E39600050350 /* Frameworks */,
 				4B1562252C153084001A0F57 /* Products */,
 			);
@@ -248,6 +298,7 @@
 			children = (
 				4B1562242C153084001A0F57 /* ExpensePal.app */,
 				4BA9CD802C65298F009FB355 /* ExpensePalTests.xctest */,
+				4B9E88582D1879FF005D3BE7 /* ExpensePalWidgetsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -255,6 +306,8 @@
 		4B1562262C153084001A0F57 /* ExpensePal */ = {
 			isa = PBXGroup;
 			children = (
+				4B9E89A62D1C7AF2005D3BE7 /* Protocols */,
+				4B9E88772D188A40005D3BE7 /* Repositories */,
 				4B69D3992CDA8C8B00BBEA85 /* Shortcuts */,
 				4B69D3822CD32F2E00BBEA85 /* NavigationModel */,
 				4BB175822CD2C6FE0081356D /* AppIntents */,
@@ -494,6 +547,8 @@
 		4BCF7FB62C73E39600050350 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4B9E88592D1879FF005D3BE7 /* WidgetKit.framework */,
+				4B9E885B2D187A00005D3BE7 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -541,14 +596,18 @@
 				4B1562202C153084001A0F57 /* Sources */,
 				4B1562212C153084001A0F57 /* Frameworks */,
 				4B1562222C153084001A0F57 /* Resources */,
+				4B9E88762D187A02005D3BE7 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4B9E886C2D187A02005D3BE7 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				4B69D3822CD32F2E00BBEA85 /* NavigationModel */,
 				4B69D3992CDA8C8B00BBEA85 /* Shortcuts */,
+				4B9E88772D188A40005D3BE7 /* Repositories */,
+				4B9E89A62D1C7AF2005D3BE7 /* Protocols */,
 				4BB175822CD2C6FE0081356D /* AppIntents */,
 			);
 			name = ExpensePal;
@@ -560,6 +619,28 @@
 			productName = ExpensePal;
 			productReference = 4B1562242C153084001A0F57 /* ExpensePal.app */;
 			productType = "com.apple.product-type.application";
+		};
+		4B9E88572D1879FF005D3BE7 /* ExpensePalWidgetsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B9E886F2D187A02005D3BE7 /* Build configuration list for PBXNativeTarget "ExpensePalWidgetsExtension" */;
+			buildPhases = (
+				4B9E88542D1879FF005D3BE7 /* Sources */,
+				4B9E88552D1879FF005D3BE7 /* Frameworks */,
+				4B9E88562D1879FF005D3BE7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				4B9E885D2D187A00005D3BE7 /* ExpensePalWidgets */,
+			);
+			name = ExpensePalWidgetsExtension;
+			packageProductDependencies = (
+			);
+			productName = ExpensePalWidgetsExtension;
+			productReference = 4B9E88582D1879FF005D3BE7 /* ExpensePalWidgetsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 		4BA9CD7F2C65298F009FB355 /* ExpensePalTests */ = {
 			isa = PBXNativeTarget;
@@ -591,11 +672,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1600;
+				LastSwiftUpdateCheck = 1610;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					4B1562232C153084001A0F57 = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					4B9E88572D1879FF005D3BE7 = {
+						CreatedOnToolsVersion = 16.1;
 					};
 					4BA9CD7F2C65298F009FB355 = {
 						CreatedOnToolsVersion = 16.0;
@@ -661,6 +745,7 @@
 			targets = (
 				4B1562232C153084001A0F57 /* ExpensePal */,
 				4BA9CD7F2C65298F009FB355 /* ExpensePalTests */,
+				4B9E88572D1879FF005D3BE7 /* ExpensePalWidgetsExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -675,6 +760,13 @@
 				4BC28A8D2CDAFB970013DDF8 /* MCEmojiPickerLocalizable.strings in Resources */,
 				4B71ED492CC41CD4003B1D69 /* GenerativeAI-Info.plist in Resources */,
 				4B47FB4D2C221C26006457E3 /* ExpensesMockData.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B9E88562D1879FF005D3BE7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -757,6 +849,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4B9E88542D1879FF005D3BE7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BA9CD7C2C65298F009FB355 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -767,6 +866,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4B9E886C2D187A02005D3BE7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4B9E88572D1879FF005D3BE7 /* ExpensePalWidgetsExtension */;
+			targetProxy = 4B9E886B2D187A02005D3BE7 /* PBXContainerItemProxy */;
+		};
 		4BA9CD852C65298F009FB355 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4B1562232C153084001A0F57 /* ExpensePal */;
@@ -1029,6 +1133,186 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
+		};
+		4B9E88702D187A02005D3BE7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 473BWG9258;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExpensePalWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ExpensePalWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Gokul.ExpensePal.ExpensePalWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4B9E88712D187A02005D3BE7 /* Debug (Prod) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 473BWG9258;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExpensePalWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ExpensePalWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Gokul.ExpensePal.ExpensePalWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Debug (Prod)";
+		};
+		4B9E88722D187A02005D3BE7 /* Debug(Dev) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 473BWG9258;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExpensePalWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ExpensePalWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Gokul.ExpensePal.ExpensePalWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Debug(Dev)";
+		};
+		4B9E88732D187A02005D3BE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 473BWG9258;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExpensePalWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ExpensePalWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Gokul.ExpensePal.ExpensePalWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4B9E88742D187A02005D3BE7 /* Release Prod */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 473BWG9258;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExpensePalWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ExpensePalWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Gokul.ExpensePal.ExpensePalWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Release Prod";
+		};
+		4B9E88752D187A02005D3BE7 /* Release Dev */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 473BWG9258;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExpensePalWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ExpensePalWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Gokul.ExpensePal.ExpensePalWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Release Dev";
 		};
 		4BA9CD702C650796009FB355 /* Debug(Dev) */ = {
 			isa = XCBuildConfiguration;
@@ -1623,6 +1907,19 @@
 				4B1562342C153086001A0F57 /* Release */,
 				4BA9CD772C6507EB009FB355 /* Release Prod */,
 				4BA9CD752C6507E3009FB355 /* Release Dev */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B9E886F2D187A02005D3BE7 /* Build configuration list for PBXNativeTarget "ExpensePalWidgetsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B9E88702D187A02005D3BE7 /* Debug */,
+				4B9E88712D187A02005D3BE7 /* Debug (Prod) */,
+				4B9E88722D187A02005D3BE7 /* Debug(Dev) */,
+				4B9E88732D187A02005D3BE7 /* Release */,
+				4B9E88742D187A02005D3BE7 /* Release Prod */,
+				4B9E88752D187A02005D3BE7 /* Release Dev */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

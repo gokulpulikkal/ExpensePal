@@ -1,5 +1,96 @@
 [
     {
+            "emoji": "🛒",
+            "title": "Groceries",
+            "subTitle": "Supermarket",
+            "cost": 87.5,
+            "date": "2024-01-25T10:00:00Z"
+        },
+        {
+            "emoji": "☕️",
+            "title": "Coffee2",
+            "subTitle": "Starbucks",
+            "cost": 5.75,
+            "date": "2024-12-30T08:00:00Z"
+        },
+        {
+            "emoji": "☕️",
+            "title": "Coffee3",
+            "subTitle": "Starbucks",
+            "cost": 10.0,
+            "date": "2024-12-31T08:00:00Z"
+        },
+        {
+            "emoji": "☕️",
+            "title": "Coffee4",
+            "subTitle": "Starbucks",
+            "cost": 10.0,
+            "date": "2024-12-29T08:00:00Z"
+        },
+        {
+            "emoji": "☕️",
+            "title": "Coffee",
+            "subTitle": "Starbucks",
+            "cost": 5.75,
+            "date": "2024-01-25T08:00:00Z"
+        },
+        {
+            "emoji": "🛒",
+            "title": "Fast Food",
+            "subTitle": "Burger King",
+            "cost": 12.99,
+            "date": "2024-01-24T12:00:00Z"
+        },
+        {
+            "emoji": "⛽️",
+            "title": "Gas",
+            "subTitle": "Shell",
+            "cost": 60.00,
+            "date": "2024-01-24T09:00:00Z"
+        },
+        {
+            "emoji": "🛒",
+            "title": "Entertainment",
+            "subTitle": "Cinema",
+            "cost": 45.00,
+            "date": "2024-01-23T19:00:00Z"
+        },
+        {
+            "emoji": "🏋️",
+            "title": "Gym",
+            "subTitle": "Fitness Center",
+            "cost": 75.00,
+            "date": "2024-01-23T07:00:00Z"
+        },
+        {
+            "emoji": "🛒",
+            "title": "Groceries",
+            "subTitle": "Whole Foods",
+            "cost": 120.50,
+            "date": "2024-01-22T16:00:00Z"
+        },
+        {
+            "emoji": "🍽️",
+            "title": "Dinner",
+            "subTitle": "Italian Restaurant",
+            "cost": 85.00,
+            "date": "2024-01-22T19:00:00Z"
+        },
+        {
+            "emoji": "📱",
+            "title": "Phone Bill",
+            "subTitle": "Verizon",
+            "cost": 95.00,
+            "date": "2024-01-21T10:00:00Z"
+        },
+        {
+            "emoji": "🛒",
+            "title": "Shopping",
+            "subTitle": "Target",
+            "cost": 150.00,
+            "date": "2024-01-20T14:00:00Z"
+        },
+    {
         "emoji": "🛒",
         "title": "Pet care",
         "subTitle": "Petco",

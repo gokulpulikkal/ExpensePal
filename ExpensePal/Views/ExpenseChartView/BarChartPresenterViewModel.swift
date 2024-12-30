@@ -65,9 +65,6 @@ extension BarChartPresenter {
             }
 
             var linePlotList: [LinePlotEntry] = []
-            // Print the result
-            var minExpense = Int.max
-            var maxExpense = 0
 
             var totalForAverage: Double = 0
 
@@ -81,8 +78,6 @@ extension BarChartPresenter {
                     return $0 + convertedVal
                 }
                 totalForAverage += totalAmount
-                minExpense = min(minExpense, Int(totalAmount))
-                maxExpense = max(maxExpense, Int(totalAmount))
                 linePlotList.append(LinePlotEntry(
                     xValueType: "Month",
                     yValueType: "Expense",
