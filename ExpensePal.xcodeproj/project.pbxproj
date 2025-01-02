@@ -23,6 +23,10 @@
 		4B47FB202C1F773D006457E3 /* KeyPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB1F2C1F773D006457E3 /* KeyPad.swift */; };
 		4B47FB432C20B83C006457E3 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B47FB422C20B83C006457E3 /* PreviewData.swift */; };
 		4B47FB4D2C221C26006457E3 /* ExpensesMockData.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B47FB4C2C221C26006457E3 /* ExpensesMockData.json */; };
+		4B5CBB552D261B070051F9B6 /* Locales.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC2DFF12CCDE4E8000E4F68 /* Locales.swift */; };
+		4B5CBB562D261B8E0051F9B6 /* CurrencyConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC2DFEB2CC766DE000E4F68 /* CurrencyConverter.swift */; };
+		4B5CBB5B2D26260E0051F9B6 /* ExpensePalModels in Frameworks */ = {isa = PBXBuildFile; productRef = 4B5CBB5A2D26260E0051F9B6 /* ExpensePalModels */; };
+		4B5CBB5C2D2629A10051F9B6 /* SwiftDataServiceForAppIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B69D3972CD960BD00BBEA85 /* SwiftDataServiceForAppIntents.swift */; };
 		4B6975262C7C11C700DFFA15 /* RegularHomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6975252C7C11C600DFFA15 /* RegularHomeTabView.swift */; };
 		4B69D3982CD960BD00BBEA85 /* SwiftDataServiceForAppIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B69D3972CD960BD00BBEA85 /* SwiftDataServiceForAppIntents.swift */; };
 		4B71ED492CC41CD4003B1D69 /* GenerativeAI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B71ED482CC41CD4003B1D69 /* GenerativeAI-Info.plist */; };
@@ -131,6 +135,7 @@
 		4B47FB1F2C1F773D006457E3 /* KeyPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPad.swift; sourceTree = "<group>"; };
 		4B47FB422C20B83C006457E3 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		4B47FB4C2C221C26006457E3 /* ExpensesMockData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ExpensesMockData.json; sourceTree = "<group>"; };
+		4B5CBB5D2D262CB90051F9B6 /* ExpensePalWidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ExpensePalWidgetsExtension.entitlements; sourceTree = "<group>"; };
 		4B6975252C7C11C600DFFA15 /* RegularHomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularHomeTabView.swift; sourceTree = "<group>"; };
 		4B69D3972CD960BD00BBEA85 /* SwiftDataServiceForAppIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataServiceForAppIntents.swift; sourceTree = "<group>"; };
 		4B71ED482CC41CD4003B1D69 /* GenerativeAI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GenerativeAI-Info.plist"; sourceTree = "<group>"; };
@@ -232,6 +237,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		4B5CBB582D261BB40051F9B6 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				CurrencyConverterProtocol.swift,
+				ExpensesRepositoryProtocol.swift,
+			);
+			target = 4B9E88572D1879FF005D3BE7 /* ExpensePalWidgetsExtension */;
+		};
 		4B9E886E2D187A02005D3BE7 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -246,7 +259,7 @@
 		4B69D3992CDA8C8B00BBEA85 /* Shortcuts */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Shortcuts; sourceTree = "<group>"; };
 		4B9E885D2D187A00005D3BE7 /* ExpensePalWidgets */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (4B9E886E2D187A02005D3BE7 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = ExpensePalWidgets; sourceTree = "<group>"; };
 		4B9E88772D188A40005D3BE7 /* Repositories */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Repositories; sourceTree = "<group>"; };
-		4B9E89A62D1C7AF2005D3BE7 /* Protocols */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Protocols; sourceTree = "<group>"; };
+		4B9E89A62D1C7AF2005D3BE7 /* Protocols */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (4B5CBB582D261BB40051F9B6 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Protocols; sourceTree = "<group>"; };
 		4BA9CD812C65298F009FB355 /* ExpensePalTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ExpensePalTests; sourceTree = "<group>"; };
 		4BB175822CD2C6FE0081356D /* AppIntents */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AppIntents; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -268,6 +281,7 @@
 			files = (
 				4B9E885C2D187A00005D3BE7 /* SwiftUI.framework in Frameworks */,
 				4B9E885A2D187A00005D3BE7 /* WidgetKit.framework in Frameworks */,
+				4B5CBB5B2D26260E0051F9B6 /* ExpensePalModels in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +298,7 @@
 		4B15621B2C153084001A0F57 = {
 			isa = PBXGroup;
 			children = (
+				4B5CBB5D2D262CB90051F9B6 /* ExpensePalWidgetsExtension.entitlements */,
 				4BCF7FB42C73E36A00050350 /* ExpensePalModels */,
 				4B1562262C153084001A0F57 /* ExpensePal */,
 				4BA9CD812C65298F009FB355 /* ExpensePalTests */,
@@ -637,6 +652,7 @@
 			);
 			name = ExpensePalWidgetsExtension;
 			packageProductDependencies = (
+				4B5CBB5A2D26260E0051F9B6 /* ExpensePalModels */,
 			);
 			productName = ExpensePalWidgetsExtension;
 			productReference = 4B9E88582D1879FF005D3BE7 /* ExpensePalWidgetsExtension.appex */;
@@ -673,7 +689,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1610;
-				LastUpgradeCheck = 1600;
+				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					4B1562232C153084001A0F57 = {
 						CreatedOnToolsVersion = 15.4;
@@ -853,6 +869,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B5CBB562D261B8E0051F9B6 /* CurrencyConverter.swift in Sources */,
+				4B5CBB5C2D2629A10051F9B6 /* SwiftDataServiceForAppIntents.swift in Sources */,
+				4B5CBB552D261B070051F9B6 /* Locales.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -934,6 +953,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1000,6 +1020,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1139,6 +1160,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = ExpensePalWidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 473BWG9258;
@@ -1169,6 +1191,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = ExpensePalWidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 473BWG9258;
@@ -1199,6 +1222,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = ExpensePalWidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 473BWG9258;
@@ -1229,6 +1253,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = ExpensePalWidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 473BWG9258;
@@ -1259,6 +1284,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = ExpensePalWidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 473BWG9258;
@@ -1289,6 +1315,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = ExpensePalWidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 473BWG9258;
@@ -1320,6 +1347,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1427,6 +1455,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1533,6 +1562,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1632,6 +1662,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1959,6 +1990,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4B5CBB5A2D26260E0051F9B6 /* ExpensePalModels */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ExpensePalModels;
+		};
 		4B79DD342C3CF9BF00B62F9C /* SwipeActions */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4B79DD332C3CF9BF00B62F9C /* XCRemoteSwiftPackageReference "SwipeActions" */;

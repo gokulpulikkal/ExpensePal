@@ -9,6 +9,7 @@ import AVFoundation
 import ExpensePalModels
 import SwiftData
 import SwiftUI
+import WidgetKit
 
 struct AddExpenseView: View {
     @Environment(NavigationModel.self) private var navigationModel
@@ -79,6 +80,7 @@ struct AddExpenseView: View {
                         if let expense = getInputExpense() {
                             modelContext.insert(expense)
                             closeView()
+                            WidgetCenter.shared.reloadAllTimelines()
                         } else {
                             showingAlert = true
                         }
@@ -137,7 +139,7 @@ struct AddExpenseView: View {
             navigationModel.selectedPopoverTab = nil // setting it to the default
         }
     }
-    
+
     func closeView() {
         navigationModel.selectedPopoverTab = nil
         dismiss()
