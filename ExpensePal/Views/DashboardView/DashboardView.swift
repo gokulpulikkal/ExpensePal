@@ -41,6 +41,10 @@ struct DashboardView: View {
         .onChange(of: localeIdentifier) {
             viewModel.localeIdentifier = localeIdentifier
         }
+        .onChange(of: expenseList) {
+            viewModel.expenseList = expenseList
+            viewModel.getRecentExpenses()
+        }
     }
 
     func recentExpenseList() -> some View {
@@ -73,13 +77,24 @@ struct DashboardView: View {
     func RecentExpenseListHeader() -> some View {
         VStack {
             HStack {
+                let totalRecentExpenses = expenseList.reduce(0) {
+                    let convertedVal = CurrencyConverter.shared.convert(
+                        $1.cost,
+                        valueCurrency: (Locales(rawValue: $1.locale)?.currency ?? .USD),
+                        outputCurrency: Locales(localeIdentifier: localeIdentifier)?.currency ?? .USD
+                    ) ?? 0
+                    return $0 + convertedVal
+                } // Only first ten are gonna show in this list. So it is okay to do this
                 Text("Recent Expenses")
                     .foregroundStyle(.gray)
                     .font(.subheadline)
                 Spacer()
-                Text(viewModel.totalRecentExpenses, format: .currency(code: (Locales(localeIdentifier: localeIdentifier)?.currency ?? .USD).rawValue))
-                    .foregroundStyle(.gray)
-                    .font(.subheadline)
+                Text(
+                    totalRecentExpenses,
+                    format: .currency(code: (Locales(localeIdentifier: localeIdentifier)?.currency ?? .USD).rawValue)
+                )
+                .foregroundStyle(.gray)
+                .font(.subheadline)
             }
             Rectangle()
                 .frame(height: 1)
